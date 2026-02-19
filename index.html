@@ -13,7 +13,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/styles.css?v=10">
+  <!-- CSS (anti-cache) -->
+  <link rel="stylesheet" href="css/styles.css?v=11">
 </head>
 
 <body>
@@ -31,8 +32,8 @@
     </div>
   </div>
 
-  <!-- Header inteligente: começa transparente no hero e vira branco ao rolar -->
-  <header class="header header--smart header--over-hero" id="header">
+  <!-- Header premium (branco sempre para não sumir letras) -->
+  <header class="header header--smart header--scrolled" id="header">
     <div class="container header__row">
       <a class="brand brand--smart" href="#topo" aria-label="Metallmec">
         <div class="brand__mark brand__mark--smart" aria-hidden="true">
@@ -62,10 +63,12 @@
     </div>
   </header>
 
-  <!-- HERO igual print: slider + setas + dots -->
+  <!-- HERO: slider + overlay correto + brilho -->
   <section class="hero hero--polimetal" id="topo">
     <div class="hero__slides" id="heroSlides" aria-hidden="true"></div>
-    <div class="hero__overlay hero__overlay--soft"></div>
+
+    <!-- ✅ Overlay correto (cobrindo o hero inteiro) -->
+    <div class="hero__overlay--soft" aria-hidden="true"></div>
     <div class="hero__shine" aria-hidden="true"></div>
 
     <button class="hero__arrow hero__arrow--left" id="heroPrev" aria-label="Anterior">‹</button>
