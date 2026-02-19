@@ -1,8 +1,10 @@
 :root{
-  --bg:#070B18;
-  --text:#F6F8FF;
-  --muted:#A9B4D0;
-  --stroke: rgba(255,255,255,.10);
+ --bg:#F3F6FF;        /* fundo claro premium */
+ --text:#0B1533;      /* texto escuro */
+ --muted:#465173;     /* texto secundário */
+ --stroke: rgba(255,255,255,.10);
+ --surface:#FFFFFF;
+ --surface2:#F7F9FF;
 
   --primary:#4E6BFF;
   --primaryDeep:#2746FF;
@@ -20,7 +22,10 @@
 html,body{margin:0;padding:0}
 body{
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background: var(--bg);
+  background:
+  radial-gradient(1200px 700px at 10% 0%, rgba(78,107,255,.16), transparent 55%),
+  radial-gradient(900px 600px at 90% 10%, rgba(46,242,255,.10), transparent 55%),
+  var(--bg);
   color:var(--text);
   line-height:1.35;
   overflow-x:hidden;
@@ -211,9 +216,11 @@ h3{font-size:18px}
 }
 .hero__slide.is-on{opacity:1}
 .hero__overlay--soft{
-  position:absolute; inset:0;
-  background: rgba(0,0,0,.45);
+  background:
+    linear-gradient(180deg, rgba(11,21,51,.25), rgba(11,21,51,.35)),
+    radial-gradient(900px 450px at 50% 20%, rgba(78,107,255,.18), transparent 60%);
 }
+
 .hero__center{
   position:relative;
   text-align:center;
@@ -268,10 +275,11 @@ h3{font-size:18px}
 /* Sections + grids */
 .section{padding: 64px 0}
 .section--alt{
-  background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));
-  border-top:1px solid rgba(255,255,255,.06);
-  border-bottom:1px solid rgba(255,255,255,.06);
+  background: var(--surface2);
+  border-top:1px solid rgba(11,21,51,.08);
+  border-bottom:1px solid rgba(11,21,51,.08);
 }
+
 .section__head{
   display:flex;
   justify-content:space-between;
@@ -285,10 +293,10 @@ h3{font-size:18px}
 
 .card{
   border-radius: 20px;
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.04);
+  border:1px solid rgba(11,21,51,.10);
+  background: var(--surface);
   padding: 18px;
-  box-shadow: var(--shadow2);
+  box-shadow: 0 12px 30px rgba(11,21,51,.10);
 }
 .card--big{padding:22px}
 .card__icon{
