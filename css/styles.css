@@ -228,7 +228,15 @@ h3{font-size:18px}
   z-index:2;
 }
 .hero__small{margin:0 0 10px; color: rgba(255,255,255,.92); font-weight:600; font-size:18px}
-.hero__title{margin:0 0 10px; font-size:56px; line-height:1.05; color:#fff}
+.hero__title{
+  margin:0 0 10px;
+  font-size:56px;
+  line-height:1.05;
+  color:#fff;
+  text-shadow:
+    0 4px 18px rgba(0,0,0,.55),
+    0 2px 6px rgba(0,0,0,.45);
+}
 .hero__title span{color:var(--primary)}
 .hero__sub{margin:0 0 18px; color: rgba(255,255,255,.85); font-size:14px}
 .hero__cta{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
