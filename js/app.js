@@ -232,4 +232,15 @@
       </div>
     `;
   }
+  
+// Parallax leve (premium, sem exagero)
+(() => {
+  const slidesWrap = document.querySelector("#heroSlides");
+  if (!slidesWrap) return;
+
+  window.addEventListener("scroll", () => {
+    const y = window.scrollY || 0;
+    const move = Math.min(18, y * 0.06); // limite para não ficar forte
+    slidesWrap.style.transform = `translateY(${move}px)`;
+  }, { passive: true });
 })();
