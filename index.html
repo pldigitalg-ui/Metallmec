@@ -1,1 +1,324 @@
-index.html
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Metallmec Engenharia e Serviços | Soluções Industriais</title>
+
+  <meta name="description" content="Metallmec Engenharia e Serviços: Projetos, fabricação e montagem com excelência. Atendimento em todo o território nacional." />
+  <meta name="theme-color" content="#0B1533" />
+
+  <!-- Open Graph (preview em WhatsApp/Instagram) -->
+  <meta property="og:title" content="Metallmec Engenharia e Serviços" />
+  <meta property="og:description" content="Trazendo soluções industriais completas. Projetos, fabricação e montagem com excelência." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="img/og-cover.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container topbar__row">
+      <div class="topbar__left">
+        <a class="topbar__item" href="#" id="topPhone">
+          <span class="ico" aria-hidden="true">📞</span>
+          <span>(31) 0000-0000</span>
+        </a>
+        <a class="topbar__item" href="#" id="topMail">
+          <span class="ico" aria-hidden="true">✉️</span>
+          <span>contato@metallmec.com.br</span>
+        </a>
+      </div>
+
+      <div class="topbar__right">
+        <a class="chip" href="#contato">Atendimento nacional</a>
+        <a class="iconbtn" href="#" aria-label="Instagram" title="Instagram">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </a>
+        <a class="iconbtn" href="#" aria-label="LinkedIn" title="LinkedIn">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+            <path d="M4 4h4v16H4V4Z" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M10 10h4v10h-4V10Z" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M14 10h2.2a3.8 3.8 0 0 1 3.8 3.8V20h-4v-5.5a1.5 1.5 0 0 0-1.5-1.5H14V10Z" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M6 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="currentColor" stroke-width="1.8"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__row">
+      <a class="brand" href="#topo" aria-label="Metallmec">
+        <div class="brand__mark" aria-hidden="true">
+          <!-- Mark (pode trocar pelo seu SVG depois) -->
+          <svg viewBox="0 0 64 64" width="34" height="34" fill="none">
+            <path d="M10 32 26 16l28 0v32H26L10 32Z" stroke="currentColor" stroke-width="3" opacity=".95"/>
+            <path d="M18 32 30 20h16v24H30L18 32Z" stroke="currentColor" stroke-width="3" opacity=".95"/>
+          </svg>
+        </div>
+        <div class="brand__text">
+          <strong>Metallmec</strong>
+          <span>Engenharia e Serviços</span>
+        </div>
+      </a>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav" id="nav">
+        <a href="#servicos">Serviços</a>
+        <a href="#diferenciais">Diferenciais</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#processo">Processo</a>
+        <a href="#contato">Contato</a>
+        <a class="btn btn--small" href="#" id="btnOrcamentoTop">Solicitar orçamento</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main id="topo">
+    <section class="hero">
+      <div class="hero__bg">
+        <div class="hero__slides" id="heroSlides" aria-hidden="true"></div>
+        <div class="hero__overlay"></div>
+        <div class="hero__grid" aria-hidden="true"></div>
+      </div>
+
+      <div class="container hero__content">
+        <div class="hero__left">
+          <p class="kicker">Soluções industriais completas</p>
+          <h1>Metallmec Engenharia e Serviços</h1>
+          <p class="lead">
+            Projetos, fabricação e montagem com excelência.<br/>
+            <strong>Atendemos em todo o território nacional.</strong>
+          </p>
+
+          <div class="hero__cta">
+            <a class="btn" href="#" id="btnOrcamentoHero">Solicitar orçamento</a>
+            <a class="btn btn--ghost" href="#servicos">Ver serviços</a>
+          </div>
+
+          <div class="hero__stats">
+            <div class="stat">
+              <strong>Precisão</strong>
+              <span>engenharia aplicada</span>
+            </div>
+            <div class="stat">
+              <strong>Qualidade</strong>
+              <span>padrão industrial</span>
+            </div>
+            <div class="stat">
+              <strong>Agilidade</strong>
+              <span>prazo + execução</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero__card">
+          <div class="hero__cardTop">
+            <div>
+              <h3>Atendimento imediato</h3>
+              <p>Responda com rapidez e feche mais contratos.</p>
+            </div>
+            <span class="badge">Nacional</span>
+          </div>
+
+          <form class="form" id="leadForm">
+            <label>
+              <span>Seu nome</span>
+              <input required name="nome" placeholder="Ex.: Paulo" />
+            </label>
+            <label>
+              <span>Empresa</span>
+              <input name="empresa" placeholder="Ex.: Metalúrgica X" />
+            </label>
+            <label>
+              <span>Serviço</span>
+              <select name="servico">
+                <option value="Projetos Industriais">Projetos Industriais</option>
+                <option value="Fabricação Industrial">Fabricação Industrial</option>
+                <option value="Montagem e Instalação">Montagem e Instalação</option>
+                <option value="Manutenção Técnica">Manutenção Técnica</option>
+              </select>
+            </label>
+            <label>
+              <span>Mensagem</span>
+              <textarea required name="mensagem" rows="4" placeholder="Conte o que precisa e a cidade/estado..."></textarea>
+            </label>
+
+            <button class="btn btn--full" type="submit">Enviar no WhatsApp</button>
+            <p class="fineprint">Ao enviar, você será direcionado ao WhatsApp com o texto pronto.</p>
+          </form>
+        </aside>
+      </div>
+
+      <div class="hero__dots" id="heroDots" aria-label="Controle do banner"></div>
+    </section>
+
+    <!-- Serviços -->
+    <section class="section" id="servicos">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <p class="kicker">O que fazemos</p>
+            <h2>Serviços com padrão industrial</h2>
+            <p class="muted">Do projeto à execução: engenharia, fabricação e montagem com controle e qualidade.</p>
+          </div>
+          <a class="btn btn--ghost" href="#contato">Falar com especialista</a>
+        </div>
+
+        <div class="grid3" id="servicesGrid"></div>
+      </div>
+    </section>
+
+    <!-- Diferenciais -->
+    <section class="section section--alt" id="diferenciais">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <p class="kicker">Por que a Metallmec</p>
+            <h2>Diferenciais que reduzem risco</h2>
+            <p class="muted">Processo claro, documentação, equipe técnica e execução com responsabilidade.</p>
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div class="card card--big">
+            <h3>Qualidade e rastreabilidade</h3>
+            <p class="muted">
+              Padronização, inspeções e registro do que foi feito. Menos retrabalho, mais previsibilidade.
+            </p>
+            <ul class="checklist">
+              <li>Controle de medidas e montagem</li>
+              <li>Boas práticas de fabricação</li>
+              <li>Relatórios e evidências</li>
+            </ul>
+          </div>
+
+          <div class="card card--big">
+            <h3>Atendimento nacional</h3>
+            <p class="muted">
+              Equipe preparada para atuar em diferentes regiões do Brasil conforme escopo e prazo.
+            </p>
+            <div class="pillrow">
+              <span class="pill">MG</span><span class="pill">SP</span><span class="pill">RJ</span>
+              <span class="pill">PR</span><span class="pill">SC</span><span class="pill">BA</span>
+              <span class="pill pill--accent">Todo o Brasil</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projetos (portfólio) -->
+    <section class="section" id="projetos">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <p class="kicker">Resultados</p>
+            <h2>Projetos e entregas</h2>
+            <p class="muted">Mostre aqui fotos e descrições curtas do que vocês entregam.</p>
+          </div>
+        </div>
+
+        <div class="grid3" id="projectsGrid"></div>
+      </div>
+    </section>
+
+    <!-- Processo -->
+    <section class="section section--alt" id="processo">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <p class="kicker">Como trabalhamos</p>
+            <h2>Processo simples, execução forte</h2>
+            <p class="muted">A clareza do passo a passo aumenta confiança e fecha contrato mais rápido.</p>
+          </div>
+        </div>
+
+        <div class="steps" id="stepsGrid"></div>
+      </div>
+    </section>
+
+    <!-- CTA final -->
+    <section class="cta">
+      <div class="container cta__box">
+        <div>
+          <h2>Pronto para tirar o projeto do papel?</h2>
+          <p class="muted">Envie sua necessidade e receba um retorno rápido com a melhor solução técnica.</p>
+        </div>
+        <div class="cta__actions">
+          <a class="btn" href="#" id="btnOrcamentoBottom">Solicitar orçamento</a>
+          <a class="btn btn--ghost" href="#contato">Contato</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section class="section" id="contato">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <p class="kicker">Contato</p>
+            <h2>Fale com a Metallmec</h2>
+            <p class="muted">WhatsApp, e-mail e atendimento rápido.</p>
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div class="card card--big">
+            <h3>Dados de contato</h3>
+            <p class="muted">Edite no arquivo <code>js/data.js</code>.</p>
+            <div class="contactList" id="contactList"></div>
+          </div>
+
+          <div class="card card--big">
+            <h3>Mensagem rápida</h3>
+            <p class="muted">Clique e já cai no WhatsApp com texto pronto.</p>
+            <div class="quick">
+              <a class="btn btn--full" href="#" id="btnWhatsQuick">Abrir WhatsApp</a>
+              <p class="fineprint">Horário comercial: seg–sex (ajuste como preferir).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- WhatsApp floating -->
+  <a class="wpp" href="#" id="wppFloat" aria-label="WhatsApp">
+    <span class="wpp__glow" aria-hidden="true"></span>
+    <span class="wpp__icon" aria-hidden="true">💬</span>
+  </a>
+
+  <footer class="footer">
+    <div class="container footer__row">
+      <div class="footer__brand">
+        <strong>Metallmec</strong>
+        <span>Engenharia e Serviços</span>
+      </div>
+      <div class="footer__copy">
+        <span>© <span id="year"></span> Metallmec. Todos os direitos reservados.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
