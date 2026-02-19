@@ -9,26 +9,39 @@
   const yearEl = $("#year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  // Helpers seguros
+  const safeText = (el, text) => { if (el) el.textContent = text || ""; };
+
   // Topbar links
   const topPhone = $("#topPhone");
   const topMail = $("#topMail");
+
   if (topPhone) {
-    topPhone.href = `tel:+${(c.phoneCall || "").replace(/\D/g,"")}`;
-    topPhone.querySelector("span:last-child").textContent = c.phoneLabel || "";
+    const phoneDigits = (c.phoneCall || "").replace(/\D/g, "");
+    topPhone.href = phoneDigits ? `tel:+${phoneDigits}` : "#";
+    const lastSpan = topPhone.querySelector("span:last-child");
+    safeText(lastSpan, c.phoneLabel || "");
   }
+
   if (topMail) {
-    topMail.href = `mailto:${c.email || ""}`;
-    topMail.querySelector("span:last-child").textContent = c.email || "";
+    topMail.href = c.email ? `mailto:${c.email}` : "#";
+    const lastSpan = topMail.querySelector("span:last-child");
+    safeText(lastSpan, c.email || "");
   }
 
   // WhatsApp link builder
   function wppLink(text) {
     const phone = (c.whatsapp || "").replace(/\D/g, "");
+    if (!phone) return "#";
     return `https://wa.me/${phone}?text=${encodeURIComponent(text || "")}`;
   }
 
   // CTAs
-  const baseOrc = `Olá! Vim pelo site da ${site.brand || "Metallmec"}.\nQuero solicitar um orçamento.\n\nProduto/Serviço:\nCidade/UF:\nDetalhes:`;
+  const baseOrc =
+    `Olá! Vim pelo site da ${site.brand || "Metallmec"}.\n` +
+    `Quero solicitar um orçamento.\n\n` +
+    `Produto/Serviço:\nCidade/UF:\nDetalhes:`;
+
   ["#btnOrcamentoTop", "#btnOrcamentoBottom", "#wppFloat", "#btnWhatsQuick"].forEach((id) => {
     const el = $(id);
     if (el) el.href = wppLink(baseOrc);
@@ -42,6 +55,7 @@
       const open = nav.classList.toggle("is-open");
       navToggle.setAttribute("aria-expanded", open ? "true" : "false");
     });
+
     nav.addEventListener("click", (e) => {
       const a = e.target.closest("a");
       if (!a) return;
@@ -50,11 +64,15 @@
     });
   }
 
-  // HEADER inteligente: transparente no hero, branco ao rolar
+  // HEADER inteligente (funciona com os 2 modos)
   const header = $("#header");
   const hero = $("#topo");
+
   function updateHeader() {
     if (!header) return;
+
+    // se seu HTML já estiver forçando header--scrolled, não precisa mexer
+    // mas se quiser manter o efeito inteligente, deixa rodando:
     const y = window.scrollY || 0;
     const trigger = hero ? hero.offsetHeight - 120 : 240;
     header.classList.toggle("header--scrolled", y > trigger);
@@ -72,70 +90,92 @@
   let i = 0;
   let timer = null;
 
-  function renderSlides(){
-    if(!slidesWrap || imgs.length === 0) return;
+  function renderSlides() {
+    if (!slidesWrap || imgs.length === 0) return;
 
-    slidesWrap.innerHTML = imgs.map((src, idx)=>(
-      `<div class="hero__slide ${idx===0?"is-on":""}" style="background-image:url('${src}')"></div>`
-    )).join("");
+    slidesWrap.innerHTML = imgs
+      .map((src, idx) =>
+        `<div class="hero__slide ${idx === 0 ? "is-on" : ""}" style="background-image:url('${src}')"></div>`
+      )
+      .join("");
 
-    if(dotsWrap){
-      dotsWrap.innerHTML = imgs.map((_, idx)=>(
-        `<button class="dot ${idx===0?"is-on":""}" aria-label="Banner ${idx+1}"></button>`
-      )).join("");
+    if (dotsWrap) {
+      dotsWrap.innerHTML = imgs
+        .map((_, idx) => `<button class="dot ${idx === 0 ? "is-on" : ""}" aria-label="Banner ${idx + 1}"></button>`)
+        .join("");
 
-      dotsWrap.querySelectorAll(".dot").forEach((d, idx)=>{
-        d.addEventListener("click", ()=>go(idx, true));
+      dotsWrap.querySelectorAll(".dot").forEach((d, idx) => {
+        d.addEventListener("click", () => go(idx, true));
       });
     }
   }
 
-  function go(next, user=false){
-    const slides = slidesWrap ? slidesWrap.querySelectorAll(".hero__slide") : [];
+  function go(next, user = false) {
+    if (!slidesWrap) return;
+    const slides = slidesWrap.querySelectorAll(".hero__slide");
     const dots = dotsWrap ? dotsWrap.querySelectorAll(".dot") : [];
-    if(!slides.length) return;
+    if (!slides.length) return;
 
     slides[i].classList.remove("is-on");
-    if(dots[i]) dots[i].classList.remove("is-on");
+    if (dots[i]) dots[i].classList.remove("is-on");
 
     i = (next + imgs.length) % imgs.length;
 
     slides[i].classList.add("is-on");
-    if(dots[i]) dots[i].classList.add("is-on");
+    if (dots[i]) dots[i].classList.add("is-on");
 
-    if(user) restart();
+    if (user) restart();
   }
 
-  function restart(){
-    if(timer) clearInterval(timer);
-    if(imgs.length > 1) timer = setInterval(()=>go(i+1), 5200);
+  function restart() {
+    if (timer) clearInterval(timer);
+    if (imgs.length > 1) timer = setInterval(() => go(i + 1), 5200);
   }
 
-  if(prevBtn) prevBtn.addEventListener("click", ()=>go(i-1, true));
-  if(nextBtn) nextBtn.addEventListener("click", ()=>go(i+1, true));
+  if (prevBtn) prevBtn.addEventListener("click", () => go(i - 1, true));
+  if (nextBtn) nextBtn.addEventListener("click", () => go(i + 1, true));
 
   renderSlides();
   restart();
 
+  // Parallax leve (premium, sem exagero)
+  if (slidesWrap) {
+    window.addEventListener(
+      "scroll",
+      () => {
+        const y = window.scrollY || 0;
+        const move = Math.min(18, y * 0.06);
+        slidesWrap.style.transform = `translateY(${move}px)`;
+      },
+      { passive: true }
+    );
+  }
+
   // Render Serviços
   const servicesGrid = $("#servicesGrid");
   if (servicesGrid && Array.isArray(site.services)) {
-    servicesGrid.innerHTML = site.services.map(s => `
+    servicesGrid.innerHTML = site.services
+      .map(
+        (s) => `
       <article class="card">
         <div class="card__icon">${s.icon || "⚙️"}</div>
         <h3>${s.title || ""}</h3>
         <p class="muted">${s.desc || ""}</p>
         <div class="card__meta">
-          ${(s.tags || []).slice(0, 3).map(t => `<span class="tag">${t}</span>`).join("")}
+          ${(s.tags || []).slice(0, 3).map((t) => `<span class="tag">${t}</span>`).join("")}
         </div>
       </article>
-    `).join("");
+    `
+      )
+      .join("");
   }
 
   // Render Projetos
   const projectsGrid = $("#projectsGrid");
   if (projectsGrid && Array.isArray(site.projects)) {
-    projectsGrid.innerHTML = site.projects.map(p => `
+    projectsGrid.innerHTML = site.projects
+      .map(
+        (p) => `
       <article class="card">
         <h3>${p.title || ""}</h3>
         <p class="muted">${p.desc || ""}</p>
@@ -144,7 +184,9 @@
           <span class="tag">Qualidade</span>
         </div>
       </article>
-    `).join("");
+    `
+      )
+      .join("");
   }
 
   // Render Produtos + pesquisa
@@ -154,9 +196,13 @@
   function renderProducts(list) {
     if (!productsGrid) return;
     const arr = Array.isArray(list) ? list : [];
-    productsGrid.innerHTML = arr.map(p => {
-      const msg = `Olá! Vim pelo site da ${site.brand || "Metallmec"}.\nQuero orçamento do produto: ${p.title}\n\nDetalhes:\nCidade/UF:`;
-      return `
+    productsGrid.innerHTML = arr
+      .map((p) => {
+        const msg =
+          `Olá! Vim pelo site da ${site.brand || "Metallmec"}.\n` +
+          `Quero orçamento do produto: ${p.title || ""}\n\n` +
+          `Detalhes:\nCidade/UF:`;
+        return `
         <article class="card">
           <h3>${p.title || ""}</h3>
           <p class="muted">${p.desc || ""}</p>
@@ -169,7 +215,8 @@
           </div>
         </article>
       `;
-    }).join("");
+      })
+      .join("");
   }
 
   const allProducts = Array.isArray(site.products) ? site.products : [];
@@ -179,11 +226,13 @@
     productSearch.addEventListener("input", () => {
       const q = (productSearch.value || "").toLowerCase().trim();
       if (!q) return renderProducts(allProducts);
-      const filtered = allProducts.filter(p =>
+
+      const filtered = allProducts.filter((p) =>
         (p.title || "").toLowerCase().includes(q) ||
         (p.desc || "").toLowerCase().includes(q) ||
         (p.tag || "").toLowerCase().includes(q)
       );
+
       renderProducts(filtered);
     });
   }
@@ -232,15 +281,4 @@
       </div>
     `;
   }
-  
-// Parallax leve (premium, sem exagero)
-(() => {
-  const slidesWrap = document.querySelector("#heroSlides");
-  if (!slidesWrap) return;
-
-  window.addEventListener("scroll", () => {
-    const y = window.scrollY || 0;
-    const move = Math.min(18, y * 0.06); // limite para não ficar forte
-    slidesWrap.style.transform = `translateY(${move}px)`;
-  }, { passive: true });
 })();
