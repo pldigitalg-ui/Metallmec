@@ -32,8 +32,8 @@ html,body{margin:0;padding:0}
 body{
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   background:
-    radial-gradient(1200px 700px at 10% 0%, rgba(78,107,255,.16), transparent 55%),
-    radial-gradient(900px 600px at 90% 10%, rgba(46,242,255,.10), transparent 55%),
+    radial-gradient(1200px 700px at 10% 0%, rgba(78,107,255,.16), transparent 20%),
+    radial-gradient(900px 600px at 50% 10%, rgba(46,242,255,.10), transparent 20%),
     var(--bg);
   color:var(--text);
   line-height:1.35;
@@ -67,7 +67,7 @@ code{
   content:"";
   width:10px; height:10px;
   border-radius:999px;
-  background: radial-gradient(circle at 30% 30%, var(--accent), var(--primary));
+  background: radial-gradient(circle at 10% 10%, var(--accent), var(--primary));
   box-shadow: 0 0 18px rgba(46,242,255,.25);
 }
 
