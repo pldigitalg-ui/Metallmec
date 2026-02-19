@@ -217,8 +217,8 @@ h3{font-size:18px}
 .hero__slide.is-on{opacity:1}
 .hero__overlay--soft{
   background:
-    linear-gradient(180deg, rgba(11,21,51,.25), rgba(11,21,51,.35)),
-    radial-gradient(900px 450px at 50% 20%, rgba(78,107,255,.18), transparent 60%);
+    linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.55)),
+    radial-gradient(800px 400px at 50% 30%, rgba(11,21,51,.25), transparent 60%);
 }
 
 .hero__center{
