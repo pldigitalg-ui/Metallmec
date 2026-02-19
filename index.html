@@ -58,117 +58,79 @@
     </div>
   </div>
 
-  <!-- Header -->
-  <header class="header" id="header">
-    <div class="container header__row">
-      <a class="brand" href="#topo" aria-label="Metallmec">
-        <div class="brand__mark" aria-hidden="true">
-          <!-- Mark (pode trocar pelo seu SVG depois) -->
-          <svg viewBox="0 0 64 64" width="34" height="34" fill="none">
-            <path d="M10 32 26 16l28 0v32H26L10 32Z" stroke="currentColor" stroke-width="3" opacity=".95"/>
-            <path d="M18 32 30 20h16v24H30L18 32Z" stroke="currentColor" stroke-width="3" opacity=".95"/>
-          </svg>
-        </div>
-        <div class="brand__text">
-          <strong>Metallmec</strong>
-          <span>Engenharia e Serviços</span>
-        </div>
+  <!-- Topbar (preta) -->
+<div class="topbar">
+  <div class="container topbar__row">
+    <div class="topbar__left">
+      <a class="topbar__item" href="#" id="topPhone">
+        <span class="ico">📞</span><span>(31) 0000-0000</span>
       </a>
-
-      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-
-      <nav class="nav" id="nav">
-        <a href="#servicos">Serviços</a>
-        <a href="#diferenciais">Diferenciais</a>
-        <a href="#projetos">Projetos</a>
-        <a href="#processo">Processo</a>
-        <a href="#contato">Contato</a>
-        <a class="btn btn--small" href="#" id="btnOrcamentoTop">Solicitar orçamento</a>
-      </nav>
+      <a class="topbar__item" href="#" id="topMail">
+        <span class="ico">✉️</span><span>contato@metallmec.com.br</span>
+      </a>
     </div>
-  </header>
+    <div class="topbar__right">
+      <a class="iconbtn" href="#" aria-label="Facebook">f</a>
+      <a class="iconbtn" href="#" aria-label="Instagram">ig</a>
+    </div>
+  </div>
+</div>
 
-  <!-- Hero -->
-  <main id="topo">
-    <section class="hero">
-      <div class="hero__bg">
-        <div class="hero__slides" id="heroSlides" aria-hidden="true"></div>
-        <div class="hero__overlay"></div>
-        <div class="hero__grid" aria-hidden="true"></div>
+<!-- Header (branco) -->
+<header class="header header--light" id="header">
+  <div class="container header__row">
+    <a class="brand brand--light" href="#topo" aria-label="Metallmec">
+      <div class="brand__mark brand__mark--light" aria-hidden="true">
+        <svg viewBox="0 0 64 64" width="34" height="34" fill="none">
+          <path d="M10 32 26 16l28 0v32H26L10 32Z" stroke="currentColor" stroke-width="3"/>
+          <path d="M18 32 30 20h16v24H30L18 32Z" stroke="currentColor" stroke-width="3"/>
+        </svg>
       </div>
-
-      <div class="container hero__content">
-        <div class="hero__left">
-          <p class="kicker">Soluções industriais completas</p>
-          <h1>Metallmec Engenharia e Serviços</h1>
-          <p class="lead">
-            Projetos, fabricação e montagem com excelência.<br/>
-            <strong>Atendemos em todo o território nacional.</strong>
-          </p>
-
-          <div class="hero__cta">
-            <a class="btn" href="#" id="btnOrcamentoHero">Solicitar orçamento</a>
-            <a class="btn btn--ghost" href="#servicos">Ver serviços</a>
-          </div>
-
-          <div class="hero__stats">
-            <div class="stat">
-              <strong>Precisão</strong>
-              <span>engenharia aplicada</span>
-            </div>
-            <div class="stat">
-              <strong>Qualidade</strong>
-              <span>padrão industrial</span>
-            </div>
-            <div class="stat">
-              <strong>Agilidade</strong>
-              <span>prazo + execução</span>
-            </div>
-          </div>
-        </div>
-
-        <aside class="hero__card">
-          <div class="hero__cardTop">
-            <div>
-              <h3>Atendimento imediato</h3>
-              <p>Responda com rapidez e feche mais contratos.</p>
-            </div>
-            <span class="badge">Nacional</span>
-          </div>
-
-          <form class="form" id="leadForm">
-            <label>
-              <span>Seu nome</span>
-              <input required name="nome" placeholder="Ex.: Paulo" />
-            </label>
-            <label>
-              <span>Empresa</span>
-              <input name="empresa" placeholder="Ex.: Metalúrgica X" />
-            </label>
-            <label>
-              <span>Serviço</span>
-              <select name="servico">
-                <option value="Projetos Industriais">Projetos Industriais</option>
-                <option value="Fabricação Industrial">Fabricação Industrial</option>
-                <option value="Montagem e Instalação">Montagem e Instalação</option>
-                <option value="Manutenção Técnica">Manutenção Técnica</option>
-              </select>
-            </label>
-            <label>
-              <span>Mensagem</span>
-              <textarea required name="mensagem" rows="4" placeholder="Conte o que precisa e a cidade/estado..."></textarea>
-            </label>
-
-            <button class="btn btn--full" type="submit">Enviar no WhatsApp</button>
-            <p class="fineprint">Ao enviar, você será direcionado ao WhatsApp com o texto pronto.</p>
-          </form>
-        </aside>
+      <div class="brand__text">
+        <strong>Metallmec</strong>
+        <span>Engenharia e Serviços</span>
       </div>
+    </a>
 
-      <div class="hero__dots" id="heroDots" aria-label="Controle do banner"></div>
-    </section>
+    <button class="nav__toggle nav__toggle--light" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav nav--light" id="nav">
+      <a href="#servicos">Serviços</a>
+      <a href="#diferenciais">Diferenciais</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#contato">Contatos</a>
+      <a class="btn btn--small" href="#" id="btnOrcamentoTop">Solicitar orçamento</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero com slider (igual print) -->
+<section class="hero hero--polimetal" id="topo">
+  <div class="hero__slides" id="heroSlides" aria-hidden="true"></div>
+  <div class="hero__overlay hero__overlay--soft"></div>
+
+  <!-- Setas -->
+  <button class="hero__arrow hero__arrow--left" id="heroPrev" aria-label="Anterior">‹</button>
+  <button class="hero__arrow hero__arrow--right" id="heroNext" aria-label="Próximo">›</button>
+
+  <div class="container hero__center">
+    <p class="hero__small">Trazendo soluções industriais completas</p>
+    <h1 class="hero__title">
+      Metallmec <span>Engenharia</span>
+    </h1>
+    <p class="hero__sub">
+      Projetos, fabricação e montagem com excelência.<br/>
+      Atendemos em todo o território nacional.
+    </p>
+
+    <a class="btn hero__btn" href="#servicos">CONHEÇA NOSSOS SERVIÇOS</a>
+  </div>
+
+  <!-- Bolinhas -->
+  <div class="hero__dots" id="heroDots"></div>
+</section>
 
     <!-- Serviços -->
     <section class="section" id="servicos">
