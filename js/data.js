@@ -1,3 +1,4 @@
+/* js/data.js */
 window.SITE = {
   brand: "Metallmec Engenharia e Serviços",
   tagline: "Trazendo soluções industriais completas",
@@ -5,12 +6,13 @@ window.SITE = {
 
   contact: {
     phoneLabel: "(31) 0000-0000",
-    phoneCall: "5531000000000",     // só números com DDI (55)
+    phoneCall: "5531000000000",      // só números com DDI (55)
     email: "contato@metallmec.com.br",
     city: "Atendimento em todo o Brasil",
-    whatsapp: "5531999999999"       // só números com DDI (55)
+    whatsapp: "5531999999999"        // só números com DDI (55)
   },
 
+  // ✅ IMPORTANTE: confere se esses arquivos existem EXATAMENTE nesse nome em /img
   heroImages: [
     "img/hero-1.jpg",
     "img/hero-2.jpg",
@@ -41,3 +43,17 @@ window.SITE = {
     { title: "Projeto + execução", desc: "Da engenharia ao campo, com controle e qualidade.", tag: "Engenharia" }
   ]
 };
+
+/* ✅ SAFETY: se heroImages estiver vazio ou errado, define um banner fallback */
+(() => {
+  const s = window.SITE || {};
+  if (!Array.isArray(s.heroImages)) s.heroImages = [];
+  s.heroImages = s.heroImages.filter(Boolean);
+
+  // fallback (para o slider nunca sumir)
+  if (s.heroImages.length === 0) {
+    s.heroImages = [
+      "img/hero-1.jpg"
+    ];
+  }
+})();
