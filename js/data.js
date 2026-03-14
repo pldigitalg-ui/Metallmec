@@ -1,59 +1,145 @@
 /* js/data.js */
 window.SITE = {
   brand: "Metallmec Engenharia e Serviços",
-  tagline: "Trazendo soluções industriais completas",
-  subtitle: "Projetos, fabricação e montagem com excelência. Atendemos em todo o território nacional.",
+  tagline: "Soluções metálicas com engenharia, estrutura e acabamento profissional",
+  subtitle: "Projetos, fabricação, montagem e instalação para residências, empresas e obras em Belo Horizonte e região.",
 
   contact: {
-    phoneLabel: "(31) 0000-0000",
-    phoneCall: "5531000000000",      // só números com DDI (55)
+    phoneLabel: "(31) 98391-3499",
+    phoneCall: "553183913499",
     email: "contato@metallmec.com.br",
-    city: "Atendimento em todo o Brasil",
-    whatsapp: "5531999999999"        // só números com DDI (55)
+    city: "Belo Horizonte - MG • BH e região",
+    whatsapp: "553183913499"
   },
 
-  // ✅ IMPORTANTE: confere se esses arquivos existem EXATAMENTE nesse nome em /img
+  /* HERO */
   heroImages: [
-    "img/hero-1.jpg",
-    "img/hero-2.jpg",
-    "img/hero-3.jpg"
+    "img/herois.jpg",
+    "img/herois-2.jpg",
+    "img/herois-3.jpg"
   ],
 
+  /* SERVIÇOS PRINCIPAIS / APOIO INSTITUCIONAL */
   products: [
-    { title: "Conectores e terminais", desc: "Linha industrial para aplicações elétricas e montagem.", tag: "Linha elétrica" },
-    { title: "Suportes e fixações", desc: "Soluções robustas para instalação e organização.", tag: "Fixação" },
-    { title: "Componentes sob medida", desc: "Desenvolvimento conforme desenho e necessidade.", tag: "Custom" },
-    { title: "Estruturas metálicas", desc: "Fabricação com padrão industrial e controle dimensional.", tag: "Fabricação" },
-    { title: "Peças técnicas", desc: "Produção de peças para manutenção e projetos.", tag: "Manutenção" },
-    { title: "Kits de montagem", desc: "Conjuntos prontos para obra e instalação.", tag: "Instalação" }
+    {
+      title: "Portões e acessos",
+      desc: "Projetos sob medida para residências, empresas e entradas sociais.",
+      tag: "Sob medida"
+    },
+    {
+      title: "Grades de proteção",
+      desc: "Soluções metálicas para segurança residencial, comercial e industrial.",
+      tag: "Proteção"
+    },
+    {
+      title: "Escadas e guarda-corpo",
+      desc: "Execução com reforço estrutural, alinhamento e acabamento profissional.",
+      tag: "Estrutura"
+    },
+    {
+      title: "Coberturas metálicas",
+      desc: "Estruturas para coberturas com montagem técnica e visual profissional.",
+      tag: "Cobertura"
+    },
+    {
+      title: "Estruturas metálicas",
+      desc: "Fabricação e montagem para obras, ampliações e reforços estruturais.",
+      tag: "Obras"
+    },
+    {
+      title: "Projetos especiais",
+      desc: "Desenvolvimento sob demanda conforme medida, desenho ou referência visual.",
+      tag: "Personalizado"
+    }
   ],
 
+  /* BLOCOS DE SERVIÇO */
   services: [
-    { icon: "⚙️", title: "Projetos Industriais", desc: "Engenharia aplicada para soluções eficientes, seguras e executáveis.", tags: ["Documentação","Viabilidade","Precisão"] },
-    { icon: "🏭", title: "Fabricação Industrial", desc: "Produção sob medida com padrão de qualidade e controle dimensional.", tags: ["Corte","Solda","Acabamento"] },
-    { icon: "🔩", title: "Montagem e Instalação", desc: "Equipe técnica para montagem com responsabilidade e prazos claros.", tags: ["Campo","Segurança","Entrega"] },
-    { icon: "🛠", title: "Manutenção Técnica", desc: "Correções, melhorias e suporte para manter sua operação rodando.", tags: ["Preventiva","Corretiva","Suporte"] },
-    { icon: "📐", title: "Adequações e melhorias", desc: "Reforços, ajustes e modernização de estruturas e processos.", tags: ["Normas","Eficiência","Reforço"] },
-    { icon: "📦", title: "Soluções sob demanda", desc: "Projetos especiais conforme sua necessidade, do início ao fim.", tags: ["Custom","Prazo","Execução"] }
+    {
+      icon: "⚙️",
+      title: "Fabricação sob medida",
+      desc: "Portões, grades, estruturas e peças metálicas conforme necessidade do projeto.",
+      tags: ["Medida", "Precisão", "Acabamento"]
+    },
+    {
+      icon: "🏗️",
+      title: "Estruturas metálicas",
+      desc: "Execução de estruturas para obras, reforços e aplicações residenciais ou comerciais.",
+      tags: ["Obra", "Reforço", "Montagem"]
+    },
+    {
+      icon: "🚪",
+      title: "Portões e acessos",
+      desc: "Portões de correr, abrir, sociais e soluções de acesso com acabamento profissional.",
+      tags: ["Residencial", "Comercial", "Instalação"]
+    },
+    {
+      icon: "🪜",
+      title: "Escadas e guarda-corpo",
+      desc: "Soluções metálicas com segurança, alinhamento e visual robusto.",
+      tags: ["Segurança", "Estrutura", "Detalhe"]
+    },
+    {
+      icon: "🏠",
+      title: "Coberturas e fechamentos",
+      desc: "Coberturas, fechamentos e composições metálicas para diferentes aplicações.",
+      tags: ["Cobertura", "Proteção", "Execução"]
+    },
+    {
+      icon: "🛠️",
+      title: "Serviços personalizados",
+      desc: "Você envia foto, medida ou referência, e a Metallmec executa a melhor solução.",
+      tags: ["Projeto", "Sob demanda", "Atendimento"]
+    }
   ],
 
+  /* PORTFÓLIO / PROJETOS */
   projects: [
-    { title: "Montagem industrial", desc: "Estruturas e instalação técnica com segurança.", tag: "Montagem" },
-    { title: "Fabricação sob medida", desc: "Peças e conjuntos conforme desenho e aplicação.", tag: "Fabricação" },
-    { title: "Projeto + execução", desc: "Da engenharia ao campo, com controle e qualidade.", tag: "Engenharia" }
+    {
+      title: "Portão premium residencial",
+      desc: "Projeto sob medida com acabamento alinhado ao visual do imóvel.",
+      tag: "Portões"
+    },
+    {
+      title: "Grade residencial",
+      desc: "Solução metálica para proteção e valorização do ambiente.",
+      tag: "Grades"
+    },
+    {
+      title: "Escada e guarda-corpo",
+      desc: "Execução com reforço estrutural, segurança e acabamento profissional.",
+      tag: "Escadas"
+    },
+    {
+      title: "Cobertura metálica",
+      desc: "Estrutura para proteção com montagem técnica e estética limpa.",
+      tag: "Coberturas"
+    },
+    {
+      title: "Estrutura para obra",
+      desc: "Aplicação metálica para suporte, reforço e desenvolvimento de obra.",
+      tag: "Estruturas"
+    },
+    {
+      title: "Projeto comercial",
+      desc: "Execução sob medida para empresas, lojas e aplicações especiais.",
+      tag: "Comercial"
+    }
   ]
 };
 
-/* ✅ SAFETY: se heroImages estiver vazio ou errado, define um banner fallback */
+/* SAFETY */
 (() => {
   const s = window.SITE || {};
+
   if (!Array.isArray(s.heroImages)) s.heroImages = [];
   s.heroImages = s.heroImages.filter(Boolean);
 
-  // fallback (para o slider nunca sumir)
   if (s.heroImages.length === 0) {
-    s.heroImages = [
-      "img/hero-1.jpg"
-    ];
+    s.heroImages = ["img/herois.jpg"];
   }
+
+  if (!Array.isArray(s.products)) s.products = [];
+  if (!Array.isArray(s.services)) s.services = [];
+  if (!Array.isArray(s.projects)) s.projects = [];
 })();
