@@ -3,238 +3,934 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Metallmec Engenharia e Serviços | Soluções Industriais</title>
+  <meta name="theme-color" content="#f6f7f9" />
+  <title>Metallmec Engenharia e Serviços — Belo Horizonte</title>
+  <meta
+    name="description"
+    content="Metallmec Engenharia e Serviços em Belo Horizonte e região. Soluções metálicas sob medida para residências, empresas e obras. Orçamento rápido no WhatsApp."
+  />
+  <link rel="stylesheet" href="css/style.css" />
 
-  <meta name="description" content="Metallmec Engenharia e Serviços: Projetos, fabricação e montagem com excelência. Atendimento em todo o território nacional." />
-  <meta name="theme-color" content="#0B1533" />
+  <style>
+    /* override leve sem mexer na estrutura */
+    .thumb{
+      width:174px !important;
+      height:174px !important;
+    }
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+    .service{
+      grid-template-columns:174px 1fr auto !important;
+    }
 
-  <!-- CSS (anti-cache) -->
-  <link rel="stylesheet" href="css/styles.css?v=11">
+    @media (max-width: 980px){
+      .thumb{
+        width:138px !important;
+        height:138px !important;
+      }
+
+      .service{
+        grid-template-columns:138px 1fr !important;
+      }
+    }
+
+    @media (max-width: 560px){
+      .thumb{
+        width:108px !important;
+        height:108px !important;
+      }
+
+      .service{
+        grid-template-columns:108px 1fr !important;
+      }
+    }
+  </style>
 </head>
-
 <body>
-  <!-- Topbar (preta) -->
-  <div class="topbar">
-    <div class="container topbar__row">
-      <div class="topbar__left">
-        <a class="topbar__item" href="#" id="topPhone"><span class="ico">📞</span><span>(31) 0000-0000</span></a>
-        <a class="topbar__item" href="#" id="topMail"><span class="ico">✉️</span><span>contato@metallmec.com.br</span></a>
+  <header class="topbar">
+    <div class="inner">
+      <div class="brand">
+        <div class="logo" id="logoBox" title="Metallmec Engenharia e Serviços">
+          <span id="logoText">MM</span>
+          <img id="logoImg" alt="Logo Metallmec Engenharia e Serviços" />
+        </div>
+
+        <div class="brandText">
+          <h1>Metallmec Engenharia e Serviços</h1>
+          <p id="topSub">Belo Horizonte - MG • Residencial • Comercial • Obras</p>
+        </div>
       </div>
-      <div class="topbar__right">
-        <a class="iconbtn" href="#" aria-label="Facebook" title="Facebook">f</a>
-        <a class="iconbtn" href="#" aria-label="Instagram" title="Instagram">ig</a>
+
+      <nav class="topNav" aria-label="Menu principal">
+        <a href="#inicio" class="active">Início</a>
+        <a href="#servicosSec">Serviços</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#faq">Contato</a>
+      </nav>
+
+      <div class="actions">
+        <span class="pill">📍 BH e região</span>
+        <button class="btn primary" id="topBudgetBtn" type="button">Pedir orçamento</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" id="inicio" aria-label="Apresentação">
+    <div class="heroMedia"></div>
+    <div class="heroOverlay"></div>
+
+    <div class="heroInner">
+      <div class="heroContent">
+        <div class="heroKicker">Metallmec Engenharia e Serviços</div>
+
+        <h2 class="heroTitle">Soluções metálicas sob medida com acabamento profissional</h2>
+
+        <p class="heroSub">
+          Execução para residências, empresas e obras em Belo Horizonte e região.
+        </p>
+
+        <div class="heroBadges">
+          <div class="badgeMetal">⚙️ Sob medida</div>
+          <div class="badgeMetal">🧱 Residencial + Comercial</div>
+          <div class="badgeMetal">🧰 Instalação profissional</div>
+          <div class="badgeMetal">📍 BH e região</div>
+        </div>
+
+        <div class="heroCTAs">
+          <button class="btn primary" id="ctaHero" type="button">Solicitar orçamento</button>
+          <a class="btn ghost" href="#portfolio">Ver portfólio</a>
+        </div>
+
+        <div class="micro">
+          <span>📞 <b>(31) 98391-3499</b></span>
+          <span>🕒 <b>Atendimento:</b> Seg a Sáb</span>
+          <span>📍 <b>Região:</b> BH, Contagem, Betim, Nova Lima e Vespasiano</span>
+        </div>
+      </div>
+
+      <aside class="heroCard">
+        <h3>Empresa estruturada</h3>
+        <div class="line"><span>Atendimento</span><strong>Residencial + Comercial</strong></div>
+        <div class="line"><span>Entrega</span><strong>Prazo + alinhamento</strong></div>
+        <div class="line"><span>Execução</span><strong>Solda + reforço</strong></div>
+        <div class="line"><span>Suporte</span><strong>WhatsApp direto</strong></div>
+
+        <div class="alertSmall">
+          <div>⚠️</div>
+          <div>
+            <b>Agenda semanal limitada</b><br />
+            <small>Para instalação e visitas. Peça orçamento com antecedência.</small>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <section class="section grid2" aria-label="Confiança e diferenciais">
+      <div class="card">
+        <h2>Por que escolher a Metallmec</h2>
+        <p class="subline">Soluções metálicas com acabamento, estrutura e atendimento direto.</p>
+        <div class="divider"></div>
+
+        <div class="list" style="margin-top:0">
+          <div class="service" style="grid-template-columns:1fr;">
+            <div>
+              <h3>Acabamento e estrutura</h3>
+              <p>Projetos executados com reforço, alinhamento e visual profissional.</p>
+            </div>
+          </div>
+
+          <div class="service" style="grid-template-columns:1fr;">
+            <div>
+              <h3>Orçamento ágil</h3>
+              <p>Envie foto, medida e referência para receber uma resposta mais rápida e precisa.</p>
+            </div>
+          </div>
+
+          <div class="service" style="grid-template-columns:1fr;">
+            <div>
+              <h3>Atendimento residencial e comercial</h3>
+              <p>Execução sob medida para casas, empresas, obras e demandas especiais.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Atuação com confiança</h2>
+        <p class="subline">Do orçamento à instalação, com atendimento direto e execução sob medida.</p>
+        <div class="divider"></div>
+
+        <div class="list" style="margin-top:0">
+          <div class="service">
+            <div class="info" style="grid-column:1/-1">
+              <h3>Projetos entregues</h3>
+              <p>Experiência em portões, grades, coberturas, escadas e estruturas metálicas.</p>
+            </div>
+          </div>
+
+          <div class="service">
+            <div class="info" style="grid-column:1/-1">
+              <h3>Atendimento em BH e região</h3>
+              <p>Logística alinhada para residências, empresas e obras.</p>
+            </div>
+          </div>
+
+          <div class="service">
+            <div class="info" style="grid-column:1/-1">
+              <h3>Contato direto</h3>
+              <p>Você fala com quem entende o serviço e acompanha a execução.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="servicosSec" aria-label="Serviços">
+      <div class="card fullServicesCard">
+        <div class="servicesHeader">
+          <div>
+            <h2>Serviços</h2>
+            <p class="subline">Selecione os serviços desejados e envie sua solicitação no mesmo orçamento.</p>
+          </div>
+
+          <button class="btn primary" id="openBudgetModal" type="button">Solicitar orçamento</button>
+        </div>
+
+        <div class="tabs" id="tabs"></div>
+        <div class="list" id="services"></div>
+      </div>
+    </section>
+
+    <section class="section card" id="portfolio" aria-label="Portfólio">
+      <h2>Portfólio</h2>
+      <p class="subline">Alguns projetos executados pela Metallmec Engenharia e Serviços.</p>
+      <div class="gallery" id="gallery"></div>
+    </section>
+
+    <section class="section card" id="depoimentos" aria-label="Depoimentos">
+      <h2>Depoimentos</h2>
+      <p class="subline">Avaliações de clientes atendidos em BH e região.</p>
+
+      <div class="tGrid">
+        <div class="tCard">
+          <div class="stars">★★★★★</div>
+          <p>“Acabamento excelente e alinhamento perfeito. Entregou no prazo.”</p>
+          <div class="who">Antonio Pereira</div>
+        </div>
+
+        <div class="tCard">
+          <div class="stars">★★★★★</div>
+          <p>“Fez a estrutura e a instalação com profissionalismo. Recomendo.”</p>
+          <div class="who">Adelaide • Nova Lima</div>
+        </div>
+
+        <div class="tCard">
+          <div class="stars">★★★★★</div>
+          <p>“Portão e grade ficaram top. Atendimento rápido no WhatsApp.”</p>
+          <div class="who">Ernani • Vespasiano</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section card" id="faq" aria-label="Perguntas frequentes">
+      <h2>Perguntas frequentes</h2>
+      <p class="subline">Informações rápidas para facilitar seu orçamento.</p>
+
+      <div class="list">
+        <details>
+          <summary>Como faço para o orçamento ficar mais preciso?</summary>
+          <p>Envie foto do local, medidas e diga se precisa de instalação. Se tiver uma referência visual, melhor ainda.</p>
+        </details>
+
+        <details>
+          <summary>Atende somente Belo Horizonte?</summary>
+          <p>Atendemos BH e região. Dependendo do serviço e da distância, avaliamos logística e instalação.</p>
+        </details>
+
+        <details>
+          <summary>Vocês fazem serviço sob medida?</summary>
+          <p>Sim. Projetos sob medida para residências, empresas e obras: portões, grades, escadas, coberturas e estruturas metálicas.</p>
+        </details>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="footerBar">
+        <span>© <span id="year"></span> Metallmec Engenharia e Serviços</span>
+        <span>Orçamentos pelo WhatsApp</span>
+      </div>
+    </section>
+  </main>
+
+  <div class="waFloat" aria-label="Atalho WhatsApp">
+    <a
+      href="https://wa.me/553183913499?text=Olá!%20Quero%20um%20orçamento."
+      target="_blank"
+      rel="noopener"
+      title="Chamar no WhatsApp"
+    >
+      <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true">
+        <path fill="currentColor" d="M19.11 17.5c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.48-.88-.78-1.48-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.48-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.5 0 1.47 1.08 2.9 1.23 3.1.15.2 2.12 3.23 5.13 4.53.72.31 1.28.5 1.72.64.72.23 1.37.2 1.88.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.08-.12-.27-.2-.57-.35z"/>
+        <path fill="currentColor" d="M16.04 3C9.4 3 4 8.4 4 15.04c0 2.34.67 4.51 1.83 6.35L4 29l7.83-1.77a12 12 0 0 0 4.2.75C22.67 27.98 28 22.66 28 16.02 28 9.38 22.68 3 16.04 3zm0 22.64c-1.4 0-2.78-.38-3.98-1.08l-.28-.16-4.64 1.05 1-4.52-.18-.29a9.6 9.6 0 0 1-1.44-5.1c0-5.3 4.31-9.6 9.6-9.6 5.3 0 9.6 4.31 9.6 9.6 0 5.3-4.31 9.6-9.6 9.6z"/>
+      </svg>
+    </a>
+  </div>
+
+  <div class="stickyCta" id="stickyCta">
+    <div class="bar">
+      <div class="left">
+        <b>Pedir orçamento</b>
+        <span id="stickySub">Marque os serviços e preencha para enviar</span>
+      </div>
+      <button class="btn primary" id="stickyBudgetBtn" type="button">Orçar</button>
+    </div>
+  </div>
+
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modalCard">
+      <div class="modalTop">
+        <b id="modalTitle">Foto</b>
+        <div class="modalActions">
+          <button class="xBtn" id="useAsRef" type="button">Usar como referência</button>
+          <button class="xBtn" id="closeModal" type="button">Fechar</button>
+        </div>
+      </div>
+      <img class="modalImg" id="modalImg" alt="Foto do portfólio" />
+    </div>
+  </div>
+
+  <div class="modal" id="budgetModal" aria-hidden="true">
+    <div class="modalCard budgetModalCard">
+      <div class="modalTop">
+        <b>Solicitar orçamento</b>
+        <div class="modalActions">
+          <button class="xBtn" id="closeBudgetModal" type="button">Fechar</button>
+        </div>
+      </div>
+
+      <div class="budgetModalBody">
+        <aside class="card budgetCardInside" id="orcamento">
+          <h2>Orçamento</h2>
+          <p class="subline">O WhatsApp abre somente quando estiver preenchido.</p>
+
+          <div class="errorBox" id="errorBox">
+            <div>⛔</div>
+            <div>
+              <b>Falta preencher:</b>
+              <div id="errorList" class="hint" style="margin-top:6px"></div>
+            </div>
+          </div>
+
+          <div class="form">
+            <div class="field">
+              <label>Selecione os serviços (pode marcar mais de um)</label>
+              <div class="checkWrap" id="serviceCheckList"></div>
+              <div class="hint">Marque tudo que você quer no mesmo orçamento.</div>
+            </div>
+
+            <div class="two">
+              <div class="field">
+                <label for="name">Seu nome *</label>
+                <input id="name" placeholder="Ex: Paulo" autocomplete="name" />
+              </div>
+              <div class="field">
+                <label for="phone">Telefone / WhatsApp *</label>
+                <input id="phone" placeholder="(31) 9xxxx-xxxx" inputmode="tel" autocomplete="tel" />
+              </div>
+            </div>
+
+            <div class="two">
+              <div class="field">
+                <label for="place">Cidade / Bairro *</label>
+                <input id="place" placeholder="Ex: BH - Barreiro" />
+              </div>
+              <div class="field">
+                <label for="measures">Medidas (se tiver)</label>
+                <input id="measures" placeholder="Ex: 2,40m x 1,80m" />
+              </div>
+            </div>
+
+            <div class="two">
+              <div class="field">
+                <label for="deadline">Prazo *</label>
+                <select id="deadline">
+                  <option value="">Selecione…</option>
+                  <option value="Sem urgência">Sem urgência</option>
+                  <option value="Até 7 dias">Até 7 dias</option>
+                  <option value="Até 15 dias">Até 15 dias</option>
+                  <option value="Urgente (explicar)">Urgente (explicar)</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="hasPhoto">Tenho foto do projeto? *</label>
+                <select id="hasPhoto">
+                  <option value="">Selecione…</option>
+                  <option value="Sim">Sim</option>
+                  <option value="Não">Não</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="details">Detalhes do serviço *</label>
+              <textarea id="details" placeholder="Explique: tipo, material, local, se é instalação, e o que você quer."></textarea>
+            </div>
+
+            <button class="btn whats" id="sendBtn" type="button">Solicitar orçamento</button>
+
+            <div class="footerBar">
+              <span><b>WhatsApp:</b> (31) 98391-3499</span>
+              <span><b>Atendimento:</b> BH e região</span>
+            </div>
+
+            <div class="divider"></div>
+
+            <button class="btn ghost" id="clearSaved" type="button">
+              Limpar dados salvos deste aparelho
+            </button>
+          </div>
+        </aside>
       </div>
     </div>
   </div>
 
-  <!-- Header premium (branco sempre para não sumir letras) -->
-  <header class="header header--smart header--scrolled" id="header">
-    <div class="container header__row">
-      <a class="brand brand--smart" href="#topo" aria-label="Metallmec">
-        <div class="brand__mark brand__mark--smart" aria-hidden="true">
-          <svg viewBox="0 0 64 64" width="34" height="34" fill="none">
-            <path d="M10 32 26 16l28 0v32H26L10 32Z" stroke="currentColor" stroke-width="3"/>
-            <path d="M18 32 30 20h16v24H30L18 32Z" stroke="currentColor" stroke-width="3"/>
-          </svg>
-        </div>
-        <div class="brand__text">
-          <strong>Metallmec</strong>
-          <span>Engenharia e Serviços</span>
-        </div>
-      </a>
+  <script>
+    const CONFIG = {
+      company: "Metallmec Engenharia e Serviços",
+      cityLine: "Belo Horizonte - MG",
+      whatsappNumber: "553183913499",
+      logoFile: "logo-as.png",
+      storageKey: "metallmec_site_empresa_grande_v1"
+    };
 
-      <button class="nav__toggle nav__toggle--smart" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+    const SERVICES = [
+      {
+        cat: "Portões",
+        items: [
+          { id: "p1", name: "Portão", desc: "Fabricação e instalação sob medida.", thumb: "serv-portao.jpg" },
+          { id: "p2", name: "Portão social", desc: "Entrada social com acabamento profissional.", thumb: "serv-social.jpg" }
+        ]
+      },
+      {
+        cat: "Grades",
+        items: [
+          { id: "g1", name: "Grade", desc: "Proteção residencial e comercial.", thumb: "serv-grade.jpg" },
+          { id: "g2", name: "Grade comercial", desc: "Segurança para lojas e empresas.", thumb: "serv-grade-comercial.jpg" }
+        ]
+      },
+      {
+        cat: "Estruturas",
+        items: [
+          { id: "e1", name: "Estrutura metálica", desc: "Obras médias, reforços e montagem.", thumb: "serv-estrutura.jpg" },
+          { id: "e2", name: "Escada / guarda-corpo", desc: "Escadas metálicas, corrimão e guarda-corpo.", thumb: "serv-escada.jpg" }
+        ]
+      },
+      {
+        cat: "Coberturas",
+        items: [
+          { id: "c1", name: "Cobertura", desc: "Estrutura metálica para cobertura.", thumb: "serv-cobertura.jpg" },
+          { id: "c2", name: "Cobertura (variação)", desc: "Conforme necessidade e projeto.", thumb: "serv-cobertura2.jpg" }
+        ]
+      },
+      {
+        cat: "Sob medida",
+        items: [
+          { id: "s1", name: "Serviço personalizado", desc: "Você manda foto ou referência e a gente executa.", thumb: "serv-personalizado.jpg" }
+        ]
+      }
+    ];
 
-      <nav class="nav nav--smart" id="nav">
-        <a href="#produtos">Produtos</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#diferenciais">Diferenciais</a>
-        <a href="#projetos">Projetos</a>
-        <a href="#contato">Contatos</a>
-        <a class="btn btn--small" href="#" id="btnOrcamentoTop">Solicitar orçamento</a>
-      </nav>
-    </div>
-  </header>
+    const PORTFOLIO = [
+      { src: "obra-01as.jpg", title: "Portão premium (residencial)" },
+      { src: "obra-02as.jpg", title: "Grade (residencial)" },
+      { src: "obra-03as.jpg", title: "Escada / guarda-corpo" },
+      { src: "obra-04.jpg", title: "Cobertura" },
+      { src: "obra-05.jpg", title: "Estrutura metálica (obra)" },
+      { src: "obra-06.jpg", title: "Grade comercial" }
+    ];
 
-  <!-- HERO: slider + overlay correto + brilho -->
-  <section class="hero hero--polimetal" id="topo">
-    <div class="hero__slides" id="heroSlides" aria-hidden="true"></div>
+    const $ = (id) => document.getElementById(id);
 
-    <!-- ✅ Overlay correto (cobrindo o hero inteiro) -->
-    <div class="hero__overlay--soft" aria-hidden="true"></div>
-    <div class="hero__shine" aria-hidden="true"></div>
+    const state = {
+      cat: "Todos",
+      modalIndex: null
+    };
 
-    <button class="hero__arrow hero__arrow--left" id="heroPrev" aria-label="Anterior">‹</button>
-    <button class="hero__arrow hero__arrow--right" id="heroNext" aria-label="Próximo">›</button>
+    let saveTimer = null;
 
-    <div class="container hero__center">
-      <p class="hero__small">Trazendo soluções industriais completas</p>
-      <h1 class="hero__title">Metallmec <span>Engenharia</span></h1>
-      <p class="hero__sub">
-        Projetos, fabricação e montagem com excelência.<br/>
-        Atendemos em todo o território nacional.
-      </p>
-      <div class="hero__cta">
-        <a class="btn hero__btn" href="#produtos">CONHEÇA NOSSOS PRODUTOS</a>
-        <a class="btn btn--ghost hero__btn2" href="#servicos">VER SERVIÇOS</a>
-      </div>
-    </div>
+    function escapeHtml(str) {
+      return String(str ?? "").replace(/[&<>"']/g, (s) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+      }[s]));
+    }
 
-    <div class="hero__dots" id="heroDots"></div>
-  </section>
+    function tryLoadLogo() {
+      const img = $("logoImg");
+      const txt = $("logoText");
 
-  <!-- Produtos -->
-  <section class="section" id="produtos">
-    <div class="container">
-      <div class="section__head">
-        <div>
-          <p class="kicker">Catálogo</p>
-          <h2>Produtos</h2>
-          <p class="muted">Selecione um item e peça orçamento rápido no WhatsApp.</p>
-        </div>
-        <div class="searchWrap">
-          <input class="search" id="productSearch" placeholder="Pesquisar produto (ex.: conexões, suportes...)" />
-        </div>
-      </div>
+      img.src = CONFIG.logoFile + "?v=" + Date.now();
+      img.onload = () => {
+        img.style.display = "block";
+        txt.style.display = "none";
+      };
+      img.onerror = () => {
+        img.style.display = "none";
+        txt.style.display = "block";
+      };
+    }
 
-      <div class="grid3" id="productsGrid"></div>
-    </div>
-  </section>
+    function getAllCats() {
+      return ["Todos", ...SERVICES.map((s) => s.cat)];
+    }
 
-  <!-- Serviços -->
-  <section class="section section--alt" id="servicos">
-    <div class="container">
-      <div class="section__head">
-        <div>
-          <p class="kicker">O que fazemos</p>
-          <h2>Serviços com padrão industrial</h2>
-          <p class="muted">Do projeto à execução: engenharia, fabricação e montagem com controle e qualidade.</p>
-        </div>
-        <a class="btn btn--ghost" href="#contato">Falar com especialista</a>
-      </div>
+    function getServiceLabel(cat, name) {
+      return `${cat} — ${name}`;
+    }
 
-      <div class="grid3" id="servicesGrid"></div>
-    </div>
-  </section>
+    function getAllFlatServices() {
+      const list = [];
+      SERVICES.forEach((sec) => {
+        sec.items.forEach((it) => {
+          list.push({ ...it, cat: sec.cat });
+        });
+      });
+      return list;
+    }
 
-  <!-- Diferenciais -->
-  <section class="section" id="diferenciais">
-    <div class="container">
-      <div class="section__head">
-        <div>
-          <p class="kicker">Por que a Metallmec</p>
-          <h2>Diferenciais que reduzem risco</h2>
-          <p class="muted">Processo claro, equipe técnica e execução com responsabilidade.</p>
-        </div>
-      </div>
+    function getSelectedServices() {
+      return Array.from(document.querySelectorAll('#serviceCheckList input[type="checkbox"]:checked'))
+        .map((i) => i.value);
+    }
 
-      <div class="grid2">
-        <div class="card card--big">
-          <h3>Qualidade e rastreabilidade</h3>
-          <p class="muted">Padronização, inspeções e registro do que foi feito. Menos retrabalho, mais previsibilidade.</p>
-          <ul class="checklist">
-            <li>Controle dimensional e montagem</li>
-            <li>Boas práticas de fabricação</li>
-            <li>Relatórios e evidências</li>
-          </ul>
-        </div>
+    function isServiceSelected(value) {
+      const input = Array.from(document.querySelectorAll('#serviceCheckList input[type="checkbox"]'))
+        .find((node) => node.value === value);
+      return !!input?.checked;
+    }
 
-        <div class="card card--big">
-          <h3>Atendimento nacional</h3>
-          <p class="muted">Equipe preparada para atuar em diferentes regiões do Brasil conforme escopo e prazo.</p>
-          <div class="pillrow">
-            <span class="pill">MG</span><span class="pill">SP</span><span class="pill">RJ</span>
-            <span class="pill">PR</span><span class="pill">SC</span><span class="pill">BA</span>
-            <span class="pill pill--accent">Todo o Brasil</span>
+    function toggleServiceByValue(value, forceState = null) {
+      const input = Array.from(document.querySelectorAll('#serviceCheckList input[type="checkbox"]'))
+        .find((node) => node.value === value);
+
+      if (!input) return;
+
+      input.checked = forceState === null ? !input.checked : !!forceState;
+      syncChecklistUI();
+      persistFormDebounced();
+      updateSticky();
+      renderServices();
+    }
+
+    function syncChecklistUI() {
+      document.querySelectorAll("#serviceCheckList .chk").forEach((label) => {
+        const input = label.querySelector('input[type="checkbox"]');
+        label.classList.toggle("is-checked", !!input?.checked);
+      });
+    }
+
+    function renderTabs() {
+      const tabs = $("tabs");
+      tabs.innerHTML = "";
+
+      getAllCats().forEach((cat) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "tab" + (state.cat === cat ? " active" : "");
+        btn.textContent = cat;
+
+        btn.addEventListener("click", () => {
+          state.cat = cat;
+          renderTabs();
+          renderServices();
+        });
+
+        tabs.appendChild(btn);
+      });
+    }
+
+    function filteredServices() {
+      const all = getAllFlatServices();
+      if (state.cat === "Todos") return all;
+      return all.filter((it) => it.cat === state.cat);
+    }
+
+    function renderServices() {
+      const container = $("services");
+      container.innerHTML = "";
+
+      filteredServices().forEach((it) => {
+        const value = getServiceLabel(it.cat, it.name);
+        const checked = isServiceSelected(value);
+
+        const row = document.createElement("article");
+        row.className = "service" + (checked ? " selectedService" : "");
+
+        const thumb = document.createElement("div");
+        thumb.className = "thumb";
+
+        const img = document.createElement("img");
+        img.src = it.thumb;
+        img.alt = it.name;
+        img.onerror = () => {
+          thumb.innerHTML = '<div class="ph">⚙️</div>';
+        };
+        thumb.appendChild(img);
+
+        const info = document.createElement("div");
+        info.className = "info";
+        info.innerHTML = `
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+            <h3>${escapeHtml(it.name)}</h3>
+            <span class="pill" style="padding:6px 10px">${escapeHtml(it.cat)}</span>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
+          <p>${escapeHtml(it.desc)}</p>
+        `;
 
-  <!-- Projetos -->
-  <section class="section section--alt" id="projetos">
-    <div class="container">
-      <div class="section__head">
-        <div>
-          <p class="kicker">Resultados</p>
-          <h2>Projetos e entregas</h2>
-          <p class="muted">Mostre aqui fotos e descrições curtas do que vocês entregam.</p>
-        </div>
-      </div>
+        const right = document.createElement("div");
+        right.className = "right";
 
-      <div class="grid3" id="projectsGrid"></div>
-    </div>
-  </section>
+        const tag = document.createElement("div");
+        tag.className = "tagRight";
+        tag.innerHTML = `Resposta rápida<br><span>WhatsApp</span>`;
 
-  <!-- CTA final -->
-  <section class="cta">
-    <div class="container cta__box">
-      <div>
-        <h2>Pronto para tirar o projeto do papel?</h2>
-        <p class="muted">Envie sua necessidade e receba um retorno rápido com a melhor solução técnica.</p>
-      </div>
-      <div class="cta__actions">
-        <a class="btn" href="#" id="btnOrcamentoBottom">Solicitar orçamento</a>
-        <a class="btn btn--ghost" href="#contato">Contato</a>
-      </div>
-    </div>
-  </section>
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "btn primary" + (checked ? " selectedBtn" : "");
+        btn.textContent = checked ? "Selecionado" : "Selecionar";
 
-  <!-- Contato -->
-  <section class="section" id="contato">
-    <div class="container">
-      <div class="section__head">
-        <div>
-          <p class="kicker">Contato</p>
-          <h2>Fale com a Metallmec</h2>
-          <p class="muted">WhatsApp, e-mail e atendimento rápido.</p>
-        </div>
-      </div>
+        btn.addEventListener("click", () => {
+          toggleServiceByValue(value);
+          openBudgetModal();
+        });
 
-      <div class="grid2">
-        <div class="card card--big">
-          <h3>Dados de contato</h3>
-          <p class="muted">Edite no arquivo <code>js/data.js</code>.</p>
-          <div class="contactList" id="contactList"></div>
-        </div>
+        right.append(tag, btn);
+        row.append(thumb, info, right);
+        container.appendChild(row);
+      });
+    }
 
-        <div class="card card--big">
-          <h3>Mensagem rápida</h3>
-          <p class="muted">Clique e já cai no WhatsApp com texto pronto.</p>
-          <a class="btn btn--full" href="#" id="btnWhatsQuick">Abrir WhatsApp</a>
-          <p class="fineprint">Horário comercial: seg–sex (ajuste como preferir).</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    function renderChecklist() {
+      const box = $("serviceCheckList");
+      box.innerHTML = "";
 
-  <!-- WhatsApp floating -->
-  <a class="wpp" href="#" id="wppFloat" aria-label="WhatsApp">
-    <span class="wpp__glow" aria-hidden="true"></span>
-    <span class="wpp__icon" aria-hidden="true">💬</span>
-  </a>
+      SERVICES.forEach((sec) => {
+        sec.items.forEach((it) => {
+          const value = getServiceLabel(sec.cat, it.name);
+          const id = "chk_" + it.id;
 
-  <footer class="footer">
-    <div class="container footer__row">
-      <div class="footer__brand">
-        <strong>Metallmec</strong>
-        <span>Engenharia e Serviços</span>
-      </div>
-      <div class="footer__copy">
-        <span>© <span id="year"></span> Metallmec. Todos os direitos reservados.</span>
-      </div>
-    </div>
-  </footer>
+          const label = document.createElement("label");
+          label.className = "chk";
+          label.setAttribute("for", id);
 
-  <script src="js/data.js"></script>
-  <script src="js/app.js"></script>
+          const input = document.createElement("input");
+          input.type = "checkbox";
+          input.id = id;
+          input.value = value;
+
+          const text = document.createElement("div");
+          text.innerHTML = `
+            <b>${escapeHtml(value)}</b>
+            <small>${escapeHtml(it.desc)}</small>
+          `;
+
+          input.addEventListener("change", () => {
+            syncChecklistUI();
+            persistFormDebounced();
+            updateSticky();
+            renderServices();
+          });
+
+          label.append(input, text);
+          box.appendChild(label);
+        });
+      });
+
+      syncChecklistUI();
+    }
+
+    function renderGallery() {
+      const g = $("gallery");
+      g.innerHTML = "";
+
+      PORTFOLIO.forEach((itemData, idx) => {
+        const item = document.createElement("button");
+        item.type = "button";
+        item.className = "gItem";
+        item.style.padding = "0";
+        item.style.border = "0";
+        item.style.textAlign = "left";
+        item.addEventListener("click", () => openModal(idx));
+
+        const img = document.createElement("img");
+        img.src = itemData.src;
+        img.alt = itemData.title;
+        img.onerror = () => {
+          img.style.display = "none";
+          item.style.minHeight = "140px";
+          item.style.display = "grid";
+          item.style.placeItems = "center";
+          item.textContent = "Foto não encontrada";
+        };
+
+        const cap = document.createElement("div");
+        cap.className = "gCap";
+        cap.innerHTML = `<div>${escapeHtml(itemData.title)}</div><span>Ver</span>`;
+
+        item.append(img, cap);
+        g.appendChild(item);
+      });
+    }
+
+    function openModal(idx) {
+      state.modalIndex = idx;
+      const item = PORTFOLIO[idx];
+      $("modalTitle").textContent = item.title;
+      $("modalImg").src = item.src;
+      $("modal").classList.add("show");
+      $("modal").setAttribute("aria-hidden", "false");
+    }
+
+    function closeModal() {
+      $("modal").classList.remove("show");
+      $("modal").setAttribute("aria-hidden", "true");
+    }
+
+    function openBudgetModal() {
+      $("budgetModal").classList.add("show");
+      $("budgetModal").setAttribute("aria-hidden", "false");
+    }
+
+    function closeBudgetModal() {
+      $("budgetModal").classList.remove("show");
+      $("budgetModal").setAttribute("aria-hidden", "true");
+    }
+
+    function useAsReference() {
+      const idx = state.modalIndex;
+      if (idx === null) return;
+
+      const item = PORTFOLIO[idx];
+      const ta = $("details");
+      const prefix = `Referência visual: ${item.title}. `;
+
+      ta.value = ta.value.trim() ? (prefix + ta.value.trim()) : prefix;
+
+      persistFormDebounced();
+      closeModal();
+      openBudgetModal();
+    }
+
+    function buildWhatsAppMessage() {
+      const name = $("name").value.trim();
+      const phone = $("phone").value.trim();
+      const place = $("place").value.trim();
+      const measures = $("measures").value.trim();
+      const deadline = $("deadline").value;
+      const hasPhoto = $("hasPhoto").value;
+      const details = $("details").value.trim();
+      const selected = getSelectedServices();
+
+      const servicesBlock = selected.map((s) => "• " + s).join("\n");
+
+      return `*ORÇAMENTO - ${CONFIG.company}*
+*Nome:* ${name}
+*Telefone:* ${phone}
+*Local:* ${place}
+*Medidas:* ${measures || "(não informado)"}
+*Prazo:* ${deadline}
+*Tenho foto do projeto?* ${hasPhoto}
+
+*Serviços:*
+${servicesBlock}
+
+*Detalhes:* ${details}`;
+    }
+
+    function validateForm() {
+      const missing = [];
+
+      if (getSelectedServices().length === 0) missing.push("Selecione pelo menos 1 serviço");
+      if (!$("name").value.trim()) missing.push("Nome");
+      if (!$("phone").value.trim()) missing.push("Telefone / WhatsApp");
+      if (!$("place").value.trim()) missing.push("Cidade / Bairro");
+      if (!$("deadline").value) missing.push("Prazo");
+      if (!$("hasPhoto").value) missing.push("Tenho foto do projeto?");
+      if (!$("details").value.trim()) missing.push("Detalhes do serviço");
+
+      return missing;
+    }
+
+    function showErrors(list) {
+      const box = $("errorBox");
+      const out = $("errorList");
+
+      if (!list.length) {
+        box.classList.remove("show");
+        out.innerHTML = "";
+        return;
+      }
+
+      openBudgetModal();
+      box.classList.add("show");
+      out.innerHTML = list.map((item) => `• ${escapeHtml(item)}`).join("<br>");
+    }
+
+    function sendWhatsApp() {
+      const missing = validateForm();
+
+      if (missing.length) {
+        showErrors(missing);
+        return;
+      }
+
+      showErrors([]);
+
+      const msg = buildWhatsAppMessage();
+      const url = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(msg)}`;
+      window.open(url, "_blank");
+    }
+
+    function persistForm() {
+      const data = {
+        name: $("name").value,
+        phone: $("phone").value,
+        place: $("place").value,
+        measures: $("measures").value,
+        deadline: $("deadline").value,
+        hasPhoto: $("hasPhoto").value,
+        details: $("details").value,
+        checked: getSelectedServices()
+      };
+
+      localStorage.setItem(CONFIG.storageKey, JSON.stringify(data));
+    }
+
+    function persistFormDebounced() {
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(persistForm, 300);
+    }
+
+    function restoreForm() {
+      try {
+        const raw = localStorage.getItem(CONFIG.storageKey);
+        if (!raw) return;
+
+        const data = JSON.parse(raw);
+
+        $("name").value = data.name || "";
+        $("phone").value = data.phone || "";
+        $("place").value = data.place || "";
+        $("measures").value = data.measures || "";
+        $("deadline").value = data.deadline || "";
+        $("hasPhoto").value = data.hasPhoto || "";
+        $("details").value = data.details || "";
+
+        const checked = new Set(data.checked || []);
+
+        document.querySelectorAll('#serviceCheckList input[type="checkbox"]').forEach((input) => {
+          input.checked = checked.has(input.value);
+        });
+
+        syncChecklistUI();
+      } catch (err) {
+        console.error("Erro ao restaurar dados:", err);
+      }
+    }
+
+    function clearSaved() {
+      localStorage.removeItem(CONFIG.storageKey);
+
+      $("name").value = "";
+      $("phone").value = "";
+      $("place").value = "";
+      $("measures").value = "";
+      $("deadline").value = "";
+      $("hasPhoto").value = "";
+      $("details").value = "";
+
+      document.querySelectorAll('#serviceCheckList input[type="checkbox"]').forEach((input) => {
+        input.checked = false;
+      });
+
+      syncChecklistUI();
+      showErrors([]);
+      updateSticky();
+      renderServices();
+    }
+
+    function updateSticky() {
+      const count = getSelectedServices().length;
+      $("stickySub").textContent = count === 0
+        ? "Marque os serviços e preencha para enviar"
+        : `${count} serviço(s) selecionado(s) — preencha e envie`;
+    }
+
+    function wireAutosave() {
+      ["name", "phone", "place", "measures", "deadline", "hasPhoto", "details"].forEach((id) => {
+        const node = $(id);
+        node.addEventListener("input", persistFormDebounced);
+        node.addEventListener("change", persistFormDebounced);
+      });
+    }
+
+    function wireMenuActive() {
+      const links = Array.from(document.querySelectorAll(".topNav a"));
+      links.forEach((link) => {
+        link.addEventListener("click", () => {
+          links.forEach((l) => l.classList.remove("active"));
+          link.classList.add("active");
+        });
+      });
+    }
+
+    function init() {
+      $("year").textContent = String(new Date().getFullYear());
+
+      tryLoadLogo();
+      renderTabs();
+      renderChecklist();
+      restoreForm();
+      renderServices();
+      renderGallery();
+      updateSticky();
+      wireAutosave();
+      wireMenuActive();
+
+      $("sendBtn").addEventListener("click", sendWhatsApp);
+      $("clearSaved").addEventListener("click", clearSaved);
+
+      $("closeModal").addEventListener("click", closeModal);
+      $("useAsRef").addEventListener("click", useAsReference);
+      $("modal").addEventListener("click", (e) => {
+        if (e.target === $("modal")) closeModal();
+      });
+
+      $("openBudgetModal").addEventListener("click", openBudgetModal);
+      $("closeBudgetModal").addEventListener("click", closeBudgetModal);
+      $("budgetModal").addEventListener("click", (e) => {
+        if (e.target === $("budgetModal")) closeBudgetModal();
+      });
+
+      $("ctaHero").addEventListener("click", openBudgetModal);
+      $("stickyBudgetBtn").addEventListener("click", openBudgetModal);
+      $("topBudgetBtn").addEventListener("click", openBudgetModal);
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          closeModal();
+          closeBudgetModal();
+        }
+      });
+    }
+
+    init();
+  </script>
 </body>
 </html>
