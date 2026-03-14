@@ -1,1124 +1,582 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#f6f7f9" />
-  <title>Metallmec Engenharia e Serviços — Belo Horizonte</title>
+  <meta name="theme-color" content="#0c2340" />
+  <title>Metallmec Engenharia e Serviços</title>
   <meta
     name="description"
-    content="Metallmec Engenharia e Serviços em Matozinhos, Belo Horizonte e região. Soluções metálicas sob medida para residências, empresas e obras. Orçamento rápido no WhatsApp."
+    content="Metallmec Engenharia e Serviços. Soluções metálicas sob medida para residências, empresas e obras. Portões, grades, estruturas, coberturas e projetos especiais."
   />
   <link rel="stylesheet" href="css/styles.css" />
-
-  <style>
-    .thumb{
-      width:174px !important;
-      height:174px !important;
-    }
-
-    .service{
-      grid-template-columns:174px 1fr auto !important;
-    }
-
-    @media (max-width: 980px){
-      .thumb{
-        width:138px !important;
-        height:138px !important;
-      }
-
-      .service{
-        grid-template-columns:138px 1fr !important;
-      }
-    }
-
-    @media (max-width: 560px){
-      .thumb{
-        width:108px !important;
-        height:108px !important;
-      }
-
-      .service{
-        grid-template-columns:108px 1fr !important;
-      }
-    }
-  </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="inner">
-      <div class="brand">
-        <div class="logo" id="logoBox" title="Metallmec Engenharia e Serviços">
-          <span id="logoText">MM</span>
-          <img id="logoImg" alt="Logo Metallmec Engenharia e Serviços" />
+  <header class="topbar" id="topbar">
+    <div class="topStrip">
+      <div class="wrap topStripInner">
+        <span>Você está em: SITE METALLMEC</span>
+        <span>Matozinhos • Belo Horizonte • BH e região</span>
+      </div>
+    </div>
+
+    <div class="mainNav">
+      <div class="wrap navInner">
+        <a href="#inicio" class="brandMark" aria-label="Metallmec">
+          <div class="brandBadge">
+            <span>MM</span>
+          </div>
+          <div class="brandName">
+            <strong>METALLMEC</strong>
+          </div>
+        </a>
+
+        <nav class="navMenu" aria-label="Principal">
+          <a href="#inicio" class="active">Início</a>
+          <a href="#quem-somos">Quem somos</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#projetos">Projetos realizados</a>
+          <a href="#parceiros">Parceiros</a>
+          <a href="#depoimentos">Depoimentos</a>
+          <a href="#contato">Contato</a>
+        </nav>
+
+        <div class="navActions">
+          <a class="navBtn ghost" href="#contato">Orçamento</a>
         </div>
 
-        <div class="brandText">
-          <h1>Metallmec Engenharia e Serviços</h1>
-          <p id="topSub">Matozinhos e Belo Horizonte • Residencial • Comercial • Obras</p>
-        </div>
+        <button class="menuToggle" id="menuToggle" aria-label="Abrir menu" type="button">
+          <span></span><span></span><span></span>
+        </button>
       </div>
+    </div>
 
-      <nav class="topNav" aria-label="Menu principal">
-        <a href="#inicio" class="active">Início</a>
-        <a href="#quemSomos">Quem somos</a>
-        <a href="#servicosSec">Serviços</a>
-        <a href="#portfolio">Portfólio</a>
-        <a href="#depoimentos">Depoimentos</a>
-        <a href="#faq">Contato</a>
-        <a href="#contatoEmailSec">E-mail</a>
-      </nav>
-
-      <div class="actions">
-        <span class="pill">📍 Atendemos BH e região</span>
-        <button class="btn primary" id="topBudgetBtn" type="button">Pedir orçamento</button>
-      </div>
+    <div class="mobileMenu" id="mobileMenu">
+      <a href="#inicio">Início</a>
+      <a href="#quem-somos">Quem somos</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#projetos">Projetos realizados</a>
+      <a href="#parceiros">Parceiros</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#contato">Contato</a>
     </div>
   </header>
 
-  <section class="hero" id="inicio" aria-label="Apresentação">
-    <div class="heroMedia" id="heroMedia"></div>
-    <div class="heroOverlay"></div>
+  <main>
+    <!-- HERO -->
+    <section class="heroSection" id="inicio" aria-label="Destaque principal">
+      <div class="heroSlider" id="heroSlider">
+        <div class="heroTrack" id="heroTrack"></div>
 
-    <div class="heroInner">
-      <div class="heroContent">
-        <div class="heroKicker">Metallmec Engenharia e Serviços</div>
+        <div class="heroOverlay"></div>
 
-        <h2 class="heroTitle">Soluções metálicas sob medida com acabamento profissional</h2>
-
-        <p class="heroSub">
-          Execução para residências, empresas e obras em <b>Matozinhos, Belo Horizonte e região</b>.
-        </p>
-
-        <div class="heroBadges">
-          <div class="badgeMetal">⚙️ Sob medida</div>
-          <div class="badgeMetal">🧱 Residencial + Comercial</div>
-          <div class="badgeMetal">🧰 Instalação profissional</div>
-          <div class="badgeMetal">📍 BH e região</div>
-        </div>
-
-        <div class="heroCTAs">
-          <button class="btn primary" id="ctaHero" type="button">Solicitar orçamento</button>
-        </div>
-
-        <div class="micro">
-          <span>📞 <b>(31) 98391-3499</b></span>
-          <span>🕒 <b>Atendimento:</b> Seg a Sáb</span>
-          <span>📍 <b>Região:</b> Matozinhos, Belo Horizonte e BH metropolitana</span>
-        </div>
-      </div>
-
-      <aside class="heroCard">
-        <h3>Empresa estruturada</h3>
-        <div class="line"><span>Atendimento</span><strong>Residencial + Comercial</strong></div>
-        <div class="line"><span>Entrega</span><strong>Prazo + alinhamento</strong></div>
-        <div class="line"><span>Execução</span><strong>Solda + reforço</strong></div>
-        <div class="line"><span>Suporte</span><strong>WhatsApp direto</strong></div>
-
-        <div class="alertSmall">
-          <div>⚠️</div>
-          <div>
-            <b>Agenda semanal limitada</b><br />
-            <small>Para instalação e visitas. Peça orçamento com antecedência.</small>
+        <div class="heroContent wrap">
+          <div class="heroBrandBox">
+            <span>MM</span>
+            <strong>METALLMEC</strong>
           </div>
-        </div>
-      </aside>
-    </div>
-  </section>
 
-  <main class="wrap">
-    <section class="section" id="quemSomos" aria-label="Quem somos">
-      <div class="card">
-        <h2>Quem somos</h2>
-        <p class="subline">
-          A Metallmec Engenharia e Serviços atua com fabricação, montagem e instalação de soluções metálicas
-          sob medida, atendendo clientes residenciais, comerciais e obras.
-        </p>
-
-        <div class="divider"></div>
-
-        <div class="grid2">
-          <div class="card">
-            <h3>Atendimento direto e execução profissional</h3>
-            <p class="subline">
-              Trabalhamos com foco em estrutura, acabamento e alinhamento técnico para entregar serviços
-              com aparência profissional e resistência no uso diário.
+          <div class="heroText">
+            <div class="sectionKicker light">Soluções metálicas com padrão elevado</div>
+            <h1 id="heroTitle">Estruturas metálicas sob medida com acabamento profissional</h1>
+            <p id="heroDesc">
+              Execução para residências, empresas e obras, com foco em qualidade, estrutura, prazo e presença visual forte.
             </p>
 
-            <div class="card__meta">
-              <span class="tag">Portões</span>
-              <span class="tag">Grades</span>
-              <span class="tag">Coberturas</span>
-              <span class="tag">Estruturas metálicas</span>
+            <div class="heroButtons">
+              <a class="ctaPrimary" href="#contato">Solicitar orçamento</a>
+              <a class="ctaSecondary" href="#projetos">Ver projetos realizados</a>
             </div>
           </div>
 
-          <div class="card">
-            <h3>Área de atendimento</h3>
-            <p class="subline">
-              Atendimento principal em <b>Matozinhos e Belo Horizonte</b>, com atuação em BH e região
-              metropolitana, conforme o tipo de serviço e a logística da instalação.
-            </p>
-
-            <div class="card__meta">
-              <span class="tag">Matozinhos</span>
-              <span class="tag">Belo Horizonte</span>
-              <span class="tag">BH e região</span>
-            </div>
+          <div class="heroControls">
+            <button class="heroArrow" id="heroPrev" type="button" aria-label="Anterior">←</button>
+            <div class="heroDots" id="heroDots"></div>
+            <button class="heroArrow" id="heroNext" type="button" aria-label="Próximo">→</button>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section grid2" aria-label="Confiança e diferenciais">
-      <div class="card">
-        <h2>Por que escolher a Metallmec</h2>
-        <p class="subline">Soluções metálicas com acabamento, estrutura e atendimento direto.</p>
-        <div class="divider"></div>
-
-        <div class="list" style="margin-top:0">
-          <div class="service" style="grid-template-columns:1fr;">
-            <div>
-              <h3>Acabamento e estrutura</h3>
-              <p>Projetos executados com reforço, alinhamento e visual profissional.</p>
-            </div>
+    <!-- PARCEIROS / DESTAQUES -->
+    <section class="section whiteSection" id="parceiros">
+      <div class="wrap">
+        <div class="sectionHead">
+          <div>
+            <div class="sectionKicker">Rede profissional</div>
+            <h2>Parceiros</h2>
           </div>
-
-          <div class="service" style="grid-template-columns:1fr;">
-            <div>
-              <h3>Orçamento ágil</h3>
-              <p>Envie foto, medida e referência para receber uma resposta mais rápida e precisa.</p>
-            </div>
-          </div>
-
-          <div class="service" style="grid-template-columns:1fr;">
-            <div>
-              <h3>Atendimento residencial e comercial</h3>
-              <p>Execução sob medida para casas, empresas, obras e demandas especiais.</p>
-            </div>
-          </div>
+          <p>
+            Empresas, fornecedores e frentes de apoio que fortalecem a entrega da Metallmec em materiais, execução e logística.
+          </p>
         </div>
-      </div>
 
-      <div class="card">
-        <h2>Atuação com confiança</h2>
-        <p class="subline">Do orçamento à instalação, com atendimento direto e execução sob medida.</p>
-        <div class="divider"></div>
-
-        <div class="list" style="margin-top:0">
-          <div class="service">
-            <div class="info" style="grid-column:1/-1">
-              <h3>Projetos entregues</h3>
-              <p>Experiência em portões, grades, coberturas, escadas e estruturas metálicas.</p>
+        <div class="partnersGrid">
+          <article class="partnerCard partnerCardA">
+            <div class="partnerOverlay"></div>
+            <div class="partnerContent">
+              <h3>Fornecedores de aço</h3>
+              <p>Chaparias, tubos, perfis, vigas e componentes metálicos para obras e produção sob medida.</p>
             </div>
-          </div>
+          </article>
 
-          <div class="service">
-            <div class="info" style="grid-column:1/-1">
-              <h3>Atendimento em Matozinhos, Belo Horizonte e região</h3>
-              <p>Logística alinhada para residências, empresas e obras.</p>
+          <article class="partnerCard partnerCardB">
+            <div class="partnerOverlay"></div>
+            <div class="partnerContent">
+              <h3>Acabamentos e pintura</h3>
+              <p>Parcerias para entregar visual refinado, proteção e durabilidade em diferentes aplicações.</p>
             </div>
-          </div>
+          </article>
 
-          <div class="service">
-            <div class="info" style="grid-column:1/-1">
-              <h3>Contato direto</h3>
-              <p>Você fala com quem entende o serviço e acompanha a execução.</p>
+          <article class="partnerCard partnerCardC">
+            <div class="partnerOverlay"></div>
+            <div class="partnerContent">
+              <h3>Obras e montagem</h3>
+              <p>Apoio técnico para montagem, instalação e demandas especiais em estruturas metálicas.</p>
             </div>
-          </div>
+          </article>
+
+          <article class="partnerCard partnerCardD">
+            <div class="partnerOverlay"></div>
+            <div class="partnerContent">
+              <h3>Atendimento regional</h3>
+              <p>Atuação principal em Matozinhos, Belo Horizonte e BH e região, conforme o tipo de projeto.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="servicosSec" aria-label="Serviços">
-      <div class="card fullServicesCard">
-        <div class="servicesHeader">
+    <!-- PROJETOS REALIZADOS -->
+    <section class="section projectShowcaseSection darkSection" id="projetos">
+      <div class="wrap">
+        <div class="sectionHead sectionHeadLight">
           <div>
+            <div class="sectionKicker light">Portfólio institucional</div>
+            <h2>Projetos realizados</h2>
+          </div>
+          <p>
+            Projetos com presença visual forte, fotos grandes, leitura limpa e destaque para execução, estrutura e acabamento.
+          </p>
+        </div>
+
+        <div class="projectSlider" id="projectSlider">
+          <button class="projectArrow left" id="projectPrev" type="button" aria-label="Anterior">←</button>
+
+          <div class="projectViewport">
+            <div class="projectTrack" id="projectTrack"></div>
+          </div>
+
+          <button class="projectArrow right" id="projectNext" type="button" aria-label="Próximo">→</button>
+        </div>
+
+        <div class="projectIndicators" id="projectIndicators"></div>
+      </div>
+    </section>
+
+    <!-- QUEM SOMOS -->
+    <section class="section whiteSection aboutSection" id="quem-somos">
+      <div class="wrap">
+        <div class="sectionHead">
+          <div>
+            <div class="sectionKicker">Perfil institucional</div>
+            <h2>Quem somos</h2>
+          </div>
+          <p>
+            Estrutura, compromisso e presença profissional para atender residências, empresas e obras com soluções metálicas de alto padrão.
+          </p>
+        </div>
+
+        <div class="aboutGrid">
+          <div class="aboutText">
+            <h3>Uma empresa voltada para execução sólida e acabamento profissional</h3>
+            <p>
+              A Metallmec Engenharia e Serviços atua no desenvolvimento, fabricação e instalação de soluções metálicas sob medida.
+              Nosso foco é unir estética, resistência, funcionalidade e atendimento direto para entregar projetos com padrão forte de apresentação.
+            </p>
+            <p>
+              Trabalhamos com portões, grades, coberturas, escadas, guarda-corpos, estruturas metálicas e demandas especiais,
+              atendendo principalmente Matozinhos, Belo Horizonte e BH e região.
+            </p>
+            <p>
+              Cada serviço é tratado com cuidado técnico, leitura do ambiente e alinhamento com a necessidade real do cliente,
+              buscando sempre uma entrega segura, limpa e visualmente marcante.
+            </p>
+          </div>
+
+          <div class="aboutImage">
+            <img src="img/quem-somos.jpg" alt="Equipe Metallmec em serviço" />
+          </div>
+        </div>
+
+        <div class="aboutStats">
+          <article class="statBox">
+            <strong>Residencial</strong>
+            <span>Projetos sob medida para casas e condomínios.</span>
+          </article>
+
+          <article class="statBox">
+            <strong>Comercial</strong>
+            <span>Soluções para fachadas, segurança, acesso e estrutura.</span>
+          </article>
+
+          <article class="statBox">
+            <strong>Obras</strong>
+            <span>Reforço, cobertura, escadas e estruturas metálicas.</span>
+          </article>
+
+          <article class="statBox">
+            <strong>Atendimento regional</strong>
+            <span>Matozinhos, Belo Horizonte e BH e região.</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section class="section whiteSection" id="servicos">
+      <div class="wrap">
+        <div class="sectionHead">
+          <div>
+            <div class="sectionKicker">O que fazemos</div>
             <h2>Serviços</h2>
-            <p class="subline">Selecione os serviços desejados e envie sua solicitação no mesmo orçamento.</p>
+          </div>
+          <p>
+            Soluções metálicas projetadas para unir estrutura, resistência e visual profissional em diferentes contextos.
+          </p>
+        </div>
+
+        <div class="servicesGrid">
+          <article class="serviceBigCard">
+            <img src="img/servico-portoes.jpg" alt="Portões" />
+            <div class="serviceBigOverlay"></div>
+            <div class="serviceBigContent">
+              <h3>Portões</h3>
+              <p>Portões sob medida com foco em estrutura, segurança e acabamento.</p>
+            </div>
+          </article>
+
+          <article class="serviceBigCard">
+            <img src="img/servico-grades.jpg" alt="Grades" />
+            <div class="serviceBigOverlay"></div>
+            <div class="serviceBigContent">
+              <h3>Grades</h3>
+              <p>Proteção residencial e comercial com desenho funcional e presença visual forte.</p>
+            </div>
+          </article>
+
+          <article class="serviceBigCard">
+            <img src="img/servico-coberturas.jpg" alt="Coberturas" />
+            <div class="serviceBigOverlay"></div>
+            <div class="serviceBigContent">
+              <h3>Coberturas</h3>
+              <p>Estruturas metálicas para cobertura com leitura técnica e instalação alinhada.</p>
+            </div>
+          </article>
+
+          <article class="serviceBigCard">
+            <img src="img/servico-escadas.jpg" alt="Escadas e guarda-corpo" />
+            <div class="serviceBigOverlay"></div>
+            <div class="serviceBigContent">
+              <h3>Escadas e guarda-corpo</h3>
+              <p>Projeto e execução com segurança, resistência e acabamento nobre.</p>
+            </div>
+          </article>
+
+          <article class="serviceBigCard">
+            <img src="img/servico-estruturas.jpg" alt="Estruturas metálicas" />
+            <div class="serviceBigOverlay"></div>
+            <div class="serviceBigContent">
+              <h3>Estruturas metálicas</h3>
+              <p>Soluções para obras, reforços, suportes e montagem de estruturas.</p>
+            </div>
+          </article>
+
+          <article class="serviceBigCard">
+            <img src="img/servico-personalizado.jpg" alt="Serviço personalizado" />
+            <div class="serviceBigOverlay"></div>
+            <div class="serviceBigContent">
+              <h3>Projetos personalizados</h3>
+              <p>Execução sob medida a partir da sua necessidade, referência ou foto.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section class="section whiteSection" id="depoimentos">
+      <div class="wrap">
+        <div class="sectionHead">
+          <div>
+            <div class="sectionKicker">Credibilidade</div>
+            <h2>Depoimentos</h2>
+          </div>
+          <p>
+            Avaliações de clientes atendidos em Matozinhos, Belo Horizonte e região.
+          </p>
+        </div>
+
+        <div class="testimonialsGrid">
+          <article class="testimonialCard">
+            <div class="stars">★★★★★</div>
+            <p>“Acabamento excelente e alinhamento perfeito. Entregou no prazo e passou muita confiança.”</p>
+            <strong>Antonio Pereira</strong>
+          </article>
+
+          <article class="testimonialCard">
+            <div class="stars">★★★★★</div>
+            <p>“Fez a estrutura e a instalação com profissionalismo. O resultado final ficou muito acima do esperado.”</p>
+            <strong>Adelaide • Nova Lima</strong>
+          </article>
+
+          <article class="testimonialCard">
+            <div class="stars">★★★★★</div>
+            <p>“Portão e grade ficaram top. Atendimento rápido, postura profissional e serviço muito bem feito.”</p>
+            <strong>Ernani • Vespasiano</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO / ORÇAMENTO -->
+    <section class="section whiteSection contactSection" id="contato">
+      <div class="wrap">
+        <div class="sectionHead">
+          <div>
+            <div class="sectionKicker">Solicitação comercial</div>
+            <h2>Faça seu orçamento</h2>
+          </div>
+          <p>
+            Preencha os campos abaixo para abrir seu orçamento no WhatsApp ou no e-mail com a mensagem organizada.
+          </p>
+        </div>
+
+        <div class="contactGrid">
+          <div class="contactInfoPanel">
+            <h3>Atendimento direto</h3>
+            <p>
+              Envie sua solicitação com medidas, local e detalhes do serviço. Quanto mais informação, mais preciso fica o orçamento inicial.
+            </p>
+
+            <div class="contactInfoList">
+              <div class="contactInfoItem">
+                <strong>WhatsApp</strong>
+                <span>(31) 98391-3499</span>
+              </div>
+              <div class="contactInfoItem">
+                <strong>E-mail</strong>
+                <span>contato@metallmec.com.br</span>
+              </div>
+              <div class="contactInfoItem">
+                <strong>Atendimento</strong>
+                <span>Matozinhos • Belo Horizonte • BH e região</span>
+              </div>
+            </div>
+
+            <button class="openModalBtn" id="openBudgetModal" type="button">Abrir formulário completo</button>
           </div>
 
-          <button class="btn primary" id="openBudgetModal" type="button">Solicitar orçamento</button>
+          <form class="contactForm" id="contactForm">
+            <div class="formRow twoCols">
+              <label class="field">
+                <span>Seu nome</span>
+                <input type="text" id="name" placeholder="Ex: Paulo Roberto" />
+              </label>
+
+              <label class="field">
+                <span>Seu e-mail</span>
+                <input type="email" id="email" placeholder="Ex: seuemail@gmail.com" />
+              </label>
+            </div>
+
+            <div class="formRow twoCols">
+              <label class="field">
+                <span>WhatsApp</span>
+                <input type="text" id="phone" placeholder="(31) 9xxxx-xxxx" />
+              </label>
+
+              <label class="field">
+                <span>Cidade / Bairro</span>
+                <input type="text" id="place" placeholder="Ex: Belo Horizonte - Barreiro" />
+              </label>
+            </div>
+
+            <div class="formRow twoCols">
+              <label class="field">
+                <span>Serviço</span>
+                <input type="text" id="service" placeholder="Ex: Portão, grade, cobertura..." />
+              </label>
+
+              <label class="field">
+                <span>Medidas</span>
+                <input type="text" id="measures" placeholder="Ex: 2,40 x 1,80" />
+              </label>
+            </div>
+
+            <div class="formRow">
+              <label class="field">
+                <span>Mensagem</span>
+                <textarea id="message" placeholder="Descreva aqui o serviço que você precisa."></textarea>
+              </label>
+            </div>
+
+            <div class="contactActions">
+              <button class="ctaPrimary" id="sendWhatsapp" type="button">Enviar por WhatsApp</button>
+              <button class="ctaSecondary darkOutline" id="sendEmail" type="button">Enviar por e-mail</button>
+            </div>
+          </form>
         </div>
-
-        <div class="tabs" id="tabs"></div>
-        <div class="list" id="services"></div>
-      </div>
-    </section>
-
-    <section class="section card" id="portfolio" aria-label="Portfólio">
-      <h2>Portfólio</h2>
-      <p class="subline">Alguns projetos executados pela Metallmec Engenharia e Serviços.</p>
-      <div class="gallery" id="gallery"></div>
-    </section>
-
-    <section class="section card" id="depoimentos" aria-label="Depoimentos">
-      <h2>Depoimentos</h2>
-      <p class="subline">Avaliações de clientes atendidos em Matozinhos, Belo Horizonte e região.</p>
-
-      <div class="tGrid">
-        <div class="tCard">
-          <div class="stars">★★★★★</div>
-          <p>“Acabamento excelente e alinhamento perfeito. Entregou no prazo.”</p>
-          <div class="who">Antonio Pereira</div>
-        </div>
-
-        <div class="tCard">
-          <div class="stars">★★★★★</div>
-          <p>“Fez a estrutura e a instalação com profissionalismo. Recomendo.”</p>
-          <div class="who">Adelaide • Nova Lima</div>
-        </div>
-
-        <div class="tCard">
-          <div class="stars">★★★★★</div>
-          <p>“Portão e grade ficaram top. Atendimento rápido no WhatsApp.”</p>
-          <div class="who">Ernani • Vespasiano</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section card" id="faq" aria-label="Perguntas frequentes">
-      <h2>Perguntas frequentes</h2>
-      <p class="subline">Informações rápidas para facilitar seu orçamento.</p>
-
-      <div class="list">
-        <details>
-          <summary>Como faço para o orçamento ficar mais preciso?</summary>
-          <p>Envie foto do local, medidas e diga se precisa de instalação. Se tiver uma referência visual, melhor ainda.</p>
-        </details>
-
-        <details>
-          <summary>Atende somente Belo Horizonte?</summary>
-          <p>Atendemos Matozinhos, Belo Horizonte e BH e região. Dependendo do serviço e da distância, avaliamos logística e instalação.</p>
-        </details>
-
-        <details>
-          <summary>Vocês fazem serviço sob medida?</summary>
-          <p>Sim. Projetos sob medida para residências, empresas e obras: portões, grades, escadas, coberturas e estruturas metálicas.</p>
-        </details>
-      </div>
-    </section>
-
-    <section class="section card" id="contatoEmailSec" aria-label="Contato por e-mail">
-      <h2>Contato por e-mail</h2>
-      <p class="subline">Preencha abaixo para abrir seu aplicativo de e-mail com a mensagem pronta.</p>
-
-      <div class="form">
-        <div class="two">
-          <div class="field">
-            <label for="contactEmailName">Seu nome</label>
-            <input id="contactEmailName" type="text" placeholder="Ex: Paulo Roberto" />
-          </div>
-
-          <div class="field">
-            <label for="contactEmailReply">Seu e-mail</label>
-            <input id="contactEmailReply" type="email" placeholder="Ex: seuemail@gmail.com" />
-          </div>
-        </div>
-
-        <div class="field">
-          <label for="contactEmailSubject">Assunto</label>
-          <input id="contactEmailSubject" type="text" placeholder="Ex: Solicitação de orçamento" />
-        </div>
-
-        <div class="field">
-          <label for="contactEmailMessage">Mensagem</label>
-          <textarea id="contactEmailMessage" placeholder="Descreva aqui o serviço que você precisa."></textarea>
-        </div>
-
-        <div class="heroCTAs">
-          <button class="btn primary" id="sendEmailBtn" type="button">Enviar por e-mail</button>
-          <a class="btn ghost" id="companyEmailLink" href="#">Copiar e-mail da empresa</a>
-        </div>
-
-        <div class="footerBar">
-          <span><b>E-mail:</b> <span id="companyEmailText">contato@seudominio.com.br</span></span>
-          <span><b>Resposta:</b> horário comercial</span>
-        </div>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="footerBar">
-        <span>© <span id="year"></span> Metallmec Engenharia e Serviços</span>
-        <span>Orçamentos pelo WhatsApp e por e-mail</span>
       </div>
     </section>
   </main>
 
-  <div class="waFloat" aria-label="Atalho WhatsApp">
-    <a
-      href="https://wa.me/553183913499?text=Olá!%20Quero%20um%20orçamento."
-      target="_blank"
-      rel="noopener"
-      title="Chamar no WhatsApp"
-    >
-      <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true">
-        <path fill="currentColor" d="M19.11 17.5c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.48-.88-.78-1.48-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.48-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.5 0 1.47 1.08 2.9 1.23 3.1.15.2 2.12 3.23 5.13 4.53.72.31 1.28.5 1.72.64.72.23 1.37.2 1.88.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.08-.12-.27-.2-.57-.35z"/>
-        <path fill="currentColor" d="M16.04 3C9.4 3 4 8.4 4 15.04c0 2.34.67 4.51 1.83 6.35L4 29l7.83-1.77a12 12 0 0 0 4.2.75C22.67 27.98 28 22.66 28 16.02 28 9.38 22.68 3 16.04 3zm0 22.64c-1.4 0-2.78-.38-3.98-1.08l-.28-.16-4.64 1.05 1-4.52-.18-.29a9.6 9.6 0 0 1-1.44-5.1c0-5.3 4.31-9.6 9.6-9.6 5.3 0 9.6 4.31 9.6 9.6 0 5.3-4.31 9.6-9.6 9.6z"/>
-      </svg>
-    </a>
-  </div>
-
-  <div class="stickyCta" id="stickyCta">
-    <div class="bar">
-      <div class="left">
-        <b>Pedir orçamento</b>
-        <span id="stickySub">Marque os serviços e preencha para enviar</span>
-      </div>
-      <button class="btn primary" id="stickyBudgetBtn" type="button">Orçar</button>
-    </div>
-  </div>
-
-  <div class="modal" id="modal" aria-hidden="true">
-    <div class="modalCard">
+  <!-- MODAL -->
+  <div class="modalOverlay" id="budgetModal">
+    <div class="modalBox">
       <div class="modalTop">
-        <b id="modalTitle">Foto</b>
-        <div class="modalActions">
-          <button class="xBtn" id="useAsRef" type="button">Usar como referência</button>
-          <button class="xBtn" id="closeModal" type="button">Fechar</button>
+        <h3>Solicitar orçamento</h3>
+        <button class="closeModalBtn" id="closeBudgetModal" type="button" aria-label="Fechar">×</button>
+      </div>
+
+      <div class="modalBody">
+        <div class="modalGrid">
+          <div class="modalInfo">
+            <h4>Envie o máximo de detalhes</h4>
+            <p>
+              Informe o tipo de serviço, local, medidas e objetivo do projeto. Se tiver foto, referência ou prazo, melhor ainda.
+            </p>
+            <ul>
+              <li>Portões</li>
+              <li>Grades</li>
+              <li>Escadas</li>
+              <li>Guarda-corpos</li>
+              <li>Coberturas</li>
+              <li>Estruturas metálicas</li>
+            </ul>
+          </div>
+
+          <div class="modalForm">
+            <label class="field">
+              <span>Nome</span>
+              <input type="text" id="mName" placeholder="Seu nome" />
+            </label>
+
+            <label class="field">
+              <span>WhatsApp</span>
+              <input type="text" id="mPhone" placeholder="Seu WhatsApp" />
+            </label>
+
+            <label class="field">
+              <span>E-mail</span>
+              <input type="email" id="mEmail" placeholder="Seu e-mail" />
+            </label>
+
+            <label class="field">
+              <span>Local</span>
+              <input type="text" id="mPlace" placeholder="Cidade / bairro" />
+            </label>
+
+            <label class="field">
+              <span>Serviço desejado</span>
+              <input type="text" id="mService" placeholder="Ex: portão, cobertura, escada..." />
+            </label>
+
+            <label class="field">
+              <span>Detalhes</span>
+              <textarea id="mMessage" placeholder="Explique o que você precisa."></textarea>
+            </label>
+
+            <div class="modalActions">
+              <button class="ctaPrimary" id="modalWhatsapp" type="button">Enviar por WhatsApp</button>
+              <button class="ctaSecondary darkOutline" id="modalEmail" type="button">Enviar por e-mail</button>
+            </div>
+          </div>
         </div>
       </div>
-      <img class="modalImg" id="modalImg" alt="Foto do portfólio" />
     </div>
   </div>
 
-  <div class="modal" id="budgetModal" aria-hidden="true">
-    <div class="modalCard budgetModalCard">
-      <div class="modalTop">
-        <b>Solicitar orçamento</b>
-        <div class="modalActions">
-          <button class="xBtn" id="closeBudgetModal" type="button">Fechar</button>
+  <!-- FLOATS -->
+  <a class="floatWhats" id="floatWhats" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">✆</a>
+  <button class="backToTop" id="backToTop" type="button" aria-label="Voltar ao topo">↑</button>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap footerTop">
+      <div class="footerBrand">
+        <div class="footerBrandLine">
+          <div class="brandBadge small"><span>MM</span></div>
+          <strong>METALLMEC</strong>
+        </div>
+
+        <div class="footerSocials">
+          <a href="#" aria-label="Instagram">◎</a>
+          <a href="#" aria-label="WhatsApp">✆</a>
+          <a href="#" aria-label="Facebook">f</a>
         </div>
       </div>
 
-      <div class="budgetModalBody">
-        <aside class="card budgetCardInside" id="orcamento">
-          <h2>Orçamento</h2>
-          <p class="subline">O WhatsApp abre somente quando estiver preenchido.</p>
+      <div class="footerSearch">
+        <span>Utilize nosso contato para encontrar o que procura</span>
+        <div class="footerSearchBox">
+          <input type="text" placeholder="Buscar serviço ou projeto" />
+          <button type="button">⌕</button>
+        </div>
+      </div>
 
-          <div class="errorBox" id="errorBox">
-            <div>⛔</div>
-            <div>
-              <b>Falta preencher:</b>
-              <div id="errorList" class="hint" style="margin-top:6px"></div>
-            </div>
-          </div>
-
-          <div class="form">
-            <div class="field">
-              <label>Selecione os serviços (pode marcar mais de um)</label>
-              <div class="checkWrap" id="serviceCheckList"></div>
-              <div class="hint">Marque tudo que você quer no mesmo orçamento.</div>
-            </div>
-
-            <div class="two">
-              <div class="field">
-                <label for="name">Seu nome *</label>
-                <input id="name" placeholder="Ex: Paulo" autocomplete="name" />
-              </div>
-              <div class="field">
-                <label for="phone">Telefone / WhatsApp *</label>
-                <input id="phone" placeholder="(31) 9xxxx-xxxx" inputmode="tel" autocomplete="tel" />
-              </div>
-            </div>
-
-            <div class="two">
-              <div class="field">
-                <label for="email">Seu e-mail</label>
-                <input id="email" type="email" placeholder="Ex: seuemail@gmail.com" autocomplete="email" />
-              </div>
-              <div class="field">
-                <label for="place">Cidade / Bairro *</label>
-                <input id="place" placeholder="Ex: Belo Horizonte - Barreiro" />
-              </div>
-            </div>
-
-            <div class="two">
-              <div class="field">
-                <label for="measures">Medidas (se tiver)</label>
-                <input id="measures" placeholder="Ex: 2,40m x 1,80m" />
-              </div>
-              <div class="field">
-                <label for="deadline">Prazo *</label>
-                <select id="deadline">
-                  <option value="">Selecione…</option>
-                  <option value="Sem urgência">Sem urgência</option>
-                  <option value="Até 7 dias">Até 7 dias</option>
-                  <option value="Até 15 dias">Até 15 dias</option>
-                  <option value="Urgente (explicar)">Urgente (explicar)</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="hasPhoto">Tenho foto do projeto? *</label>
-              <select id="hasPhoto">
-                <option value="">Selecione…</option>
-                <option value="Sim">Sim</option>
-                <option value="Não">Não</option>
-              </select>
-            </div>
-
-            <div class="field">
-              <label for="details">Detalhes do serviço *</label>
-              <textarea id="details" placeholder="Explique: tipo, material, local, se é instalação, e o que você quer."></textarea>
-            </div>
-
-            <button class="btn whats" id="sendBtn" type="button">Solicitar orçamento</button>
-
-            <div class="footerBar">
-              <span><b>WhatsApp:</b> (31) 98391-3499</span>
-              <span><b>Atendimento:</b> Matozinhos, Belo Horizonte e BH e região</span>
-            </div>
-
-            <div class="divider"></div>
-
-            <button class="btn ghost" id="clearSaved" type="button">
-              Limpar dados salvos deste aparelho
-            </button>
-          </div>
-        </aside>
+      <div class="footerDirect">
+        <div>
+          <strong>SAC Metallmec</strong>
+          <span>(31) 98391-3499</span>
+        </div>
+        <div>
+          <strong>Atendimento</strong>
+          <span>Matozinhos • Belo Horizonte • BH e região</span>
+        </div>
       </div>
     </div>
-  </div>
 
-  <button class="backToTop" id="backToTop" aria-label="Voltar ao início">↑</button>
-
-  <script>
-    const CONFIG = {
-      company: "Metallmec Engenharia e Serviços",
-      cityLine: "Matozinhos e Belo Horizonte - MG",
-      whatsappNumber: "553183913499",
-      companyEmail: "contato@seudominio.com.br",
-      logoFile: "imagem/logo-as.png",
-      heroImages: [
-        "imagem/hero-1.jpg",
-        "imagem/hero-2.jpg",
-        "imagem/hero-3.jpg"
-      ],
-      storageKey: "metallmec_site_empresa_grande_v1"
-    };
-
-    const SERVICES = [
-      {
-        cat: "Portões",
-        items: [
-          { id: "p1", name: "Portão", desc: "Fabricação e instalação sob medida.", thumb: "imagem/serv-portao.jpg" },
-          { id: "p2", name: "Portão social", desc: "Entrada social com acabamento profissional.", thumb: "imagem/serv-social.jpg" }
-        ]
-      },
-      {
-        cat: "Grades",
-        items: [
-          { id: "g1", name: "Grade", desc: "Proteção residencial e comercial.", thumb: "imagem/serv-grade.jpg" },
-          { id: "g2", name: "Grade comercial", desc: "Segurança para lojas e empresas.", thumb: "imagem/serv-grade-comercial.jpg" }
-        ]
-      },
-      {
-        cat: "Estruturas",
-        items: [
-          { id: "e1", name: "Estrutura metálica", desc: "Obras médias, reforços e montagem.", thumb: "imagem/serv-estrutura.jpg" },
-          { id: "e2", name: "Escada / guarda-corpo", desc: "Escadas metálicas, corrimão e guarda-corpo.", thumb: "imagem/serv-escada.jpg" }
-        ]
-      },
-      {
-        cat: "Coberturas",
-        items: [
-          { id: "c1", name: "Cobertura", desc: "Estrutura metálica para cobertura.", thumb: "imagem/serv-cobertura.jpg" },
-          { id: "c2", name: "Cobertura (variação)", desc: "Conforme necessidade e projeto.", thumb: "imagem/serv-cobertura2.jpg" }
-        ]
-      },
-      {
-        cat: "Sob medida",
-        items: [
-          { id: "s1", name: "Serviço personalizado", desc: "Você manda foto ou referência e a gente executa.", thumb: "imagem/serv-personalizado.jpg" }
-        ]
-      }
-    ];
-
-    const PORTFOLIO = [
-      { src: "imagem/obra-01as.jpg", title: "Portão premium (residencial)" },
-      { src: "imagem/obra-02as.jpg", title: "Grade (residencial)" },
-      { src: "imagem/obra-03as.jpg", title: "Escada / guarda-corpo" },
-      { src: "imagem/obra-04.jpg", title: "Cobertura" },
-      { src: "imagem/obra-05.jpg", title: "Estrutura metálica (obra)" },
-      { src: "imagem/obra-06.jpg", title: "Grade comercial" }
-    ];
-
-    const $ = (id) => document.getElementById(id);
-
-    const state = {
-      cat: "Todos",
-      modalIndex: null,
-      heroIndex: 0
-    };
-
-    let saveTimer = null;
-    let heroTimer = null;
-
-    function escapeHtml(str) {
-      return String(str ?? "").replace(/[&<>"']/g, (s) => ({
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#039;"
-      }[s]));
-    }
-
-    function tryLoadLogo() {
-      const img = $("logoImg");
-      const txt = $("logoText");
-
-      img.src = CONFIG.logoFile + "?v=" + Date.now();
-      img.onload = () => {
-        img.style.display = "block";
-        txt.style.display = "none";
-      };
-      img.onerror = () => {
-        img.style.display = "none";
-        txt.style.display = "block";
-      };
-    }
-
-    function initHeroBackground() {
-      const hero = $("heroMedia");
-      if (!hero || !CONFIG.heroImages?.length) return;
-
-      function applyHero(index) {
-        const src = CONFIG.heroImages[index];
-        const test = new Image();
-
-        test.onload = () => {
-          hero.style.backgroundImage = `url("${src}")`;
-          hero.style.backgroundSize = "cover";
-          hero.style.backgroundPosition = "center";
-          hero.style.backgroundRepeat = "no-repeat";
-        };
-
-        test.onerror = () => {
-          hero.style.background = "linear-gradient(135deg, #0c2030, #18364d)";
-        };
-
-        test.src = src;
-      }
-
-      applyHero(state.heroIndex);
-
-      if (CONFIG.heroImages.length > 1) {
-        heroTimer = setInterval(() => {
-          state.heroIndex = (state.heroIndex + 1) % CONFIG.heroImages.length;
-          applyHero(state.heroIndex);
-        }, 5000);
-      }
-    }
-
-    function getAllCats() {
-      return ["Todos", ...SERVICES.map((s) => s.cat)];
-    }
-
-    function getServiceLabel(cat, name) {
-      return `${cat} — ${name}`;
-    }
-
-    function getAllFlatServices() {
-      const list = [];
-      SERVICES.forEach((sec) => {
-        sec.items.forEach((it) => {
-          list.push({ ...it, cat: sec.cat });
-        });
-      });
-      return list;
-    }
-
-    function getSelectedServices() {
-      return Array.from(document.querySelectorAll('#serviceCheckList input[type="checkbox"]:checked'))
-        .map((i) => i.value);
-    }
-
-    function isServiceSelected(value) {
-      const input = Array.from(document.querySelectorAll('#serviceCheckList input[type="checkbox"]'))
-        .find((node) => node.value === value);
-      return !!input?.checked;
-    }
-
-    function toggleServiceByValue(value, forceState = null) {
-      const input = Array.from(document.querySelectorAll('#serviceCheckList input[type="checkbox"]'))
-        .find((node) => node.value === value);
-
-      if (!input) return;
-
-      input.checked = forceState === null ? !input.checked : !!forceState;
-      syncChecklistUI();
-      persistFormDebounced();
-      updateSticky();
-      renderServices();
-    }
-
-    function syncChecklistUI() {
-      document.querySelectorAll("#serviceCheckList .chk").forEach((label) => {
-        const input = label.querySelector('input[type="checkbox"]');
-        label.classList.toggle("is-checked", !!input?.checked);
-      });
-    }
-
-    function renderTabs() {
-      const tabs = $("tabs");
-      tabs.innerHTML = "";
-
-      getAllCats().forEach((cat) => {
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "tab" + (state.cat === cat ? " active" : "");
-        btn.textContent = cat;
-
-        btn.addEventListener("click", () => {
-          state.cat = cat;
-          renderTabs();
-          renderServices();
-        });
-
-        tabs.appendChild(btn);
-      });
-    }
-
-    function filteredServices() {
-      const all = getAllFlatServices();
-      if (state.cat === "Todos") return all;
-      return all.filter((it) => it.cat === state.cat);
-    }
-
-    function renderServices() {
-      const container = $("services");
-      container.innerHTML = "";
-
-      filteredServices().forEach((it) => {
-        const value = getServiceLabel(it.cat, it.name);
-        const checked = isServiceSelected(value);
-
-        const row = document.createElement("article");
-        row.className = "service" + (checked ? " selectedService" : "");
-
-        const thumb = document.createElement("div");
-        thumb.className = "thumb";
-
-        const img = document.createElement("img");
-        img.src = it.thumb;
-        img.alt = it.name;
-        img.onerror = () => {
-          thumb.innerHTML = '<div class="ph">⚙️</div>';
-        };
-        thumb.appendChild(img);
-
-        const info = document.createElement("div");
-        info.className = "info";
-        info.innerHTML = `
-          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-            <h3>${escapeHtml(it.name)}</h3>
-            <span class="pill" style="padding:6px 10px">${escapeHtml(it.cat)}</span>
-          </div>
-          <p>${escapeHtml(it.desc)}</p>
-        `;
-
-        const right = document.createElement("div");
-        right.className = "right";
-
-        const tag = document.createElement("div");
-        tag.className = "tagRight";
-        tag.innerHTML = `Resposta rápida<br><span>WhatsApp</span>`;
-
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "btn primary" + (checked ? " selectedBtn" : "");
-        btn.textContent = checked ? "Selecionado" : "Selecionar";
-
-        btn.addEventListener("click", () => {
-          toggleServiceByValue(value);
-          openBudgetModal();
-        });
-
-        right.append(tag, btn);
-        row.append(thumb, info, right);
-        container.appendChild(row);
-      });
-    }
-
-    function renderChecklist() {
-      const box = $("serviceCheckList");
-      box.innerHTML = "";
-
-      SERVICES.forEach((sec) => {
-        sec.items.forEach((it) => {
-          const value = getServiceLabel(sec.cat, it.name);
-          const id = "chk_" + it.id;
-
-          const label = document.createElement("label");
-          label.className = "chk";
-          label.setAttribute("for", id);
-
-          const input = document.createElement("input");
-          input.type = "checkbox";
-          input.id = id;
-          input.value = value;
-
-          const text = document.createElement("div");
-          text.innerHTML = `
-            <b>${escapeHtml(value)}</b>
-            <small>${escapeHtml(it.desc)}</small>
-          `;
-
-          input.addEventListener("change", () => {
-            syncChecklistUI();
-            persistFormDebounced();
-            updateSticky();
-            renderServices();
-          });
-
-          label.append(input, text);
-          box.appendChild(label);
-        });
-      });
-
-      syncChecklistUI();
-    }
-
-    function renderGallery() {
-      const g = $("gallery");
-      g.innerHTML = "";
-
-      PORTFOLIO.forEach((itemData, idx) => {
-        const item = document.createElement("button");
-        item.type = "button";
-        item.className = "gItem";
-        item.style.padding = "0";
-        item.style.border = "0";
-        item.style.textAlign = "left";
-        item.addEventListener("click", () => openModal(idx));
-
-        const img = document.createElement("img");
-        img.src = itemData.src;
-        img.alt = itemData.title;
-        img.onerror = () => {
-          img.style.display = "none";
-          item.style.minHeight = "140px";
-          item.style.display = "grid";
-          item.style.placeItems = "center";
-          item.textContent = "Foto não encontrada";
-        };
-
-        const cap = document.createElement("div");
-        cap.className = "gCap";
-        cap.innerHTML = `<div>${escapeHtml(itemData.title)}</div><span>Ver</span>`;
-
-        item.append(img, cap);
-        g.appendChild(item);
-      });
-    }
-
-    function openModal(idx) {
-      state.modalIndex = idx;
-      const item = PORTFOLIO[idx];
-      $("modalTitle").textContent = item.title;
-      $("modalImg").src = item.src;
-      $("modal").classList.add("show");
-      $("modal").setAttribute("aria-hidden", "false");
-    }
-
-    function closeModal() {
-      $("modal").classList.remove("show");
-      $("modal").setAttribute("aria-hidden", "true");
-    }
-
-    function openBudgetModal() {
-      $("budgetModal").classList.add("show");
-      $("budgetModal").setAttribute("aria-hidden", "false");
-    }
-
-    function closeBudgetModal() {
-      $("budgetModal").classList.remove("show");
-      $("budgetModal").setAttribute("aria-hidden", "true");
-    }
-
-    function useAsReference() {
-      const idx = state.modalIndex;
-      if (idx === null) return;
-
-      const item = PORTFOLIO[idx];
-      const ta = $("details");
-      const prefix = `Referência visual: ${item.title}. `;
-
-      ta.value = ta.value.trim() ? (prefix + ta.value.trim()) : prefix;
-
-      persistFormDebounced();
-      closeModal();
-      openBudgetModal();
-    }
-
-    function buildWhatsAppMessage() {
-      const name = $("name").value.trim();
-      const phone = $("phone").value.trim();
-      const email = $("email").value.trim();
-      const place = $("place").value.trim();
-      const measures = $("measures").value.trim();
-      const deadline = $("deadline").value;
-      const hasPhoto = $("hasPhoto").value;
-      const details = $("details").value.trim();
-      const selected = getSelectedServices();
-
-      const servicesBlock = selected.map((s) => "• " + s).join("\n");
-
-      return `*ORÇAMENTO - ${CONFIG.company}*
-*Nome:* ${name}
-*Telefone:* ${phone}
-*E-mail:* ${email || "(não informado)"}
-*Local:* ${place}
-*Medidas:* ${measures || "(não informado)"}
-*Prazo:* ${deadline}
-*Tenho foto do projeto?* ${hasPhoto}
-
-*Serviços:*
-${servicesBlock}
-
-*Detalhes:* ${details}`;
-    }
-
-    function validateForm() {
-      const missing = [];
-
-      if (getSelectedServices().length === 0) missing.push("Selecione pelo menos 1 serviço");
-      if (!$("name").value.trim()) missing.push("Nome");
-      if (!$("phone").value.trim()) missing.push("Telefone / WhatsApp");
-      if (!$("place").value.trim()) missing.push("Cidade / Bairro");
-      if (!$("deadline").value) missing.push("Prazo");
-      if (!$("hasPhoto").value) missing.push("Tenho foto do projeto?");
-      if (!$("details").value.trim()) missing.push("Detalhes do serviço");
-
-      return missing;
-    }
-
-    function showErrors(list) {
-      const box = $("errorBox");
-      const out = $("errorList");
-
-      if (!list.length) {
-        box.classList.remove("show");
-        out.innerHTML = "";
-        return;
-      }
-
-      openBudgetModal();
-      box.classList.add("show");
-      out.innerHTML = list.map((item) => `• ${escapeHtml(item)}`).join("<br>");
-    }
-
-    function sendWhatsApp() {
-      const missing = validateForm();
-
-      if (missing.length) {
-        showErrors(missing);
-        return;
-      }
-
-      showErrors([]);
-
-      const msg = buildWhatsAppMessage();
-      const url = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(msg)}`;
-      window.open(url, "_blank");
-    }
-
-    function sendByEmail() {
-      const name = $("contactEmailName").value.trim();
-      const replyEmail = $("contactEmailReply").value.trim();
-      const subject = $("contactEmailSubject").value.trim() || "Contato pelo site";
-      const message = $("contactEmailMessage").value.trim();
-
-      const body = [
-        `Nome: ${name || "(não informado)"}`,
-        `E-mail de retorno: ${replyEmail || "(não informado)"}`,
-        ``,
-        `Mensagem:`,
-        `${message || "(sem mensagem)"}`
-      ].join("\n");
-
-      const url = `mailto:${encodeURIComponent(CONFIG.companyEmail)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      window.location.href = url;
-    }
-
-    async function copyCompanyEmail(e) {
-      e.preventDefault();
-
-      try {
-        await navigator.clipboard.writeText(CONFIG.companyEmail);
-        alert("E-mail da empresa copiado.");
-      } catch {
-        alert("Não foi possível copiar automaticamente. Use este e-mail: " + CONFIG.companyEmail);
-      }
-    }
-
-    function persistForm() {
-      const data = {
-        name: $("name").value,
-        phone: $("phone").value,
-        email: $("email").value,
-        place: $("place").value,
-        measures: $("measures").value,
-        deadline: $("deadline").value,
-        hasPhoto: $("hasPhoto").value,
-        details: $("details").value,
-        checked: getSelectedServices()
-      };
-
-      localStorage.setItem(CONFIG.storageKey, JSON.stringify(data));
-    }
-
-    function persistFormDebounced() {
-      clearTimeout(saveTimer);
-      saveTimer = setTimeout(persistForm, 300);
-    }
-
-    function restoreForm() {
-      try {
-        const raw = localStorage.getItem(CONFIG.storageKey);
-        if (!raw) return;
-
-        const data = JSON.parse(raw);
-
-        $("name").value = data.name || "";
-        $("phone").value = data.phone || "";
-        $("email").value = data.email || "";
-        $("place").value = data.place || "";
-        $("measures").value = data.measures || "";
-        $("deadline").value = data.deadline || "";
-        $("hasPhoto").value = data.hasPhoto || "";
-        $("details").value = data.details || "";
-
-        const checked = new Set(data.checked || []);
-
-        document.querySelectorAll('#serviceCheckList input[type="checkbox"]').forEach((input) => {
-          input.checked = checked.has(input.value);
-        });
-
-        syncChecklistUI();
-      } catch (err) {
-        console.error("Erro ao restaurar dados:", err);
-      }
-    }
-
-    function clearSaved() {
-      localStorage.removeItem(CONFIG.storageKey);
-
-      $("name").value = "";
-      $("phone").value = "";
-      $("email").value = "";
-      $("place").value = "";
-      $("measures").value = "";
-      $("deadline").value = "";
-      $("hasPhoto").value = "";
-      $("details").value = "";
-
-      document.querySelectorAll('#serviceCheckList input[type="checkbox"]').forEach((input) => {
-        input.checked = false;
-      });
-
-      syncChecklistUI();
-      showErrors([]);
-      updateSticky();
-      renderServices();
-    }
-
-    function updateSticky() {
-      const count = getSelectedServices().length;
-      $("stickySub").textContent = count === 0
-        ? "Marque os serviços e preencha para enviar"
-        : `${count} serviço(s) selecionado(s) — preencha e envie`;
-    }
-
-    function wireAutosave() {
-      ["name", "phone", "email", "place", "measures", "deadline", "hasPhoto", "details"].forEach((id) => {
-        const node = $(id);
-        node.addEventListener("input", persistFormDebounced);
-        node.addEventListener("change", persistFormDebounced);
-      });
-    }
-
-    function wireMenuActive() {
-      const links = Array.from(document.querySelectorAll(".topNav a"));
-      links.forEach((link) => {
-        link.addEventListener("click", () => {
-          links.forEach((l) => l.classList.remove("active"));
-          link.classList.add("active");
-        });
-      });
-    }
-
-    function initCompanyEmail() {
-      $("companyEmailText").textContent = CONFIG.companyEmail;
-      $("companyEmailLink").addEventListener("click", copyCompanyEmail);
-    }
-
-    function initBackToTop() {
-      const backToTop = $("backToTop");
-      if (!backToTop) return;
-
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 500) {
-          backToTop.classList.add("show");
-        } else {
-          backToTop.classList.remove("show");
-        }
-      });
-
-      backToTop.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
-    }
-
-    function init() {
-      $("year").textContent = String(new Date().getFullYear());
-
-      tryLoadLogo();
-      initHeroBackground();
-      initCompanyEmail();
-      initBackToTop();
-      renderTabs();
-      renderChecklist();
-      restoreForm();
-      renderServices();
-      renderGallery();
-      updateSticky();
-      wireAutosave();
-      wireMenuActive();
-
-      $("sendBtn").addEventListener("click", sendWhatsApp);
-      $("sendEmailBtn").addEventListener("click", sendByEmail);
-      $("clearSaved").addEventListener("click", clearSaved);
-
-      $("closeModal").addEventListener("click", closeModal);
-      $("useAsRef").addEventListener("click", useAsReference);
-      $("modal").addEventListener("click", (e) => {
-        if (e.target === $("modal")) closeModal();
-      });
-
-      $("openBudgetModal").addEventListener("click", openBudgetModal);
-      $("closeBudgetModal").addEventListener("click", closeBudgetModal);
-      $("budgetModal").addEventListener("click", (e) => {
-        if (e.target === $("budgetModal")) closeBudgetModal();
-      });
-
-      $("ctaHero").addEventListener("click", openBudgetModal);
-      $("stickyBudgetBtn").addEventListener("click", openBudgetModal);
-      $("topBudgetBtn").addEventListener("click", openBudgetModal);
-
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-          closeModal();
-          closeBudgetModal();
-        }
-      });
-    }
-
-    init();
-  </script>
+    <div class="wrap footerLinks">
+      <div class="footerCol">
+        <h4>Conheça a Metallmec</h4>
+        <a href="#quem-somos">Quem somos</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#projetos">Projetos realizados</a>
+        <a href="#parceiros">Parceiros</a>
+      </div>
+
+      <div class="footerCol">
+        <h4>Destaques</h4>
+        <a href="#inicio">Início</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#contato">Orçamento</a>
+        <a href="#servicos">Soluções sob medida</a>
+      </div>
+
+      <div class="footerCol">
+        <h4>Canais de contato</h4>
+        <a href="https://wa.me/5531983913499" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="mailto:contato@metallmec.com.br">E-mail</a>
+        <a href="#contato">Formulário de orçamento</a>
+      </div>
+
+      <div class="footerCol">
+        <h4>Área de atendimento</h4>
+        <a href="#">Matozinhos</a>
+        <a href="#">Belo Horizonte</a>
+        <a href="#">BH e região</a>
+      </div>
+    </div>
+
+    <div class="footerBottom">
+      <div class="wrap footerBottomInner">
+        <span>© <span id="year"></span> Metallmec Engenharia e Serviços. Todos os direitos reservados.</span>
+        <span>Site institucional Metallmec</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
 </body>
 </html>
