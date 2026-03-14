@@ -1212,3 +1212,17 @@ button,input,textarea{font:inherit}
   }
   .backToTop{bottom:76px}
 }
+/* remove o fundo/borda da seta dentro dos botões da hero */
+.heroButtons .ctaPrimary::after,
+.heroButtons .ctaSecondary::after,
+.heroButtons .ctaPrimary::before,
+.heroButtons .ctaSecondary::before{
+  display:none !important;
+  content:none !important;
+}
+
+/* caso a seta esteja em um span/icon separado */
+.heroButtons .ctaPrimary .icon,
+.heroButtons .ctaSecondary .icon,
+.heroButtons .ctaPrimary .arrow,
+.hero
