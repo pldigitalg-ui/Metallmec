@@ -1523,3 +1523,219 @@ details p{
     padding:5px 8px;
   }
 }
+/* =========================================
+   AJUSTE VISUAL METALLMEC - LOGO / CORES
+========================================= */
+
+/* paleta nova baseada na logo */
+:root{
+  --blue-logo:#4f6ff0;
+  --blue-logo-2:#5b78f2;
+  --blue-logo-3:#3459df;
+
+  --metal-silver:#dfe5ec;
+  --metal-silver-2:#bcc7d3;
+  --metal-silver-3:#8d9bab;
+
+  --fire:#ff6a00;
+  --fire-2:#ff8a1c;
+  --fire-soft:rgba(255,106,0,.18);
+
+  --gold:#ff8a1c;
+  --gold-2:#ff6a00;
+}
+
+/* remove botão do topo */
+#topBudgetBtn{
+  display:none !important;
+}
+
+/* remove botão da hero/foto principal */
+#ctaHero{
+  display:none !important;
+}
+
+/* deixa o topo mais alinhado sem o botão */
+.actions{
+  gap:0 !important;
+}
+
+.actions .pill{
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.04));
+  border:1px solid rgba(223,229,236,.18);
+  color:#ffffff;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.10),
+    0 10px 20px rgba(0,0,0,.12);
+}
+
+/* topo com azul da logo */
+.topbar{
+  background:
+    linear-gradient(180deg, rgba(43,66,166,.96), rgba(61,92,214,.92)) !important;
+  border-bottom:1px solid rgba(255,255,255,.10);
+}
+
+.topbar::before{
+  background:
+    linear-gradient(
+      90deg,
+      var(--fire) 0%,
+      var(--fire-2) 10%,
+      var(--metal-silver) 24%,
+      var(--blue-logo) 48%,
+      var(--blue-logo-2) 70%,
+      #6f88ff 100%
+    ) !important;
+}
+
+/* logo mais compatível com a marca */
+.logo{
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.18), rgba(255,255,255,.05)),
+    linear-gradient(145deg, #5f79f1, #395ae0) !important;
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.16),
+    0 16px 28px rgba(39,61,156,.28);
+}
+
+/* links do menu no azul da identidade */
+.topNav a::after{
+  background:linear-gradient(90deg, var(--metal-silver), #ffffff, var(--fire-2)) !important;
+}
+
+/* hero com azul da logo */
+.hero{
+  background:
+    linear-gradient(180deg, #4f6ff0 0%, #4465ea 35%, #3459df 100%) !important;
+}
+
+/* remove imagens de fundo antigas do CSS
+   porque seu hero agora deve seguir o JS / imagem principal */
+.heroMedia{
+  background-image:none !important;
+  background-color:#4f6ff0;
+  filter:brightness(.60) saturate(1.04) contrast(1.02);
+}
+
+.heroMedia::before,
+.heroMedia::after{
+  background-image:none !important;
+  display:none !important;
+}
+
+/* overlay com prata + fogo suave */
+.heroOverlay{
+  background:
+    linear-gradient(90deg, rgba(18,28,76,.58) 0%, rgba(35,52,130,.38) 34%, rgba(47,72,180,.22) 62%, rgba(47,72,180,.12) 100%) !important,
+    linear-gradient(180deg, rgba(255,255,255,.04) 0%, rgba(0,0,0,.18) 100%) !important,
+    radial-gradient(900px 400px at 12% 14%, rgba(255,255,255,.10), transparent 60%) !important,
+    radial-gradient(420px 200px at 88% 18%, var(--fire-soft), transparent 60%) !important;
+}
+
+/* barra da hero com fogo */
+.heroKicker::before{
+  background:linear-gradient(90deg, var(--fire), var(--fire-2), #ffd2a3) !important;
+  box-shadow:0 0 24px rgba(255,106,0,.34);
+}
+
+/* badges da hero com prata metálico */
+.badgeMetal{
+  background:
+    linear-gradient(145deg, rgba(223,229,236,.34), rgba(255,255,255,.12)) !important;
+  border:1px solid rgba(255,255,255,.18) !important;
+  color:#ffffff;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.10),
+    0 10px 24px rgba(0,0,0,.10);
+}
+
+/* botões principais em azul da logo */
+.btn.primary{
+  background:linear-gradient(135deg, var(--blue-logo) 0%, var(--blue-logo-2) 52%, var(--blue-logo-3) 100%) !important;
+  border-color:rgba(79,111,240,.26) !important;
+  box-shadow:0 18px 34px rgba(52,89,223,.26) !important;
+}
+
+/* hover dos principais com leve fogo */
+.btn.primary:hover{
+  box-shadow:
+    0 18px 34px rgba(52,89,223,.26),
+    0 0 0 1px rgba(255,106,0,.14),
+    0 0 24px rgba(255,106,0,.16) !important;
+}
+
+/* tabs ativas no azul novo */
+.tab.active{
+  background:linear-gradient(135deg, var(--blue-logo), var(--blue-logo-3)) !important;
+  border-color:rgba(79,111,240,.24) !important;
+  box-shadow:0 14px 28px rgba(52,89,223,.18) !important;
+}
+
+/* cards com detalhe metálico */
+.card::before{
+  background:
+    linear-gradient(
+      90deg,
+      var(--fire-2) 0%,
+      var(--metal-silver) 22%,
+      var(--blue-logo) 58%,
+      #7d93ff 100%
+    ) !important;
+}
+
+/* cards e blocos com leve prata */
+.card,
+.service,
+.tCard,
+details,
+.modalCard{
+  border-color:rgba(141,155,171,.16) !important;
+}
+
+/* pílulas internas dos serviços */
+.service .pill{
+  background:linear-gradient(145deg, #eef3f8, #d8e1ea) !important;
+  border:1px solid rgba(141,155,171,.22) !important;
+  color:#314455 !important;
+}
+
+/* galeria com detalhe azul/logo */
+.gCap span{
+  color:var(--blue-logo-3) !important;
+}
+
+/* estrelas / detalhes quentes */
+.stars{
+  color:var(--fire-2) !important;
+}
+
+/* whatsapp pode continuar verde, mas com sombra mais alinhada */
+.waFloat a{
+  box-shadow:
+    0 22px 40px rgba(21,128,61,.28),
+    0 0 0 1px rgba(255,255,255,.10);
+}
+
+/* sticky mais na identidade visual */
+.stickyCta .bar{
+  background:
+    linear-gradient(135deg, rgba(50,76,186,.96), rgba(33,52,132,.94)) !important;
+  border:1px solid rgba(223,229,236,.12) !important;
+}
+
+/* FAQ / detalhes ativos visualmente mais premium */
+details{
+  background:
+    linear-gradient(180deg, #ffffff, #fbfcff) !important;
+}
+
+/* inputs focados no azul da logo */
+.field input:focus,
+.field textarea:focus,
+.field select:focus{
+  border-color:rgba(79,111,240,.45) !important;
+  box-shadow:0 0 0 4px rgba(79,111,240,.12) !important;
+}
