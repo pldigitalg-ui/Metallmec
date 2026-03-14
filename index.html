@@ -9,10 +9,9 @@
     name="description"
     content="Metallmec Engenharia e Serviços em Belo Horizonte e região. Soluções metálicas sob medida para residências, empresas e obras. Orçamento rápido no WhatsApp."
   />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/styles.css" />
 
   <style>
-    /* override leve sem mexer na estrutura */
     .thumb{
       width:174px !important;
       height:174px !important;
@@ -66,6 +65,7 @@
         <a href="#portfolio">Portfólio</a>
         <a href="#depoimentos">Depoimentos</a>
         <a href="#faq">Contato</a>
+        <a href="#contatoEmailSec">E-mail</a>
       </nav>
 
       <div class="actions">
@@ -76,7 +76,7 @@
   </header>
 
   <section class="hero" id="inicio" aria-label="Apresentação">
-    <div class="heroMedia"></div>
+    <div class="heroMedia" id="heroMedia"></div>
     <div class="heroOverlay"></div>
 
     <div class="heroInner">
@@ -254,12 +254,51 @@
           <p>Sim. Projetos sob medida para residências, empresas e obras: portões, grades, escadas, coberturas e estruturas metálicas.</p>
         </details>
       </div>
+    </section>
+
+    <section class="section card" id="contatoEmailSec" aria-label="Contato por e-mail">
+      <h2>Contato por e-mail</h2>
+      <p class="subline">Preencha abaixo para abrir seu aplicativo de e-mail com a mensagem pronta.</p>
+
+      <div class="form">
+        <div class="two">
+          <div class="field">
+            <label for="contactEmailName">Seu nome</label>
+            <input id="contactEmailName" type="text" placeholder="Ex: Paulo Roberto" />
+          </div>
+
+          <div class="field">
+            <label for="contactEmailReply">Seu e-mail</label>
+            <input id="contactEmailReply" type="email" placeholder="Ex: seuemail@gmail.com" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="contactEmailSubject">Assunto</label>
+          <input id="contactEmailSubject" type="text" placeholder="Ex: Solicitação de orçamento" />
+        </div>
+
+        <div class="field">
+          <label for="contactEmailMessage">Mensagem</label>
+          <textarea id="contactEmailMessage" placeholder="Descreva aqui o serviço que você precisa."></textarea>
+        </div>
+
+        <div class="heroCTAs">
+          <button class="btn primary" id="sendEmailBtn" type="button">Enviar por e-mail</button>
+          <a class="btn ghost" id="companyEmailLink" href="#">Copiar e-mail da empresa</a>
+        </div>
+
+        <div class="footerBar">
+          <span><b>E-mail:</b> <span id="companyEmailText">contato@seudominio.com.br</span></span>
+          <span><b>Resposta:</b> horário comercial</span>
+        </div>
+      </div>
 
       <div class="divider"></div>
 
       <div class="footerBar">
         <span>© <span id="year"></span> Metallmec Engenharia e Serviços</span>
-        <span>Orçamentos pelo WhatsApp</span>
+        <span>Orçamentos pelo WhatsApp e por e-mail</span>
       </div>
     </section>
   </main>
@@ -343,16 +382,20 @@
 
             <div class="two">
               <div class="field">
-                <label for="place">Cidade / Bairro *</label>
-                <input id="place" placeholder="Ex: BH - Barreiro" />
+                <label for="email">Seu e-mail</label>
+                <input id="email" type="email" placeholder="Ex: seuemail@gmail.com" autocomplete="email" />
               </div>
               <div class="field">
-                <label for="measures">Medidas (se tiver)</label>
-                <input id="measures" placeholder="Ex: 2,40m x 1,80m" />
+                <label for="place">Cidade / Bairro *</label>
+                <input id="place" placeholder="Ex: BH - Barreiro" />
               </div>
             </div>
 
             <div class="two">
+              <div class="field">
+                <label for="measures">Medidas (se tiver)</label>
+                <input id="measures" placeholder="Ex: 2,40m x 1,80m" />
+              </div>
               <div class="field">
                 <label for="deadline">Prazo *</label>
                 <select id="deadline">
@@ -363,15 +406,15 @@
                   <option value="Urgente (explicar)">Urgente (explicar)</option>
                 </select>
               </div>
+            </div>
 
-              <div class="field">
-                <label for="hasPhoto">Tenho foto do projeto? *</label>
-                <select id="hasPhoto">
-                  <option value="">Selecione…</option>
-                  <option value="Sim">Sim</option>
-                  <option value="Não">Não</option>
-                </select>
-              </div>
+            <div class="field">
+              <label for="hasPhoto">Tenho foto do projeto? *</label>
+              <select id="hasPhoto">
+                <option value="">Selecione…</option>
+                <option value="Sim">Sim</option>
+                <option value="Não">Não</option>
+              </select>
             </div>
 
             <div class="field">
@@ -402,7 +445,13 @@
       company: "Metallmec Engenharia e Serviços",
       cityLine: "Belo Horizonte - MG",
       whatsappNumber: "553183913499",
-      logoFile: "logo-as.png",
+      companyEmail: "contato@seudominio.com.br",
+      logoFile: "imagem/logo-as.png",
+      heroImages: [
+        "imagem/hero-1.jpg",
+        "imagem/hero-2.jpg",
+        "imagem/hero-3.jpg"
+      ],
       storageKey: "metallmec_site_empresa_grande_v1"
     };
 
@@ -410,56 +459,58 @@
       {
         cat: "Portões",
         items: [
-          { id: "p1", name: "Portão", desc: "Fabricação e instalação sob medida.", thumb: "serv-portao.jpg" },
-          { id: "p2", name: "Portão social", desc: "Entrada social com acabamento profissional.", thumb: "serv-social.jpg" }
+          { id: "p1", name: "Portão", desc: "Fabricação e instalação sob medida.", thumb: "imagem/serv-portao.jpg" },
+          { id: "p2", name: "Portão social", desc: "Entrada social com acabamento profissional.", thumb: "imagem/serv-social.jpg" }
         ]
       },
       {
         cat: "Grades",
         items: [
-          { id: "g1", name: "Grade", desc: "Proteção residencial e comercial.", thumb: "serv-grade.jpg" },
-          { id: "g2", name: "Grade comercial", desc: "Segurança para lojas e empresas.", thumb: "serv-grade-comercial.jpg" }
+          { id: "g1", name: "Grade", desc: "Proteção residencial e comercial.", thumb: "imagem/serv-grade.jpg" },
+          { id: "g2", name: "Grade comercial", desc: "Segurança para lojas e empresas.", thumb: "imagem/serv-grade-comercial.jpg" }
         ]
       },
       {
         cat: "Estruturas",
         items: [
-          { id: "e1", name: "Estrutura metálica", desc: "Obras médias, reforços e montagem.", thumb: "serv-estrutura.jpg" },
-          { id: "e2", name: "Escada / guarda-corpo", desc: "Escadas metálicas, corrimão e guarda-corpo.", thumb: "serv-escada.jpg" }
+          { id: "e1", name: "Estrutura metálica", desc: "Obras médias, reforços e montagem.", thumb: "imagem/serv-estrutura.jpg" },
+          { id: "e2", name: "Escada / guarda-corpo", desc: "Escadas metálicas, corrimão e guarda-corpo.", thumb: "imagem/serv-escada.jpg" }
         ]
       },
       {
         cat: "Coberturas",
         items: [
-          { id: "c1", name: "Cobertura", desc: "Estrutura metálica para cobertura.", thumb: "serv-cobertura.jpg" },
-          { id: "c2", name: "Cobertura (variação)", desc: "Conforme necessidade e projeto.", thumb: "serv-cobertura2.jpg" }
+          { id: "c1", name: "Cobertura", desc: "Estrutura metálica para cobertura.", thumb: "imagem/serv-cobertura.jpg" },
+          { id: "c2", name: "Cobertura (variação)", desc: "Conforme necessidade e projeto.", thumb: "imagem/serv-cobertura2.jpg" }
         ]
       },
       {
         cat: "Sob medida",
         items: [
-          { id: "s1", name: "Serviço personalizado", desc: "Você manda foto ou referência e a gente executa.", thumb: "serv-personalizado.jpg" }
+          { id: "s1", name: "Serviço personalizado", desc: "Você manda foto ou referência e a gente executa.", thumb: "imagem/serv-personalizado.jpg" }
         ]
       }
     ];
 
     const PORTFOLIO = [
-      { src: "obra-01as.jpg", title: "Portão premium (residencial)" },
-      { src: "obra-02as.jpg", title: "Grade (residencial)" },
-      { src: "obra-03as.jpg", title: "Escada / guarda-corpo" },
-      { src: "obra-04.jpg", title: "Cobertura" },
-      { src: "obra-05.jpg", title: "Estrutura metálica (obra)" },
-      { src: "obra-06.jpg", title: "Grade comercial" }
+      { src: "imagem/obra-01as.jpg", title: "Portão premium (residencial)" },
+      { src: "imagem/obra-02as.jpg", title: "Grade (residencial)" },
+      { src: "imagem/obra-03as.jpg", title: "Escada / guarda-corpo" },
+      { src: "imagem/obra-04.jpg", title: "Cobertura" },
+      { src: "imagem/obra-05.jpg", title: "Estrutura metálica (obra)" },
+      { src: "imagem/obra-06.jpg", title: "Grade comercial" }
     ];
 
     const $ = (id) => document.getElementById(id);
 
     const state = {
       cat: "Todos",
-      modalIndex: null
+      modalIndex: null,
+      heroIndex: 0
     };
 
     let saveTimer = null;
+    let heroTimer = null;
 
     function escapeHtml(str) {
       return String(str ?? "").replace(/[&<>"']/g, (s) => ({
@@ -484,6 +535,38 @@
         img.style.display = "none";
         txt.style.display = "block";
       };
+    }
+
+    function initHeroBackground() {
+      const hero = $("heroMedia");
+      if (!hero || !CONFIG.heroImages?.length) return;
+
+      function applyHero(index) {
+        const src = CONFIG.heroImages[index];
+        const test = new Image();
+
+        test.onload = () => {
+          hero.style.backgroundImage = `url("${src}")`;
+          hero.style.backgroundSize = "cover";
+          hero.style.backgroundPosition = "center";
+          hero.style.backgroundRepeat = "no-repeat";
+        };
+
+        test.onerror = () => {
+          hero.style.background = "linear-gradient(135deg, #0c2030, #18364d)";
+        };
+
+        test.src = src;
+      }
+
+      applyHero(state.heroIndex);
+
+      if (CONFIG.heroImages.length > 1) {
+        heroTimer = setInterval(() => {
+          state.heroIndex = (state.heroIndex + 1) % CONFIG.heroImages.length;
+          applyHero(state.heroIndex);
+        }, 5000);
+      }
     }
 
     function getAllCats() {
@@ -730,6 +813,7 @@
     function buildWhatsAppMessage() {
       const name = $("name").value.trim();
       const phone = $("phone").value.trim();
+      const email = $("email").value.trim();
       const place = $("place").value.trim();
       const measures = $("measures").value.trim();
       const deadline = $("deadline").value;
@@ -742,6 +826,7 @@
       return `*ORÇAMENTO - ${CONFIG.company}*
 *Nome:* ${name}
 *Telefone:* ${phone}
+*E-mail:* ${email || "(não informado)"}
 *Local:* ${place}
 *Medidas:* ${measures || "(não informado)"}
 *Prazo:* ${deadline}
@@ -797,10 +882,40 @@ ${servicesBlock}
       window.open(url, "_blank");
     }
 
+    function sendByEmail() {
+      const name = $("contactEmailName").value.trim();
+      const replyEmail = $("contactEmailReply").value.trim();
+      const subject = $("contactEmailSubject").value.trim() || "Contato pelo site";
+      const message = $("contactEmailMessage").value.trim();
+
+      const body = [
+        `Nome: ${name || "(não informado)"}`,
+        `E-mail de retorno: ${replyEmail || "(não informado)"}`,
+        ``,
+        `Mensagem:`,
+        `${message || "(sem mensagem)"}`
+      ].join("\n");
+
+      const url = `mailto:${encodeURIComponent(CONFIG.companyEmail)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = url;
+    }
+
+    async function copyCompanyEmail(e) {
+      e.preventDefault();
+
+      try {
+        await navigator.clipboard.writeText(CONFIG.companyEmail);
+        alert("E-mail da empresa copiado.");
+      } catch {
+        alert("Não foi possível copiar automaticamente. Use este e-mail: " + CONFIG.companyEmail);
+      }
+    }
+
     function persistForm() {
       const data = {
         name: $("name").value,
         phone: $("phone").value,
+        email: $("email").value,
         place: $("place").value,
         measures: $("measures").value,
         deadline: $("deadline").value,
@@ -826,6 +941,7 @@ ${servicesBlock}
 
         $("name").value = data.name || "";
         $("phone").value = data.phone || "";
+        $("email").value = data.email || "";
         $("place").value = data.place || "";
         $("measures").value = data.measures || "";
         $("deadline").value = data.deadline || "";
@@ -849,6 +965,7 @@ ${servicesBlock}
 
       $("name").value = "";
       $("phone").value = "";
+      $("email").value = "";
       $("place").value = "";
       $("measures").value = "";
       $("deadline").value = "";
@@ -873,7 +990,7 @@ ${servicesBlock}
     }
 
     function wireAutosave() {
-      ["name", "phone", "place", "measures", "deadline", "hasPhoto", "details"].forEach((id) => {
+      ["name", "phone", "email", "place", "measures", "deadline", "hasPhoto", "details"].forEach((id) => {
         const node = $(id);
         node.addEventListener("input", persistFormDebounced);
         node.addEventListener("change", persistFormDebounced);
@@ -890,10 +1007,17 @@ ${servicesBlock}
       });
     }
 
+    function initCompanyEmail() {
+      $("companyEmailText").textContent = CONFIG.companyEmail;
+      $("companyEmailLink").addEventListener("click", copyCompanyEmail);
+    }
+
     function init() {
       $("year").textContent = String(new Date().getFullYear());
 
       tryLoadLogo();
+      initHeroBackground();
+      initCompanyEmail();
       renderTabs();
       renderChecklist();
       restoreForm();
@@ -904,6 +1028,7 @@ ${servicesBlock}
       wireMenuActive();
 
       $("sendBtn").addEventListener("click", sendWhatsApp);
+      $("sendEmailBtn").addEventListener("click", sendByEmail);
       $("clearSaved").addEventListener("click", clearSaved);
 
       $("closeModal").addEventListener("click", closeModal);
