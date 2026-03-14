@@ -15,13 +15,13 @@
     },
     {
       img: "img/hero-3.jpg",
-      title: "Montagem, reforço e instalação com padrão de empresa grande",
-      desc: "A Metallmec entrega projetos com presença, organização e acabamento alinhado."
+      title: "Montagem, reforço e instalação com padrão institucional",
+      desc: "A Metallmec entrega projetos com presença, organização, acabamento e linguagem de empresa grande."
     },
     {
       img: "img/hero-4.jpg",
       title: "Atendimento para obras, empresas e demandas especiais",
-      desc: "Estruturas metálicas sob medida com foco em funcionalidade e confiança na execução."
+      desc: "Estruturas metálicas sob medida com foco em funcionalidade, confiança e resistência."
     },
     {
       img: "img/hero-5.jpg",
@@ -31,46 +31,14 @@
   ];
 
   const PROJECTS = [
-    {
-      img: "img/projeto-1.jpg",
-      title: "Portão residencial premium",
-      desc: "Projeto com presença visual forte, estrutura reforçada e acabamento profissional."
-    },
-    {
-      img: "img/projeto-2.jpg",
-      title: "Grade de proteção sob medida",
-      desc: "Solução funcional para segurança residencial com visual limpo e robusto."
-    },
-    {
-      img: "img/projeto-3.jpg",
-      title: "Cobertura metálica",
-      desc: "Execução com alinhamento técnico, resistência e boa leitura arquitetônica."
-    },
-    {
-      img: "img/projeto-4.jpg",
-      title: "Escada e guarda-corpo",
-      desc: "Estrutura pensada para segurança, estética e durabilidade."
-    },
-    {
-      img: "img/projeto-5.jpg",
-      title: "Fechamento comercial",
-      desc: "Projeto para empresas com foco em segurança e presença profissional."
-    },
-    {
-      img: "img/projeto-6.jpg",
-      title: "Estrutura para obra",
-      desc: "Montagem metálica para reforço, apoio e execução em campo."
-    },
-    {
-      img: "img/projeto-7.jpg",
-      title: "Portão social e acesso",
-      desc: "Leitura visual elegante com fabricação sob medida para o cliente."
-    },
-    {
-      img: "img/projeto-8.jpg",
-      title: "Projeto metálico personalizado",
-      desc: "Solução especial desenvolvida conforme necessidade real da obra."
-    }
+    { img: "img/projeto-1.jpg", title: "Portão residencial premium", desc: "Projeto com presença visual forte, estrutura reforçada e acabamento profissional." },
+    { img: "img/projeto-2.jpg", title: "Grade de proteção sob medida", desc: "Solução funcional para segurança residencial com visual limpo e robusto." },
+    { img: "img/projeto-3.jpg", title: "Cobertura metálica", desc: "Execução com alinhamento técnico, resistência e boa leitura arquitetônica." },
+    { img: "img/projeto-4.jpg", title: "Escada e guarda-corpo", desc: "Estrutura pensada para segurança, estética e durabilidade." },
+    { img: "img/projeto-5.jpg", title: "Fechamento comercial", desc: "Projeto para empresas com foco em segurança e presença profissional." },
+    { img: "img/projeto-6.jpg", title: "Estrutura para obra", desc: "Montagem metálica para reforço, apoio e execução em campo." },
+    { img: "img/projeto-7.jpg", title: "Portão social e acesso", desc: "Leitura visual elegante com fabricação sob medida para o cliente." },
+    { img: "img/projeto-8.jpg", title: "Projeto metálico personalizado", desc: "Solução especial desenvolvida conforme necessidade real da obra." }
   ];
 
   const WHATSAPP = "5531983913499";
@@ -78,6 +46,14 @@
 
   const year = $("#year");
   if (year) year.textContent = new Date().getFullYear();
+
+  const topbar = $("#topbar");
+  function updateHeader() {
+    if (!topbar) return;
+    topbar.classList.toggle("scrolled", window.scrollY > 80);
+  }
+  updateHeader();
+  window.addEventListener("scroll", updateHeader, { passive: true });
 
   // mobile menu
   const menuToggle = $("#menuToggle");
@@ -92,7 +68,7 @@
     });
   }
 
-  // hero render
+  // hero
   const heroTrack = $("#heroTrack");
   const heroDots = $("#heroDots");
   const heroTitle = $("#heroTitle");
@@ -116,11 +92,11 @@
       <button class="heroDot ${i === 0 ? "active" : ""}" data-index="${i}" type="button" aria-label="Ir para slide ${i + 1}"></button>
     `).join("");
 
-    updateHeroText();
     bindHeroDots();
+    updateHero();
   }
 
-  function updateHeroText() {
+  function updateHero() {
     const slides = $$(".heroSlide", heroTrack);
     const dots = $$(".heroDot", heroDots);
 
@@ -135,7 +111,7 @@
     $$(".heroDot", heroDots).forEach((dot) => {
       dot.addEventListener("click", () => {
         heroIndex = Number(dot.dataset.index);
-        updateHeroText();
+        updateHero();
         restartHeroTimer();
       });
     });
@@ -143,16 +119,16 @@
 
   function nextHero() {
     heroIndex = (heroIndex + 1) % HERO_SLIDES.length;
-    updateHeroText();
+    updateHero();
   }
 
   function prevHero() {
     heroIndex = (heroIndex - 1 + HERO_SLIDES.length) % HERO_SLIDES.length;
-    updateHeroText();
+    updateHero();
   }
 
   function startHeroTimer() {
-    heroTimer = setInterval(nextHero, 6000);
+    heroTimer = setInterval(nextHero, 6500);
   }
 
   function restartHeroTimer() {
@@ -166,7 +142,7 @@
   renderHero();
   startHeroTimer();
 
-  // projects render - 4 slides, each slide 2 cards = 8 projects
+  // projects
   const projectTrack = $("#projectTrack");
   const projectIndicators = $("#projectIndicators");
   const projectPrev = $("#projectPrev");
@@ -205,7 +181,6 @@
 
   function updateProjects() {
     if (!projectTrack) return;
-
     projectTrack.style.transform = `translateX(-${projectIndex * 100}%)`;
 
     $$(".projectIndicator", projectIndicators).forEach((dot, i) => {
@@ -238,7 +213,7 @@
 
   renderProjects();
 
-  // menu active on scroll
+  // active menu
   const menuLinks = $$(".navMenu a, .mobileMenu a");
   const sections = ["inicio", "quem-somos", "servicos", "projetos", "parceiros", "depoimentos", "contato"]
     .map((id) => document.getElementById(id))
@@ -284,15 +259,16 @@
   }
 
   // form helpers
-  function buildMessage(data) {
-    return `Olá! Vim pelo site da Metallmec.%0A%0A` +
-      `Nome: ${data.name || "-"}%0A` +
-      `E-mail: ${data.email || "-"}%0A` +
-      `WhatsApp: ${data.phone || "-"}%0A` +
-      `Cidade/Bairro: ${data.place || "-"}%0A` +
-      `Serviço: ${data.service || "-"}%0A` +
-      `Medidas: ${data.measures || "-"}%0A` +
-      `Mensagem: ${data.message || "-"}`;
+  function buildWhatsappText(data) {
+    return `Olá! Vim pelo site da Metallmec.
+
+Nome: ${data.name || "-"}
+E-mail: ${data.email || "-"}
+WhatsApp: ${data.phone || "-"}
+Cidade/Bairro: ${data.place || "-"}
+Serviço: ${data.service || "-"}
+Medidas: ${data.measures || "-"}
+Mensagem: ${data.message || "-"}`;
   }
 
   function getMainFormData() {
@@ -320,7 +296,7 @@
   }
 
   function sendWhatsapp(data) {
-    const url = `https://wa.me/${WHATSAPP}?text=${buildMessage(data)}`;
+    const url = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(buildWhatsappText(data))}`;
     window.open(url, "_blank");
   }
 
@@ -334,6 +310,7 @@ Cidade/Bairro: ${data.place || "-"}
 Serviço: ${data.service || "-"}
 Medidas: ${data.measures || "-"}
 Mensagem: ${data.message || "-"}`;
+
     window.location.href = `mailto:${COMPANY_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }
 
