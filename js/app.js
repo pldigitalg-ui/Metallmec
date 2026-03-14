@@ -47,28 +47,47 @@
   const year = $("#year");
   if (year) year.textContent = new Date().getFullYear();
 
+  // =========================
+  // HEADER
+  // =========================
   const topbar = $("#topbar");
+
   function updateHeader() {
     if (!topbar) return;
     topbar.classList.toggle("scrolled", window.scrollY > 80);
   }
+
   updateHeader();
   window.addEventListener("scroll", updateHeader, { passive: true });
 
-  // mobile menu
+  // =========================
+  // MOBILE MENU
+  // =========================
   const menuToggle = $("#menuToggle");
   const mobileMenu = $("#mobileMenu");
+
   if (menuToggle && mobileMenu) {
-    menuToggle.addEventListener("click", () => {
+    menuToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
       mobileMenu.classList.toggle("show");
     });
 
     $$("a", mobileMenu).forEach((link) => {
       link.addEventListener("click", () => mobileMenu.classList.remove("show"));
     });
+
+    document.addEventListener("click", (e) => {
+      const clickedInsideMenu = mobileMenu.contains(e.target);
+      const clickedToggle = menuToggle.contains(e.target);
+      if (!clickedInsideMenu && !clickedToggle) {
+        mobileMenu.classList.remove("show");
+      }
+    });
   }
 
-  // hero
+  // =========================
+  // HERO
+  // =========================
   const heroTrack = $("#heroTrack");
   const heroDots = $("#heroDots");
   const heroTitle = $("#heroTitle");
@@ -84,7 +103,7 @@
 
     heroTrack.innerHTML = HERO_SLIDES.map((slide, i) => `
       <div class="heroSlide ${i === 0 ? "active" : ""}" data-index="${i}">
-        <img src="${slide.img}" alt="${slide.title}">
+        <img src="${slide.img}" alt="${slide.title}" ${i === 0 ? 'fetchpriority="high" decoding="async"' : 'loading="lazy" decoding="async"'}>
       </div>
     `).join("");
 
@@ -128,11 +147,11 @@
   }
 
   function startHeroTimer() {
+    clearInterval(heroTimer);
     heroTimer = setInterval(nextHero, 6500);
   }
 
   function restartHeroTimer() {
-    clearInterval(heroTimer);
     startHeroTimer();
   }
 
@@ -142,7 +161,9 @@
   renderHero();
   startHeroTimer();
 
-  // projects
+  // =========================
+  // PROJECTS
+  // =========================
   const projectTrack = $("#projectTrack");
   const projectIndicators = $("#projectIndicators");
   const projectPrev = $("#projectPrev");
@@ -161,7 +182,7 @@
       <div class="projectSlide">
         ${page.map((item) => `
           <article class="projectCard">
-            <img src="${item.img}" alt="${item.title}">
+            <img src="${item.img}" alt="${item.title}" loading="lazy" decoding="async">
             <div class="projectCardContent">
               <h3>${item.title}</h3>
               <p>${item.desc}</p>
@@ -181,6 +202,7 @@
 
   function updateProjects() {
     if (!projectTrack) return;
+
     projectTrack.style.transform = `translateX(-${projectIndex * 100}%)`;
 
     $$(".projectIndicator", projectIndicators).forEach((dot, i) => {
@@ -213,7 +235,9 @@
 
   renderProjects();
 
-  // active menu
+  // =========================
+  // ACTIVE MENU
+  // =========================
   const menuLinks = $$(".navMenu a, .mobileMenu a");
   const sections = ["inicio", "quem-somos", "servicos", "projetos", "parceiros", "depoimentos", "contato"]
     .map((id) => document.getElementById(id))
@@ -236,12 +260,16 @@
   window.addEventListener("scroll", updateActiveMenu, { passive: true });
   updateActiveMenu();
 
-  // back to top
+  // =========================
+  // BACK TO TOP
+  // =========================
   const backToTop = $("#backToTop");
+
   function updateBackToTop() {
     if (!backToTop) return;
     backToTop.classList.toggle("show", window.scrollY > 500);
   }
+
   window.addEventListener("scroll", updateBackToTop, { passive: true });
   updateBackToTop();
 
@@ -251,14 +279,19 @@
     });
   }
 
-  // float whatsapp
+  // =========================
+  // FLOAT WHATS
+  // =========================
   const floatWhats = $("#floatWhats");
+
   if (floatWhats) {
     const msg = `Olá! Vim pelo site da Metallmec e quero solicitar um orçamento.`;
     floatWhats.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
   }
 
-  // form helpers
+  // =========================
+  // FORM HELPERS
+  // =========================
   function buildWhatsappText(data) {
     return `Olá! Vim pelo site da Metallmec.
 
@@ -325,9 +358,12 @@ Mensagem: ${data.message || "-"}`;
     sendEmailBtn.addEventListener("click", () => sendEmail(getMainFormData()));
   }
 
-  // modal
+  // =========================
+  // MODAL
+  // =========================
   const budgetModal = $("#budgetModal");
   const openBudgetModal = $("#openBudgetModal");
+  const openBudgetModalTop = $("#openBudgetModalTop");
   const closeBudgetModal = $("#closeBudgetModal");
   const modalWhatsapp = $("#modalWhatsapp");
   const modalEmail = $("#modalEmail");
@@ -345,6 +381,7 @@ Mensagem: ${data.message || "-"}`;
   }
 
   if (openBudgetModal) openBudgetModal.addEventListener("click", openModal);
+  if (openBudgetModalTop) openBudgetModalTop.addEventListener("click", openModal);
   if (closeBudgetModal) closeBudgetModal.addEventListener("click", closeModal);
 
   if (budgetModal) {
@@ -363,5 +400,20 @@ Mensagem: ${data.message || "-"}`;
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeModal();
+  });
+
+  // =========================
+  // OTIMIZAÇÃO DE CARREGAMENTO
+  // =========================
+  window.addEventListener("load", () => {
+    document.body.classList.add("site-loaded");
+  });
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      clearInterval(heroTimer);
+    } else {
+      startHeroTimer();
+    }
   });
 })();
