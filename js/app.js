@@ -4,22 +4,22 @@
 
   const HERO_SLIDES = [
     {
-      img: "img/herói-1.jpg",
+      img: "img/hero-1.jpg",
       title: "Caldeiraria, fabricação e montagem industrial com padrão técnico",
       desc: "Soluções metálicas para empresas e indústrias com foco em estrutura, qualidade, segurança e execução profissional."
     },
     {
-      img: "img/herói-2.jpg",
+      img: "img/hero-2.jpg",
       title: "Estruturas metálicas e fabricação sob medida para diferentes demandas industriais",
       desc: "Projetos com leitura técnica, resistência e alinhamento ao escopo real da operação."
     },
     {
-      img: "img/herói-3.jpg",
+      img: "img/hero-3.jpg",
       title: "Montagem, manutenção e soluções metálicas com presença institucional",
       desc: "Atendimento para fabricação, adequação e serviços industriais com padrão profissional."
     },
     {
-      img: "img/herói-5.jpg",
+      img: "img/hero-5.jpg",
       title: "Projetos industriais com mais organização, segurança e confiabilidade",
       desc: "Cada serviço é desenvolvido para unir desempenho, resistência e leitura técnica."
     }
@@ -27,6 +27,8 @@
 
   const WHATSAPP = "5531983913499";
   const COMPANY_EMAIL = "contato@metallmec.com.br";
+  const INSTAGRAM_URL = "https://instagram.com/metallmec_eng";
+  const FACEBOOK_URL = "https://facebook.com/";
 
   let heroIndex = 0;
   let heroTimer = null;
@@ -400,6 +402,8 @@ Detalhes: ${data.message || "-"}`;
     ========================= */
     const footerWhatsapp = $("#footerWhatsapp");
     const footerEmail = $("#footerEmail");
+    const footerInstagram = $("#footerInstagram");
+    const footerFacebook = $("#footerFacebook");
 
     if (footerWhatsapp) {
       const msg = "Olá! Vim pelo site da Metallmec e quero solicitar um orçamento.";
@@ -413,6 +417,45 @@ Detalhes: ${data.message || "-"}`;
       if (!footerEmail.textContent.trim()) {
         footerEmail.textContent = COMPANY_EMAIL;
       }
+    }
+
+    if (footerInstagram) {
+      footerInstagram.href = INSTAGRAM_URL;
+      footerInstagram.target = "_blank";
+      footerInstagram.rel = "noopener noreferrer";
+    }
+
+    if (footerFacebook) {
+      footerFacebook.href = FACEBOOK_URL;
+      footerFacebook.target = "_blank";
+      footerFacebook.rel = "noopener noreferrer";
+    }
+
+    /* =========================
+       BOTÕES FLUTUANTES
+    ========================= */
+    const floatWhats = $("#floatWhats");
+    const backToTop = $("#backToTop");
+
+    if (floatWhats) {
+      const msg = "Olá! Vim pelo site da Metallmec e quero solicitar um orçamento.";
+      floatWhats.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+      floatWhats.target = "_blank";
+      floatWhats.rel = "noopener noreferrer";
+    }
+
+    function updateBackToTop() {
+      if (!backToTop) return;
+      backToTop.classList.toggle("show", window.scrollY > window.innerHeight * 0.35);
+    }
+
+    if (backToTop) {
+      updateBackToTop();
+      window.addEventListener("scroll", updateBackToTop, { passive: true });
+
+      backToTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
     }
 
     /* =========================
