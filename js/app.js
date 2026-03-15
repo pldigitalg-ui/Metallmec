@@ -32,21 +32,83 @@
 
   let heroIndex = 0;
   let heroTimer = null;
+  let touchStartX = 0;
+  let touchEndX = 0;
 
   function init() {
     const body = document.body;
 
+    const year = $("#year");
+    const topbar = $("#topbar");
+    const menuToggle = $("#menuToggle");
+    const mobileMenu = $("#mobileMenu");
+
+    const heroTrack = $("#heroTrack");
+    const heroDots = $("#heroDots");
+    const heroTitle = $("#heroTitle");
+    const heroDesc = $("#heroDesc");
+    const heroPrev = $("#heroPrev");
+    const heroNext = $("#heroNext");
+    const heroSlider = $("#heroSlider");
+
+    const portfolioCards = $$(".portfolioCard");
+    const portfolioLightbox = $("#portfolioLightbox");
+    const lightboxImage = $("#lightboxImage");
+    const lightboxClose = $("#lightboxClose");
+    const lightboxBackdrop = $("#lightboxBackdrop");
+    const lightboxDialog = $(".lightboxDialog", portfolioLightbox);
+
+    const budgetModal = $("#budgetModal");
+    const budgetModalBackdrop = $("#budgetModalBackdrop");
+    const closeBudgetModal = $("#closeBudgetModal");
+    const sendModalWhatsapp = $("#sendModalWhatsapp");
+    const openModalButtons = $$(".openModalBtn");
+
+    const footerWhatsapp = $("#footerWhatsapp");
+    const footerEmail = $("#footerEmail");
+    const footerInstagram = $("#footerInstagram");
+    const footerFacebook = $("#footerFacebook");
+
+    const floatWhats = $("#floatWhats");
+    const backToTop = $("#backToTop");
+
+    const mapFrame = $(".mapBox iframe");
+
+    /* =========================
+       HELPERS
+    ========================= */
+    function setBodyLocked(locked) {
+      body.style.overflow = locked ? "hidden" : "";
+    }
+
+    function isModalOpen() {
+      return !!budgetModal && budgetModal.classList.contains("show");
+    }
+
+    function isLightboxOpen() {
+      return !!portfolioLightbox && portfolioLightbox.classList.contains("show");
+    }
+
+    function syncBodyScrollState() {
+      setBodyLocked(isModalOpen() || isLightboxOpen());
+    }
+
+    function buildWhatsappUrl(text) {
+      return `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
+    }
+
+    function openWhatsapp(text) {
+      window.open(buildWhatsappUrl(text), "_blank", "noopener,noreferrer");
+    }
+
     /* =========================
        ANO RODAPÉ
     ========================= */
-    const year = $("#year");
     if (year) year.textContent = new Date().getFullYear();
 
     /* =========================
        HEADER
     ========================= */
-    const topbar = $("#topbar");
-
     function updateHeader() {
       if (!topbar) return;
       topbar.classList.toggle("scrolled", window.scrollY > 70);
@@ -58,21 +120,31 @@
     /* =========================
        MOBILE MENU
     ========================= */
-    const menuToggle = $("#menuToggle");
-    const mobileMenu = $("#mobileMenu");
+    function closeMobileMenu() {
+      if (!mobileMenu || !menuToggle) return;
+      mobileMenu.classList.remove("show");
+      menuToggle.classList.remove("active");
+      menuToggle.setAttribute("aria-expanded", "false");
+    }
+
+    function openMobileMenu() {
+      if (!mobileMenu || !menuToggle) return;
+      mobileMenu.classList.add("show");
+      menuToggle.classList.add("active");
+      menuToggle.setAttribute("aria-expanded", "true");
+    }
 
     if (menuToggle && mobileMenu) {
+      menuToggle.setAttribute("aria-expanded", "false");
+
       menuToggle.addEventListener("click", (e) => {
         e.stopPropagation();
-        mobileMenu.classList.toggle("show");
-        menuToggle.classList.toggle("active");
+        const willOpen = !mobileMenu.classList.contains("show");
+        willOpen ? openMobileMenu() : closeMobileMenu();
       });
 
       $$("a", mobileMenu).forEach((link) => {
-        link.addEventListener("click", () => {
-          mobileMenu.classList.remove("show");
-          menuToggle.classList.remove("active");
-        });
+        link.addEventListener("click", closeMobileMenu);
       });
 
       document.addEventListener("click", (e) => {
@@ -80,28 +152,23 @@
         const clickedToggle = menuToggle.contains(e.target);
 
         if (!clickedInsideMenu && !clickedToggle) {
-          mobileMenu.classList.remove("show");
-          menuToggle.classList.remove("active");
+          closeMobileMenu();
         }
       });
     }
 
     /* =========================
-       HERO
+       HERO SLIDER
     ========================= */
-    const heroTrack = $("#heroTrack");
-    const heroDots = $("#heroDots");
-    const heroTitle = $("#heroTitle");
-    const heroDesc = $("#heroDesc");
-    const heroPrev = $("#heroPrev");
-    const heroNext = $("#heroNext");
-    const heroSlider = $("#heroSlider");
-
     function renderHero() {
       if (!heroTrack || !heroDots || !HERO_SLIDES.length) return;
 
       heroTrack.innerHTML = HERO_SLIDES.map((slide, i) => `
-        <div class="heroSlide ${i === 0 ? "active" : ""}" data-index="${i}" aria-hidden="${i === 0 ? "false" : "true"}">
+        <div
+          class="heroSlide ${i === 0 ? "active" : ""}"
+          data-index="${i}"
+          aria-hidden="${i === 0 ? "false" : "true"}"
+        >
           <img
             src="${slide.img}"
             alt="${slide.title}"
@@ -117,8 +184,8 @@
           data-index="${i}"
           type="button"
           aria-label="Ir para slide ${i + 1}"
-          aria-pressed="${i === 0 ? "true" : "false"}">
-        </button>
+          aria-pressed="${i === 0 ? "true" : "false"}"
+        ></button>
       `).join("");
 
       bindHeroDots();
@@ -148,16 +215,6 @@
       if (heroDesc) heroDesc.textContent = HERO_SLIDES[heroIndex].desc;
     }
 
-    function bindHeroDots() {
-      $$(".heroDot", heroDots).forEach((dot) => {
-        dot.addEventListener("click", () => {
-          heroIndex = Number(dot.dataset.index);
-          updateHero();
-          restartHeroTimer();
-        });
-      });
-    }
-
     function nextHero() {
       heroIndex = (heroIndex + 1) % HERO_SLIDES.length;
       updateHero();
@@ -169,8 +226,10 @@
     }
 
     function stopHeroTimer() {
-      clearInterval(heroTimer);
-      heroTimer = null;
+      if (heroTimer) {
+        clearInterval(heroTimer);
+        heroTimer = null;
+      }
     }
 
     function startHeroTimer() {
@@ -181,6 +240,16 @@
 
     function restartHeroTimer() {
       startHeroTimer();
+    }
+
+    function bindHeroDots() {
+      $$(".heroDot", heroDots).forEach((dot) => {
+        dot.addEventListener("click", () => {
+          heroIndex = Number(dot.dataset.index || 0);
+          updateHero();
+          restartHeroTimer();
+        });
+      });
     }
 
     if (heroPrev) {
@@ -200,8 +269,26 @@
     if (heroSlider) {
       heroSlider.addEventListener("mouseenter", stopHeroTimer);
       heroSlider.addEventListener("mouseleave", startHeroTimer);
-      heroSlider.addEventListener("touchstart", stopHeroTimer, { passive: true });
-      heroSlider.addEventListener("touchend", startHeroTimer, { passive: true });
+
+      heroSlider.addEventListener("touchstart", (e) => {
+        stopHeroTimer();
+        touchStartX = e.changedTouches[0].clientX;
+      }, { passive: true });
+
+      heroSlider.addEventListener("touchend", (e) => {
+        touchEndX = e.changedTouches[0].clientX;
+        const delta = touchEndX - touchStartX;
+
+        if (Math.abs(delta) > 45) {
+          if (delta < 0) {
+            nextHero();
+          } else {
+            prevHeroAction();
+          }
+        }
+
+        startHeroTimer();
+      }, { passive: true });
     }
 
     renderHero();
@@ -219,7 +306,6 @@
        MENU ATIVO
     ========================= */
     const menuLinks = $$(".navMenu a, .mobileMenu a");
-
     const sectionIds = [
       "inicio",
       "empresa",
@@ -236,7 +322,7 @@
       .filter(Boolean);
 
     function updateActiveMenu() {
-      const scrollRef = window.scrollY + 150;
+      const scrollRef = window.scrollY + 160;
       let currentId = "inicio";
 
       sections.forEach((sec) => {
@@ -255,27 +341,28 @@
     /* =========================
        LIGHTBOX
     ========================= */
-    const portfolioCards = $$(".portfolioCard");
-    const portfolioLightbox = $("#portfolioLightbox");
-    const lightboxImage = $("#lightboxImage");
-    const lightboxClose = $("#lightboxClose");
-
     function openLightbox(src, alt = "Imagem ampliada") {
       if (!portfolioLightbox || !lightboxImage || !src) return;
+
       lightboxImage.src = src;
       lightboxImage.alt = alt;
       portfolioLightbox.classList.add("show");
       portfolioLightbox.setAttribute("aria-hidden", "false");
-      body.style.overflow = "hidden";
+      syncBodyScrollState();
     }
 
     function closeLightbox() {
       if (!portfolioLightbox || !lightboxImage) return;
+
       portfolioLightbox.classList.remove("show");
       portfolioLightbox.setAttribute("aria-hidden", "true");
-      lightboxImage.src = "";
-      lightboxImage.alt = "Imagem ampliada do portfólio";
-      body.style.overflow = "";
+
+      setTimeout(() => {
+        lightboxImage.src = "";
+        lightboxImage.alt = "Imagem ampliada do portfólio";
+      }, 180);
+
+      syncBodyScrollState();
     }
 
     function bindHeroImageClick() {
@@ -300,52 +387,59 @@
       lightboxClose.addEventListener("click", closeLightbox);
     }
 
+    if (lightboxBackdrop) {
+      lightboxBackdrop.addEventListener("click", closeLightbox);
+    }
+
     if (portfolioLightbox) {
       portfolioLightbox.addEventListener("click", (e) => {
         if (e.target === portfolioLightbox) closeLightbox();
       });
     }
 
+    if (lightboxDialog) {
+      lightboxDialog.addEventListener("click", (e) => {
+        e.stopPropagation();
+      });
+    }
+
     /* =========================
        MODAL
     ========================= */
-    const budgetModal = $("#budgetModal");
-    const openBudgetModal = $("#openBudgetModal");
-    const openBudgetModalTop = $("#openBudgetModalTop");
-    const openBudgetModalBottom = $("#openBudgetModalBottom");
-    const closeBudgetModal = $("#closeBudgetModal");
-    const sendModalWhatsapp = $("#sendModalWhatsapp");
-
     function openModal() {
       if (!budgetModal) return;
+
       budgetModal.classList.add("show");
       budgetModal.setAttribute("aria-hidden", "false");
-      body.style.overflow = "hidden";
+      syncBodyScrollState();
 
       const firstInput = $("#mName");
       if (firstInput) {
-        setTimeout(() => firstInput.focus(), 80);
+        setTimeout(() => firstInput.focus(), 90);
       }
     }
 
     function closeModal() {
       if (!budgetModal) return;
+
       budgetModal.classList.remove("show");
       budgetModal.setAttribute("aria-hidden", "true");
-      body.style.overflow = "";
+      syncBodyScrollState();
     }
 
-    [openBudgetModal, openBudgetModalTop, openBudgetModalBottom]
-      .filter(Boolean)
-      .forEach((btn) => {
-        btn.addEventListener("click", (e) => {
-          e.preventDefault();
-          openModal();
-        });
+    openModalButtons.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        openModal();
       });
+    });
 
     if (closeBudgetModal) {
       closeBudgetModal.addEventListener("click", closeModal);
+    }
+
+    if (budgetModalBackdrop) {
+      budgetModalBackdrop.addEventListener("click", closeModal);
     }
 
     if (budgetModal) {
@@ -355,10 +449,11 @@
     }
 
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") {
-        if (budgetModal?.classList.contains("show")) closeModal();
-        if (portfolioLightbox?.classList.contains("show")) closeLightbox();
-      }
+      if (e.key !== "Escape") return;
+
+      if (isModalOpen()) closeModal();
+      if (isLightboxOpen()) closeLightbox();
+      closeMobileMenu();
     });
 
     function getModalFormData() {
@@ -385,29 +480,20 @@ Medidas / escopo: ${data.measures || "-"}
 Detalhes: ${data.message || "-"}`;
     }
 
-    function sendWhatsapp(data) {
-      const url = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(buildWhatsappText(data))}`;
-      window.open(url, "_blank", "noopener,noreferrer");
-    }
-
     if (sendModalWhatsapp) {
       sendModalWhatsapp.addEventListener("click", () => {
         const data = getModalFormData();
-        sendWhatsapp(data);
+        openWhatsapp(buildWhatsappText(data));
       });
     }
 
     /* =========================
        RODAPÉ
     ========================= */
-    const footerWhatsapp = $("#footerWhatsapp");
-    const footerEmail = $("#footerEmail");
-    const footerInstagram = $("#footerInstagram");
-    const footerFacebook = $("#footerFacebook");
-
     if (footerWhatsapp) {
-      const msg = "Olá! Vim pelo site da Metallmec e quero solicitar um orçamento.";
-      footerWhatsapp.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+      footerWhatsapp.href = buildWhatsappUrl(
+        "Olá! Vim pelo site da Metallmec e quero solicitar um orçamento."
+      );
       footerWhatsapp.target = "_blank";
       footerWhatsapp.rel = "noopener noreferrer";
     }
@@ -434,12 +520,10 @@ Detalhes: ${data.message || "-"}`;
     /* =========================
        BOTÕES FLUTUANTES
     ========================= */
-    const floatWhats = $("#floatWhats");
-    const backToTop = $("#backToTop");
-
     if (floatWhats) {
-      const msg = "Olá! Vim pelo site da Metallmec e quero solicitar um orçamento.";
-      floatWhats.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+      floatWhats.href = buildWhatsappUrl(
+        "Olá! Vim pelo site da Metallmec e quero solicitar um orçamento."
+      );
       floatWhats.target = "_blank";
       floatWhats.rel = "noopener noreferrer";
     }
@@ -451,6 +535,7 @@ Detalhes: ${data.message || "-"}`;
 
     if (backToTop) {
       updateBackToTop();
+
       window.addEventListener("scroll", updateBackToTop, { passive: true });
 
       backToTop.addEventListener("click", () => {
@@ -461,7 +546,6 @@ Detalhes: ${data.message || "-"}`;
     /* =========================
        MAPA
     ========================= */
-    const mapFrame = $(".mapBox iframe");
     if (mapFrame) {
       mapFrame.setAttribute("loading", "lazy");
       mapFrame.setAttribute("referrerpolicy", "no-referrer-when-downgrade");
