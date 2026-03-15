@@ -618,6 +618,40 @@ input,textarea{outline:none}
   box-shadow:var(--shadow-lg);
 }
 
+.aboutStats{
+  margin-top:30px;
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:18px;
+}
+
+.statBox{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding:22px;
+  box-shadow:var(--shadow-xs);
+  transition:transform .28s ease, box-shadow .28s ease;
+}
+
+.statBox:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-sm);
+}
+
+.statBox strong{
+  display:block;
+  font-size:19px;
+  line-height:1.15;
+  margin-bottom:8px;
+}
+
+.statBox span{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.7;
+}
+
 .missionVisionGrid{
   margin-top:34px;
   display:grid;
@@ -800,6 +834,64 @@ input,textarea{outline:none}
   padding-left:18px;
   color:var(--muted);
   line-height:1.9;
+}
+
+/* =========================
+   PARTNERS
+========================= */
+.partnersGrid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:24px;
+}
+
+.partnerCard{
+  position:relative;
+  min-height:320px;
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:var(--shadow-md);
+  background:#142636;
+  transition:transform .28s ease, box-shadow .28s ease;
+}
+
+.partnerCard:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-lg);
+}
+
+.partnerCard img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.partnerOverlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(4,10,16,.12) 20%, rgba(4,10,16,.84) 100%);
+}
+
+.partnerContent{
+  position:absolute;
+  left:22px;
+  right:22px;
+  bottom:22px;
+  z-index:2;
+  color:#fff;
+}
+
+.partnerContent h3{
+  margin:0 0 8px;
+  font-size:26px;
+  line-height:1.05;
+}
+
+.partnerContent p{
+  margin:0;
+  font-size:14px;
+  line-height:1.7;
+  color:rgba(255,255,255,.88);
 }
 
 /* =========================
@@ -1100,7 +1192,12 @@ input,textarea{outline:none}
   }
 
   .servicesGrid,
-  .portfolioGrid{
+  .portfolioGrid,
+  .partnersGrid{
+    grid-template-columns:repeat(2, 1fr);
+  }
+
+  .aboutStats{
     grid-template-columns:repeat(2, 1fr);
   }
 
@@ -1144,252 +1241,4 @@ input,textarea{outline:none}
     padding-bottom:110px;
   }
 
-  .heroBrandBox{
-    margin-bottom:0;
-  }
-
-  .heroText h1{
-    max-width:12ch;
-  }
-
-  .heroControls{
-    bottom:34px;
-  }
-
-  .aboutGrid,
-  .modalGrid{
-    grid-template-columns:1fr;
-  }
-
-  .aboutImage img{
-    height:420px;
-  }
-
-  .missionVisionGrid{
-    grid-template-columns:1fr;
-  }
-}
-
-@media (max-width: 760px){
-  .wrap{
-    width:min(var(--container), calc(100% - 28px));
-  }
-
-  .section{
-    padding:64px 0;
-  }
-
-  .mainNav{
-    min-height:76px;
-  }
-
-  .navInner{
-    min-height:76px;
-  }
-
-  .brandLogoBox{
-    width:50px;
-    height:50px;
-    border-radius:14px;
-  }
-
-  .brandName strong{
-    font-size:20px;
-  }
-
-  .brandName small{
-    font-size:9px;
-    letter-spacing:.12em;
-  }
-
-  .heroSection{
-    min-height:640px;
-    height:auto;
-  }
-
-  .heroContent{
-    min-height:640px;
-    padding-top:110px;
-    padding-bottom:100px;
-    justify-content:center;
-  }
-
-  .heroBrandBox{
-    padding:12px 14px;
-    gap:10px;
-    max-width:100%;
-  }
-
-  .heroBrandBox img{
-    width:40px;
-    height:40px;
-  }
-
-  .heroBrandBox strong{
-    font-size:18px;
-  }
-
-  .heroBrandBox span{
-    font-size:9px;
-  }
-
-  .heroText{
-    max-width:100%;
-  }
-
-  .heroText h1{
-    font-size:clamp(30px, 9vw, 42px);
-    line-height:1.02;
-    letter-spacing:-1.2px;
-    max-width:100%;
-  }
-
-  .heroText p{
-    font-size:15px;
-    line-height:1.75;
-    max-width:100%;
-  }
-
-  .heroButtons{
-    flex-direction:column;
-    align-items:stretch;
-  }
-
-  .ctaPrimary,
-  .ctaSecondary,
-  .openModalBtn{
-    width:100%;
-  }
-
-  .heroControls{
-    position:relative;
-    bottom:auto;
-    margin-top:10px;
-    gap:12px;
-  }
-
-  .heroArrow{
-    width:48px;
-    height:48px;
-    font-size:20px;
-  }
-
-  .heroDot{
-    width:12px;
-    height:12px;
-  }
-
-  .heroDot.active{
-    width:34px;
-  }
-
-  .differentialsGrid,
-  .servicesGrid,
-  .portfolioGrid,
-  .structureGrid{
-    grid-template-columns:1fr;
-  }
-
-  .infoCard,
-  .mvCard,
-  .structureCard,
-  .contactInfoPanel,
-  .modalInfo{
-    padding:22px;
-  }
-
-  .serviceBigCard{
-    min-height:320px;
-  }
-
-  .portfolioCard{
-    min-height:280px;
-  }
-
-  .mapBox iframe{
-    height:360px;
-  }
-
-  .modalBody{
-    padding:18px;
-  }
-
-  .modalTop{
-    padding:16px 18px;
-  }
-
-  .modalTop h3{
-    font-size:22px;
-  }
-
-  .closeModalBtn{
-    width:40px;
-    height:40px;
-    font-size:28px;
-  }
-
-  .lightbox{
-    padding:14px;
-  }
-
-  .lightboxClose{
-    top:12px;
-    right:12px;
-    width:46px;
-    height:46px;
-    font-size:30px;
-  }
-}
-
-@media (max-width: 520px){
-  .brandName{
-    display:none;
-  }
-
-  .heroContent{
-    min-height:620px;
-    padding-top:96px;
-    padding-bottom:88px;
-  }
-
-  .heroText h1{
-    font-size:31px;
-  }
-
-  .heroText p{
-    font-size:14px;
-  }
-
-  .sectionHead h2{
-    font-size:30px;
-    line-height:1.02;
-  }
-
-  .sectionHead p{
-    font-size:14px;
-    line-height:1.75;
-  }
-
-  .aboutText h3,
-  .infoCard h3,
-  .mvCard h3,
-  .structureCard h3,
-  .contactInfoPanel h3,
-  .modalInfo h4{
-    font-size:24px;
-  }
-
-  .aboutImage img{
-    height:320px;
-  }
-
-  .field input,
-  .field textarea{
-    min-height:52px;
-    padding:14px;
-  }
-
-  .field textarea{
-    min-height:140px;
-  }
-}
+  .heroBrandB
