@@ -819,7 +819,7 @@ button,input,textarea{font:inherit}
    CONTACT
 ========================= */
 .contactSection{
-  display:none !important;
+  display:block;
 }
 
 .contactGrid{
