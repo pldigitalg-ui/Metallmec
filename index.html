@@ -117,13 +117,23 @@
         <div class="heroTrack" id="heroTrack"></div>
         <div class="heroOverlay"></div>
 
+        <div class="heroTechnicalLines" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+
         <div class="heroContent wrap heroContentPremium">
           <div class="heroPremiumTopline">
             <span class="heroPremiumTag">Engenharia e Serviços Industriais</span>
+            <span class="heroPremiumDivision">Caldeiraria • Fabricação • Montagem • Manutenção</span>
           </div>
 
           <div class="heroText heroTextPremium">
+            <div class="heroInstitutionalBox">
+              <small>Padrão técnico para empresas e indústrias</small>
+            </div>
+
             <h1 id="heroTitle">Caldeiraria, fabricação e montagem industrial com padrão técnico</h1>
+
             <p id="heroDesc">
               Soluções metálicas para empresas e indústrias com foco em estrutura, qualidade, segurança e execução profissional.
             </p>
@@ -266,6 +276,7 @@
             <img src="img/projeto-1.jpg" alt="Estruturas metálicas" loading="lazy" decoding="async" />
             <div class="serviceBigOverlay"></div>
             <div class="serviceBigContent">
+              <small>Fabricação metálica</small>
               <h3>Estruturas metálicas</h3>
               <p>Fabricação e montagem de estruturas, bases e suportes para diferentes aplicações.</p>
             </div>
@@ -275,6 +286,7 @@
             <img src="img/projeto-2.jpg" alt="Caldeiraria industrial" loading="lazy" decoding="async" />
             <div class="serviceBigOverlay"></div>
             <div class="serviceBigContent">
+              <small>Processo industrial</small>
               <h3>Caldeiraria industrial</h3>
               <p>Peças, conjuntos metálicos, tanques e soluções sob medida.</p>
             </div>
@@ -284,6 +296,7 @@
             <img src="img/projeto-3.jpg" alt="Manutenção industrial" loading="lazy" decoding="async" />
             <div class="serviceBigOverlay"></div>
             <div class="serviceBigContent">
+              <small>Continuidade operacional</small>
               <h3>Manutenção industrial</h3>
               <p>Recuperação, reforço, adequação e continuidade operacional.</p>
             </div>
@@ -293,6 +306,7 @@
             <img src="img/projeto-4.jpg" alt="Montagem industrial" loading="lazy" decoding="async" />
             <div class="serviceBigOverlay"></div>
             <div class="serviceBigContent">
+              <small>Execução técnica</small>
               <h3>Montagem industrial</h3>
               <p>Montagem de estruturas, componentes e equipamentos com leitura técnica.</p>
             </div>
@@ -302,6 +316,7 @@
             <img src="img/projeto-5.jpg" alt="Equipamentos industriais" loading="lazy" decoding="async" />
             <div class="serviceBigOverlay"></div>
             <div class="serviceBigContent">
+              <small>Desenvolvimento sob projeto</small>
               <h3>Equipamentos industriais</h3>
               <p>Fabricação de peças especiais e componentes conforme projeto.</p>
             </div>
@@ -311,6 +326,7 @@
             <img src="img/projeto-6.jpg" alt="Projetos sob medida" loading="lazy" decoding="async" />
             <div class="serviceBigOverlay"></div>
             <div class="serviceBigContent">
+              <small>Solução personalizada</small>
               <h3>Projetos sob medida</h3>
               <p>Soluções personalizadas conforme escopo, desenho ou referência enviada.</p>
             </div>
@@ -332,35 +348,59 @@
           </p>
         </div>
 
-        <div class="portfolioGrid">
-          <button class="portfolioCard" type="button" data-full="img/projeto-1.jpg">
+        <div class="portfolioGrid portfolioGridDetailed">
+          <button class="portfolioCard portfolioCardDetailed" type="button" data-full="img/projeto-1.jpg">
             <img src="img/projeto-1.jpg" alt="Projeto Metallmec 1" loading="lazy" decoding="async" />
-            <span>Estrutura metálica</span>
+            <div class="portfolioMeta">
+              <small>Estrutura metálica</small>
+              <strong>Projeto estrutural sob medida</strong>
+              <span>Execução voltada para resistência, acabamento e leitura técnica.</span>
+            </div>
           </button>
 
-          <button class="portfolioCard" type="button" data-full="img/projeto-2.jpg">
+          <button class="portfolioCard portfolioCardDetailed" type="button" data-full="img/projeto-2.jpg">
             <img src="img/projeto-2.jpg" alt="Projeto Metallmec 2" loading="lazy" decoding="async" />
-            <span>Base industrial</span>
+            <div class="portfolioMeta">
+              <small>Base industrial</small>
+              <strong>Base e apoio metálico</strong>
+              <span>Solução fabricada conforme escopo, aplicação e necessidade operacional.</span>
+            </div>
           </button>
 
-          <button class="portfolioCard" type="button" data-full="img/projeto-3.jpg">
+          <button class="portfolioCard portfolioCardDetailed" type="button" data-full="img/projeto-3.jpg">
             <img src="img/projeto-3.jpg" alt="Projeto Metallmec 3" loading="lazy" decoding="async" />
-            <span>Peça sob medida</span>
+            <div class="portfolioMeta">
+              <small>Peça sob medida</small>
+              <strong>Componente fabricado sob projeto</strong>
+              <span>Desenvolvimento com foco em precisão, adaptação e desempenho técnico.</span>
+            </div>
           </button>
 
-          <button class="portfolioCard" type="button" data-full="img/projeto-4.jpg">
+          <button class="portfolioCard portfolioCardDetailed" type="button" data-full="img/projeto-4.jpg">
             <img src="img/projeto-4.jpg" alt="Projeto Metallmec 4" loading="lazy" decoding="async" />
-            <span>Equipamento industrial</span>
+            <div class="portfolioMeta">
+              <small>Equipamento industrial</small>
+              <strong>Montagem e conjunto industrial</strong>
+              <span>Execução com leitura operacional, reforço estrutural e confiabilidade.</span>
+            </div>
           </button>
 
-          <button class="portfolioCard" type="button" data-full="img/projeto-5.jpg">
+          <button class="portfolioCard portfolioCardDetailed" type="button" data-full="img/projeto-5.jpg">
             <img src="img/projeto-5.jpg" alt="Projeto Metallmec 5" loading="lazy" decoding="async" />
-            <span>Estrutura soldada</span>
+            <div class="portfolioMeta">
+              <small>Estrutura soldada</small>
+              <strong>Conjunto metálico soldado</strong>
+              <span>Solução aplicada com foco em resistência, segurança e padronização.</span>
+            </div>
           </button>
 
-          <button class="portfolioCard" type="button" data-full="img/projeto-6.jpg">
+          <button class="portfolioCard portfolioCardDetailed" type="button" data-full="img/projeto-6.jpg">
             <img src="img/projeto-6.jpg" alt="Projeto Metallmec 6" loading="lazy" decoding="async" />
-            <span>Conjunto metálico</span>
+            <div class="portfolioMeta">
+              <small>Conjunto metálico</small>
+              <strong>Projeto especial executado</strong>
+              <span>Produção sob medida com adaptação técnica ao ambiente e à demanda.</span>
+            </div>
           </button>
         </div>
       </div>
@@ -511,6 +551,44 @@
       </div>
     </section>
 
+    <!-- BLOCO FINAL DE AUTORIDADE -->
+    <section class="section finalAuthoritySection darkSection" id="encerramento">
+      <div class="wrap">
+        <div class="finalAuthorityBox">
+          <div class="finalAuthorityIntro">
+            <div class="sectionKicker light">Estrutura para atender com padrão técnico</div>
+            <h2>Mais organização, mais qualidade e mais segurança para projetos industriais</h2>
+            <p>
+              A Metallmec atua para entregar soluções metálicas com leitura técnica, fabricação consistente e execução profissional do início ao resultado final.
+            </p>
+          </div>
+
+          <div class="finalAuthorityPillars">
+            <article class="finalPillarCard">
+              <strong>Qualidade</strong>
+              <span>Processo orientado por precisão, acabamento e confiabilidade técnica.</span>
+            </article>
+
+            <article class="finalPillarCard">
+              <strong>Prazo</strong>
+              <span>Organização de produção e execução voltada para mais previsibilidade.</span>
+            </article>
+
+            <article class="finalPillarCard">
+              <strong>Execução</strong>
+              <span>Atendimento com presença industrial, leitura de demanda e padrão profissional.</span>
+            </article>
+          </div>
+
+          <div class="finalAuthorityAction">
+            <button class="openModalBtn finalAuthorityBtn" id="openBudgetModalBottom" type="button">
+              Solicitar contato comercial
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- CONTATO -->
     <section class="section whiteSection contactSection" id="contato">
       <div class="wrap">
@@ -625,7 +703,7 @@
     </div>
   </div>
 
-  <!-- LIGHTBOX PORTFÓLIO -->
+  <!-- LIGHTBOX -->
   <div class="lightbox" id="portfolioLightbox" aria-hidden="true">
     <button class="lightboxClose" id="lightboxClose" type="button" aria-label="Fechar">×</button>
     <img id="lightboxImage" src="" alt="Imagem ampliada do portfólio" />
