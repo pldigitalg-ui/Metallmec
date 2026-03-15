@@ -516,4 +516,166 @@
       <div class="wrap">
         <div class="sectionHead">
           <div>
-            <div class="sectionKicker">Con
+            <div class="sectionKicker">Contato comercial</div>
+            <h2>Fale com a Metallmec</h2>
+          </div>
+          <p>
+            Atendimento centralizado para organizar melhor os orçamentos e responder com mais precisão.
+          </p>
+        </div>
+
+        <div class="contactSingleBox">
+          <div class="contactInfoPanel">
+            <h3>Atendimento direto</h3>
+            <p>
+              Envie tipo de serviço, medidas, local, fotos de referência e detalhes importantes do projeto.
+            </p>
+
+            <div class="contactInfoList">
+              <div class="contactInfoItem">
+                <strong>WhatsApp principal</strong>
+                <span>(31) 98391-3499</span>
+              </div>
+
+              <div class="contactInfoItem">
+                <strong>Atendimento regional</strong>
+                <span>Matozinhos • Belo Horizonte • Região Metropolitana</span>
+              </div>
+
+              <div class="contactInfoItem">
+                <strong>Segmento</strong>
+                <span>Caldeiraria, fabricação, montagem e manutenção industrial</span>
+              </div>
+            </div>
+
+            <button class="openModalBtn" id="openBudgetModal" type="button">Abrir formulário de orçamento</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL -->
+  <div class="modalOverlay" id="budgetModal" aria-hidden="true">
+    <div class="modalBox">
+      <div class="modalTop">
+        <h3>Solicitar orçamento</h3>
+        <button class="closeModalBtn" id="closeBudgetModal" type="button" aria-label="Fechar">×</button>
+      </div>
+
+      <div class="modalBody">
+        <div class="modalGrid">
+          <div class="modalInfo">
+            <h4>Envie os dados do seu projeto</h4>
+            <p>
+              Quanto mais detalhes você enviar, mais preciso fica o orçamento inicial.
+            </p>
+            <ul>
+              <li>Estruturas metálicas</li>
+              <li>Caldeiraria industrial</li>
+              <li>Montagem industrial</li>
+              <li>Manutenção industrial</li>
+              <li>Equipamentos e peças</li>
+              <li>Projetos sob medida</li>
+            </ul>
+          </div>
+
+          <div class="modalForm">
+            <label class="field">
+              <span>Nome</span>
+              <input type="text" id="mName" placeholder="Seu nome" />
+            </label>
+
+            <label class="field">
+              <span>WhatsApp</span>
+              <input type="text" id="mPhone" placeholder="Seu WhatsApp" />
+            </label>
+
+            <label class="field">
+              <span>E-mail</span>
+              <input type="email" id="mEmail" placeholder="Seu e-mail" />
+            </label>
+
+            <label class="field">
+              <span>Cidade / local</span>
+              <input type="text" id="mPlace" placeholder="Cidade / bairro / empresa" />
+            </label>
+
+            <label class="field">
+              <span>Serviço desejado</span>
+              <input type="text" id="mService" placeholder="Ex: estrutura metálica, base, tanque, manutenção..." />
+            </label>
+
+            <label class="field">
+              <span>Medidas / escopo</span>
+              <input type="text" id="mMeasures" placeholder="Ex: 3,00 x 2,20 ou conforme projeto" />
+            </label>
+
+            <label class="field">
+              <span>Detalhes</span>
+              <textarea id="mMessage" placeholder="Descreva o serviço, aplicação, prazo e detalhes importantes."></textarea>
+            </label>
+
+            <div class="contactActions">
+              <button class="ctaPrimary" id="sendModalWhatsapp" type="button">Enviar por WhatsApp</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX PORTFÓLIO -->
+  <div class="lightbox" id="portfolioLightbox" aria-hidden="true">
+    <button class="lightboxClose" id="lightboxClose" type="button" aria-label="Fechar">×</button>
+    <img id="lightboxImage" src="" alt="Imagem ampliada do portfólio" />
+  </div>
+
+  <!-- RODAPÉ -->
+  <footer class="footer">
+    <div class="wrap footerTop">
+      <div class="footerBrandBlock">
+        <div class="footerBrandLine">
+          <div class="brandLogoBox">
+            <img src="img/logo-metallmec.png" alt="Logo Metallmec" />
+          </div>
+          <div class="brandName">
+            <strong>METALLMEC</strong>
+            <small>Engenharia e Serviços</small>
+          </div>
+        </div>
+        <p class="footerText">
+          Soluções em caldeiraria, fabricação, montagem e manutenção industrial com foco em padrão técnico, segurança e execução profissional.
+        </p>
+      </div>
+
+      <div class="footerLinksCol">
+        <h4>Navegação</h4>
+        <a href="#inicio">Início</a>
+        <a href="#empresa">Empresa</a>
+        <a href="#servicos">Soluções</a>
+        <a href="#portfolio">Projetos</a>
+        <a href="#estrutura">Estrutura</a>
+        <a href="#parceiros">Parceiros</a>
+        <a href="#contato">Contato</a>
+      </div>
+
+      <div class="footerContactCol">
+        <h4>Contato</h4>
+        <a id="footerWhatsapp" href="#">WhatsApp comercial</a>
+        <a id="footerEmail" href="#">contato@metallmec.com.br</a>
+        <span>Matozinhos • Belo Horizonte • Região Metropolitana</span>
+      </div>
+    </div>
+
+    <div class="footerBottom">
+      <div class="wrap footerBottomInner">
+        <span>© <span id="year"></span> Metallmec Engenharia e Serviços. Todos os direitos reservados.</span>
+        <span>Presença institucional com padrão profissional.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
