@@ -5,64 +5,54 @@
   const HERO_SLIDES = [
     {
       img: "img/hero-1.jpg",
-      title: "Estruturas metálicas sob medida com acabamento profissional",
-      desc: "Execução para residências, empresas e obras, com foco em qualidade, estrutura, prazo e presença visual forte."
+      title: "Caldeiraria, fabricação e montagem industrial com execução forte e confiável",
+      desc: "A Metallmec desenvolve soluções em estruturas metálicas, equipamentos industriais e serviços sob medida para empresas e indústrias, com foco em qualidade, segurança e resultado técnico."
     },
     {
       img: "img/hero-2.jpg",
-      title: "Projetos para portões, grades e coberturas com leitura técnica",
-      desc: "Soluções que unem resistência, visual profissional e adaptação ao espaço do cliente."
+      title: "Estruturas metálicas e fabricação sob medida para diferentes demandas industriais",
+      desc: "Projetos com leitura técnica, resistência, organização de processo e acabamento alinhado à real necessidade da operação."
     },
     {
       img: "img/hero-3.jpg",
-      title: "Montagem, reforço e instalação com padrão institucional",
-      desc: "A Metallmec entrega projetos com presença, organização, acabamento e linguagem de empresa grande."
+      title: "Montagem, manutenção e soluções metálicas com padrão profissional",
+      desc: "Atendimento para fabricação, adequação, reforço e serviços industriais com presença técnica e execução segura."
     },
     {
       img: "img/hero-4.jpg",
-      title: "Atendimento para obras, empresas e demandas especiais",
-      desc: "Estruturas metálicas sob medida com foco em funcionalidade, confiança e resistência."
+      title: "Equipamentos, peças e conjuntos metálicos com foco em precisão e confiabilidade",
+      desc: "A Metallmec entrega soluções industriais com estrutura, funcionalidade e padrão institucional forte."
     },
     {
       img: "img/hero-5.jpg",
-      title: "Presença visual forte do início ao resultado final",
-      desc: "Cada projeto é pensado para unir estrutura, estética e leitura profissional."
+      title: "Projetos industriais com mais organização, qualidade e presença técnica",
+      desc: "Cada serviço é desenvolvido para unir resistência, desempenho e apresentação profissional do início ao resultado final."
     }
-  ];
-
-  const PROJECTS = [
-    { img: "img/projeto-1.jpg", title: "Portão residencial premium", desc: "Projeto com presença visual forte, estrutura reforçada e acabamento profissional." },
-    { img: "img/projeto-2.jpg", title: "Grade de proteção sob medida", desc: "Solução funcional para segurança residencial com visual limpo e robusto." },
-    { img: "img/projeto-3.jpg", title: "Cobertura metálica", desc: "Execução com alinhamento técnico, resistência e boa leitura arquitetônica." },
-    { img: "img/projeto-4.jpg", title: "Escada e guarda-corpo", desc: "Estrutura pensada para segurança, estética e durabilidade." },
-    { img: "img/projeto-5.jpg", title: "Fechamento comercial", desc: "Projeto para empresas com foco em segurança e presença profissional." },
-    { img: "img/projeto-6.jpg", title: "Estrutura para obra", desc: "Montagem metálica para reforço, apoio e execução em campo." },
-    { img: "img/projeto-7.jpg", title: "Portão social e acesso", desc: "Leitura visual elegante com fabricação sob medida para o cliente." },
-    { img: "img/projeto-8.jpg", title: "Projeto metálico personalizado", desc: "Solução especial desenvolvida conforme necessidade real da obra." }
   ];
 
   const WHATSAPP = "5531983913499";
   const COMPANY_EMAIL = "contato@metallmec.com.br";
 
+  const body = document.body;
   const year = $("#year");
   if (year) year.textContent = new Date().getFullYear();
 
-  // =========================
-  // HEADER
-  // =========================
+  /* =========================
+     HEADER
+  ========================= */
   const topbar = $("#topbar");
 
   function updateHeader() {
     if (!topbar) return;
-    topbar.classList.toggle("scrolled", window.scrollY > 80);
+    topbar.classList.toggle("scrolled", window.scrollY > 70);
   }
 
   updateHeader();
   window.addEventListener("scroll", updateHeader, { passive: true });
 
-  // =========================
-  // MOBILE MENU
-  // =========================
+  /* =========================
+     MOBILE MENU
+  ========================= */
   const menuToggle = $("#menuToggle");
   const mobileMenu = $("#mobileMenu");
 
@@ -73,21 +63,24 @@
     });
 
     $$("a", mobileMenu).forEach((link) => {
-      link.addEventListener("click", () => mobileMenu.classList.remove("show"));
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("show");
+      });
     });
 
     document.addEventListener("click", (e) => {
       const clickedInsideMenu = mobileMenu.contains(e.target);
       const clickedToggle = menuToggle.contains(e.target);
+
       if (!clickedInsideMenu && !clickedToggle) {
         mobileMenu.classList.remove("show");
       }
     });
   }
 
-  // =========================
-  // HERO
-  // =========================
+  /* =========================
+     HERO SLIDER
+  ========================= */
   const heroTrack = $("#heroTrack");
   const heroDots = $("#heroDots");
   const heroTitle = $("#heroTitle");
@@ -103,12 +96,21 @@
 
     heroTrack.innerHTML = HERO_SLIDES.map((slide, i) => `
       <div class="heroSlide ${i === 0 ? "active" : ""}" data-index="${i}">
-        <img src="${slide.img}" alt="${slide.title}" ${i === 0 ? 'fetchpriority="high" decoding="async"' : 'loading="lazy" decoding="async"'}>
+        <img
+          src="${slide.img}"
+          alt="${slide.title}"
+          ${i === 0 ? 'fetchpriority="high" decoding="async"' : 'loading="lazy" decoding="async"'}
+        >
       </div>
     `).join("");
 
     heroDots.innerHTML = HERO_SLIDES.map((_, i) => `
-      <button class="heroDot ${i === 0 ? "active" : ""}" data-index="${i}" type="button" aria-label="Ir para slide ${i + 1}"></button>
+      <button
+        class="heroDot ${i === 0 ? "active" : ""}"
+        data-index="${i}"
+        type="button"
+        aria-label="Ir para slide ${i + 1}">
+      </button>
     `).join("");
 
     bindHeroDots();
@@ -119,8 +121,13 @@
     const slides = $$(".heroSlide", heroTrack);
     const dots = $$(".heroDot", heroDots);
 
-    slides.forEach((slide, i) => slide.classList.toggle("active", i === heroIndex));
-    dots.forEach((dot, i) => dot.classList.toggle("active", i === heroIndex));
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === heroIndex);
+    });
+
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === heroIndex);
+    });
 
     if (heroTitle) heroTitle.textContent = HERO_SLIDES[heroIndex].title;
     if (heroDesc) heroDesc.textContent = HERO_SLIDES[heroIndex].desc;
@@ -141,7 +148,7 @@
     updateHero();
   }
 
-  function prevHero() {
+  function prevHeroAction() {
     heroIndex = (heroIndex - 1 + HERO_SLIDES.length) % HERO_SLIDES.length;
     updateHero();
   }
@@ -155,100 +162,57 @@
     startHeroTimer();
   }
 
-  if (heroPrev) heroPrev.addEventListener("click", () => { prevHero(); restartHeroTimer(); });
-  if (heroNext) heroNext.addEventListener("click", () => { nextHero(); restartHeroTimer(); });
+  if (heroPrev) {
+    heroPrev.addEventListener("click", () => {
+      prevHeroAction();
+      restartHeroTimer();
+    });
+  }
+
+  if (heroNext) {
+    heroNext.addEventListener("click", () => {
+      nextHero();
+      restartHeroTimer();
+    });
+  }
 
   renderHero();
   startHeroTimer();
 
-  // =========================
-  // PROJECTS
-  // =========================
-  const projectTrack = $("#projectTrack");
-  const projectIndicators = $("#projectIndicators");
-  const projectPrev = $("#projectPrev");
-  const projectNext = $("#projectNext");
-  let projectIndex = 0;
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      clearInterval(heroTimer);
+    } else {
+      startHeroTimer();
+    }
+  });
 
-  const projectPages = [];
-  for (let i = 0; i < PROJECTS.length; i += 2) {
-    projectPages.push(PROJECTS.slice(i, i + 2));
-  }
-
-  function renderProjects() {
-    if (!projectTrack || !projectIndicators) return;
-
-    projectTrack.innerHTML = projectPages.map((page) => `
-      <div class="projectSlide">
-        ${page.map((item) => `
-          <article class="projectCard">
-            <img src="${item.img}" alt="${item.title}" loading="lazy" decoding="async">
-            <div class="projectCardContent">
-              <h3>${item.title}</h3>
-              <p>${item.desc}</p>
-            </div>
-          </article>
-        `).join("")}
-      </div>
-    `).join("");
-
-    projectIndicators.innerHTML = projectPages.map((_, i) => `
-      <button class="projectIndicator ${i === 0 ? "active" : ""}" data-index="${i}" type="button" aria-label="Ir para página ${i + 1}"></button>
-    `).join("");
-
-    bindProjectIndicators();
-    updateProjects();
-  }
-
-  function updateProjects() {
-    if (!projectTrack) return;
-
-    projectTrack.style.transform = `translateX(-${projectIndex * 100}%)`;
-
-    $$(".projectIndicator", projectIndicators).forEach((dot, i) => {
-      dot.classList.toggle("active", i === projectIndex);
-    });
-  }
-
-  function bindProjectIndicators() {
-    $$(".projectIndicator", projectIndicators).forEach((dot) => {
-      dot.addEventListener("click", () => {
-        projectIndex = Number(dot.dataset.index);
-        updateProjects();
-      });
-    });
-  }
-
-  if (projectPrev) {
-    projectPrev.addEventListener("click", () => {
-      projectIndex = (projectIndex - 1 + projectPages.length) % projectPages.length;
-      updateProjects();
-    });
-  }
-
-  if (projectNext) {
-    projectNext.addEventListener("click", () => {
-      projectIndex = (projectIndex + 1) % projectPages.length;
-      updateProjects();
-    });
-  }
-
-  renderProjects();
-
-  // =========================
-  // ACTIVE MENU
-  // =========================
+  /* =========================
+     ACTIVE MENU
+  ========================= */
   const menuLinks = $$(".navMenu a, .mobileMenu a");
-  const sections = ["inicio", "quem-somos", "servicos", "projetos", "parceiros", "depoimentos", "contato"]
+
+  const sectionIds = [
+    "inicio",
+    "empresa",
+    "servicos",
+    "portfolio",
+    "estrutura",
+    "parceiros",
+    "localizacao",
+    "contato"
+  ];
+
+  const sections = sectionIds
     .map((id) => document.getElementById(id))
     .filter(Boolean);
 
   function updateActiveMenu() {
-    const scrollY = window.scrollY + 140;
+    const scrollRef = window.scrollY + 150;
     let currentId = "inicio";
 
     sections.forEach((sec) => {
-      if (scrollY >= sec.offsetTop) currentId = sec.id;
+      if (scrollRef >= sec.offsetTop) currentId = sec.id;
     });
 
     menuLinks.forEach((link) => {
@@ -257,64 +221,99 @@
     });
   }
 
-  window.addEventListener("scroll", updateActiveMenu, { passive: true });
   updateActiveMenu();
+  window.addEventListener("scroll", updateActiveMenu, { passive: true });
 
-  // =========================
-  // BACK TO TOP
-  // =========================
-  const backToTop = $("#backToTop");
+  /* =========================
+     LIGHTBOX PORTFÓLIO
+  ========================= */
+  const portfolioCards = $$(".portfolioCard");
+  const portfolioLightbox = $("#portfolioLightbox");
+  const lightboxImage = $("#lightboxImage");
+  const lightboxClose = $("#lightboxClose");
 
-  function updateBackToTop() {
-    if (!backToTop) return;
-    backToTop.classList.toggle("show", window.scrollY > 500);
+  function openLightbox(src, alt = "Imagem ampliada do portfólio") {
+    if (!portfolioLightbox || !lightboxImage) return;
+    lightboxImage.src = src;
+    lightboxImage.alt = alt;
+    portfolioLightbox.classList.add("show");
+    body.style.overflow = "hidden";
   }
 
-  window.addEventListener("scroll", updateBackToTop, { passive: true });
-  updateBackToTop();
+  function closeLightbox() {
+    if (!portfolioLightbox || !lightboxImage) return;
+    portfolioLightbox.classList.remove("show");
+    lightboxImage.src = "";
+    body.style.overflow = "";
+  }
 
-  if (backToTop) {
-    backToTop.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+  portfolioCards.forEach((card) => {
+    card.addEventListener("click", () => {
+      const full = card.dataset.full || $("img", card)?.src || "";
+      const alt = $("img", card)?.alt || "Imagem ampliada do portfólio";
+      if (full) openLightbox(full, alt);
+    });
+  });
+
+  if (lightboxClose) {
+    lightboxClose.addEventListener("click", closeLightbox);
+  }
+
+  if (portfolioLightbox) {
+    portfolioLightbox.addEventListener("click", (e) => {
+      if (e.target === portfolioLightbox) closeLightbox();
     });
   }
 
-  // =========================
-  // FLOAT WHATS
-  // =========================
-  const floatWhats = $("#floatWhats");
+  /* =========================
+     FORM / MODAL
+  ========================= */
+  const budgetModal = $("#budgetModal");
+  const openBudgetModal = $("#openBudgetModal");
+  const openBudgetModalTop = $("#openBudgetModalTop");
+  const openBudgetModalHero = $("#openBudgetModalHero");
+  const closeBudgetModal = $("#closeBudgetModal");
+  const sendModalWhatsapp = $("#sendModalWhatsapp");
 
-  if (floatWhats) {
-    const msg = `Olá! Vim pelo site da Metallmec e quero solicitar um orçamento.`;
-    floatWhats.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+  function openModal() {
+    if (!budgetModal) return;
+    budgetModal.classList.add("show");
+    budgetModal.setAttribute("aria-hidden", "false");
+    body.style.overflow = "hidden";
+
+    const firstInput = $("#mName");
+    if (firstInput) {
+      setTimeout(() => firstInput.focus(), 80);
+    }
   }
 
-  // =========================
-  // FORM HELPERS
-  // =========================
-  function buildWhatsappText(data) {
-    return `Olá! Vim pelo site da Metallmec.
-
-Nome: ${data.name || "-"}
-E-mail: ${data.email || "-"}
-WhatsApp: ${data.phone || "-"}
-Cidade/Bairro: ${data.place || "-"}
-Serviço: ${data.service || "-"}
-Medidas: ${data.measures || "-"}
-Mensagem: ${data.message || "-"}`;
+  function closeModal() {
+    if (!budgetModal) return;
+    budgetModal.classList.remove("show");
+    budgetModal.setAttribute("aria-hidden", "true");
+    body.style.overflow = "";
   }
 
-  function getMainFormData() {
-    return {
-      name: $("#name")?.value.trim() || "",
-      email: $("#email")?.value.trim() || "",
-      phone: $("#phone")?.value.trim() || "",
-      place: $("#place")?.value.trim() || "",
-      service: $("#service")?.value.trim() || "",
-      measures: $("#measures")?.value.trim() || "",
-      message: $("#message")?.value.trim() || ""
-    };
+  [openBudgetModal, openBudgetModalTop, openBudgetModalHero]
+    .filter(Boolean)
+    .forEach((btn) => btn.addEventListener("click", openModal));
+
+  if (closeBudgetModal) {
+    closeBudgetModal.addEventListener("click", closeModal);
   }
+
+  if (budgetModal) {
+    budgetModal.addEventListener("click", (e) => {
+      if (e.target === budgetModal) closeModal();
+    });
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      if (budgetModal?.classList.contains("show")) closeModal();
+      if (portfolioLightbox?.classList.contains("show")) closeLightbox();
+    }
+  });
 
   function getModalFormData() {
     return {
@@ -323,97 +322,100 @@ Mensagem: ${data.message || "-"}`;
       phone: $("#mPhone")?.value.trim() || "",
       place: $("#mPlace")?.value.trim() || "",
       service: $("#mService")?.value.trim() || "",
-      measures: "",
+      measures: $("#mMeasures")?.value.trim() || "",
       message: $("#mMessage")?.value.trim() || ""
     };
   }
 
+  function buildWhatsappText(data) {
+    return `Olá! Vim pelo site da Metallmec e quero solicitar um orçamento.
+
+Nome: ${data.name || "-"}
+WhatsApp: ${data.phone || "-"}
+E-mail: ${data.email || "-"}
+Cidade / local: ${data.place || "-"}
+Serviço desejado: ${data.service || "-"}
+Medidas / escopo: ${data.measures || "-"}
+Detalhes: ${data.message || "-"}`;
+  }
+
   function sendWhatsapp(data) {
     const url = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(buildWhatsappText(data))}`;
-    window.open(url, "_blank");
+    window.open(url, "_blank", "noopener,noreferrer");
   }
 
   function sendEmail(data) {
-    const subject = `Orçamento - Metallmec`;
-    const body =
+    const subject = "Orçamento - Metallmec Engenharia e Serviços";
+    const bodyText =
 `Nome: ${data.name || "-"}
-E-mail: ${data.email || "-"}
 WhatsApp: ${data.phone || "-"}
-Cidade/Bairro: ${data.place || "-"}
-Serviço: ${data.service || "-"}
-Medidas: ${data.measures || "-"}
-Mensagem: ${data.message || "-"}`;
+E-mail: ${data.email || "-"}
+Cidade / local: ${data.place || "-"}
+Serviço desejado: ${data.service || "-"}
+Medidas / escopo: ${data.measures || "-"}
+Detalhes: ${data.message || "-"}`;
 
-    window.location.href = `mailto:${COMPANY_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:${COMPANY_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyText)}`;
   }
 
-  const sendWhatsappBtn = $("#sendWhatsapp");
-  const sendEmailBtn = $("#sendEmail");
-
-  if (sendWhatsappBtn) {
-    sendWhatsappBtn.addEventListener("click", () => sendWhatsapp(getMainFormData()));
-  }
-
-  if (sendEmailBtn) {
-    sendEmailBtn.addEventListener("click", () => sendEmail(getMainFormData()));
-  }
-
-  // =========================
-  // MODAL
-  // =========================
-  const budgetModal = $("#budgetModal");
-  const openBudgetModal = $("#openBudgetModal");
-  const openBudgetModalTop = $("#openBudgetModalTop");
-  const closeBudgetModal = $("#closeBudgetModal");
-  const modalWhatsapp = $("#modalWhatsapp");
-  const modalEmail = $("#modalEmail");
-
-  function openModal() {
-    if (!budgetModal) return;
-    budgetModal.classList.add("show");
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeModal() {
-    if (!budgetModal) return;
-    budgetModal.classList.remove("show");
-    document.body.style.overflow = "";
-  }
-
-  if (openBudgetModal) openBudgetModal.addEventListener("click", openModal);
-  if (openBudgetModalTop) openBudgetModalTop.addEventListener("click", openModal);
-  if (closeBudgetModal) closeBudgetModal.addEventListener("click", closeModal);
-
-  if (budgetModal) {
-    budgetModal.addEventListener("click", (e) => {
-      if (e.target === budgetModal) closeModal();
+  if (sendModalWhatsapp) {
+    sendModalWhatsapp.addEventListener("click", () => {
+      const data = getModalFormData();
+      sendWhatsapp(data);
     });
   }
 
-  if (modalWhatsapp) {
-    modalWhatsapp.addEventListener("click", () => sendWhatsapp(getModalFormData()));
+  /* =========================
+     LINKS OPCIONAIS DE RODAPÉ
+  ========================= */
+  const footerWhatsapp = $("#footerWhatsapp");
+  if (footerWhatsapp) {
+    const msg = "Olá! Vim pelo site da Metallmec e quero solicitar um orçamento.";
+    footerWhatsapp.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
   }
 
-  if (modalEmail) {
-    modalEmail.addEventListener("click", () => sendEmail(getModalFormData()));
+  const footerEmail = $("#footerEmail");
+  if (footerEmail) {
+    footerEmail.href = `mailto:${COMPANY_EMAIL}`;
   }
 
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeModal();
-  });
+  /* =========================
+     BOTÕES OPCIONAIS
+  ========================= */
+  const backToTop = $("#backToTop");
 
-  // =========================
-  // OTIMIZAÇÃO DE CARREGAMENTO
-  // =========================
+  function updateBackToTop() {
+    if (!backToTop) return;
+    backToTop.classList.toggle("show", window.scrollY > 500);
+  }
+
+  if (backToTop) {
+    updateBackToTop();
+    window.addEventListener("scroll", updateBackToTop, { passive: true });
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
+  const floatWhats = $("#floatWhats");
+  if (floatWhats) {
+    const msg = "Olá! Vim pelo site da Metallmec e quero solicitar um orçamento.";
+    floatWhats.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+  }
+
+  /* =========================
+     MAPA
+  ========================= */
+  const mapBox = $(".mapBox iframe");
+  if (mapBox) {
+    mapBox.setAttribute("loading", "lazy");
+  }
+
+  /* =========================
+     MARCA SITE CARREGADO
+  ========================= */
   window.addEventListener("load", () => {
-    document.body.classList.add("site-loaded");
-  });
-
-  document.addEventListener("visibilitychange", () => {
-    if (document.hidden) {
-      clearInterval(heroTimer);
-    } else {
-      startHeroTimer();
-    }
+    body.classList.add("site-loaded");
   });
 })();
