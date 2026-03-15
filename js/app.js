@@ -4,22 +4,22 @@
 
   const HERO_SLIDES = [
     {
-      img: "img/heroi-1.jpg",
+      img: "img/herói-1.jpg",
       title: "Caldeiraria, fabricação e montagem industrial com padrão técnico",
       desc: "Soluções metálicas para empresas e indústrias com foco em estrutura, qualidade, segurança e execução profissional."
     },
     {
-      img: "img/heroi-2.jpg",
+      img: "img/herói-2.jpg",
       title: "Estruturas metálicas e fabricação sob medida para diferentes demandas industriais",
       desc: "Projetos com leitura técnica, resistência e alinhamento ao escopo real da operação."
     },
     {
-      img: "img/heroi-3.jpg",
+      img: "img/herói-3.jpg",
       title: "Montagem, manutenção e soluções metálicas com presença institucional",
       desc: "Atendimento para fabricação, adequação e serviços industriais com padrão profissional."
     },
     {
-      img: "img/heroi-5.jpg",
+      img: "img/herói-5.jpg",
       title: "Projetos industriais com mais organização, segurança e confiabilidade",
       desc: "Cada serviço é desenvolvido para unir desempenho, resistência e leitura técnica."
     }
@@ -27,7 +27,6 @@
 
   const WHATSAPP = "5531983913499";
   const COMPANY_EMAIL = "contato@metallmec.com.br";
-  const HERO_AUTOPLAY_MS = 6500;
 
   let heroIndex = 0;
   let heroTimer = null;
@@ -55,7 +54,7 @@
     window.addEventListener("scroll", updateHeader, { passive: true });
 
     /* =========================
-       MENU MOBILE
+       MOBILE MENU
     ========================= */
     const menuToggle = $("#menuToggle");
     const mobileMenu = $("#mobileMenu");
@@ -94,13 +93,13 @@
     const heroDesc = $("#heroDesc");
     const heroPrev = $("#heroPrev");
     const heroNext = $("#heroNext");
-    const heroSection = $(".hero, .heroSection, #inicio");
+    const heroSlider = $("#heroSlider");
 
     function renderHero() {
       if (!heroTrack || !heroDots || !HERO_SLIDES.length) return;
 
       heroTrack.innerHTML = HERO_SLIDES.map((slide, i) => `
-        <div class="heroSlide ${i === heroIndex ? "active" : ""}" data-index="${i}" aria-hidden="${i === heroIndex ? "false" : "true"}">
+        <div class="heroSlide ${i === 0 ? "active" : ""}" data-index="${i}" aria-hidden="${i === 0 ? "false" : "true"}">
           <img
             src="${slide.img}"
             alt="${slide.title}"
@@ -112,11 +111,11 @@
 
       heroDots.innerHTML = HERO_SLIDES.map((_, i) => `
         <button
-          class="heroDot ${i === heroIndex ? "active" : ""}"
+          class="heroDot ${i === 0 ? "active" : ""}"
           data-index="${i}"
           type="button"
           aria-label="Ir para slide ${i + 1}"
-          aria-pressed="${i === heroIndex ? "true" : "false"}">
+          aria-pressed="${i === 0 ? "true" : "false"}">
         </button>
       `).join("");
 
@@ -130,7 +129,6 @@
 
       const slides = $$(".heroSlide", heroTrack);
       const dots = $$(".heroDot", heroDots);
-      const current = HERO_SLIDES[heroIndex];
 
       slides.forEach((slide, i) => {
         const active = i === heroIndex;
@@ -144,14 +142,14 @@
         dot.setAttribute("aria-pressed", active ? "true" : "false");
       });
 
-      if (heroTitle) heroTitle.textContent = current.title;
-      if (heroDesc) heroDesc.textContent = current.desc;
+      if (heroTitle) heroTitle.textContent = HERO_SLIDES[heroIndex].title;
+      if (heroDesc) heroDesc.textContent = HERO_SLIDES[heroIndex].desc;
     }
 
     function bindHeroDots() {
       $$(".heroDot", heroDots).forEach((dot) => {
         dot.addEventListener("click", () => {
-          heroIndex = Number(dot.dataset.index) || 0;
+          heroIndex = Number(dot.dataset.index);
           updateHero();
           restartHeroTimer();
         });
@@ -176,7 +174,7 @@
     function startHeroTimer() {
       stopHeroTimer();
       if (HERO_SLIDES.length <= 1) return;
-      heroTimer = setInterval(nextHero, HERO_AUTOPLAY_MS);
+      heroTimer = setInterval(nextHero, 6500);
     }
 
     function restartHeroTimer() {
@@ -197,11 +195,11 @@
       });
     }
 
-    if (heroSection) {
-      heroSection.addEventListener("mouseenter", stopHeroTimer);
-      heroSection.addEventListener("mouseleave", startHeroTimer);
-      heroSection.addEventListener("touchstart", stopHeroTimer, { passive: true });
-      heroSection.addEventListener("touchend", startHeroTimer, { passive: true });
+    if (heroSlider) {
+      heroSlider.addEventListener("mouseenter", stopHeroTimer);
+      heroSlider.addEventListener("mouseleave", startHeroTimer);
+      heroSlider.addEventListener("touchstart", stopHeroTimer, { passive: true });
+      heroSlider.addEventListener("touchend", startHeroTimer, { passive: true });
     }
 
     renderHero();
@@ -236,7 +234,7 @@
       .filter(Boolean);
 
     function updateActiveMenu() {
-      const scrollRef = window.scrollY + 160;
+      const scrollRef = window.scrollY + 150;
       let currentId = "inicio";
 
       sections.forEach((sec) => {
@@ -253,7 +251,7 @@
     window.addEventListener("scroll", updateActiveMenu, { passive: true });
 
     /* =========================
-       LIGHTBOX / FOTOS
+       LIGHTBOX
     ========================= */
     const portfolioCards = $$(".portfolioCard");
     const portfolioLightbox = $("#portfolioLightbox");
@@ -274,7 +272,7 @@
       portfolioLightbox.classList.remove("show");
       portfolioLightbox.setAttribute("aria-hidden", "true");
       lightboxImage.src = "";
-      lightboxImage.alt = "";
+      lightboxImage.alt = "Imagem ampliada do portfólio";
       body.style.overflow = "";
     }
 
@@ -290,9 +288,8 @@
     portfolioCards.forEach((card) => {
       card.style.cursor = "zoom-in";
       card.addEventListener("click", () => {
-        const img = $("img", card);
-        const full = card.dataset.full || img?.dataset.full || img?.src || "";
-        const alt = img?.alt || "Imagem ampliada do portfólio";
+        const full = card.dataset.full || $("img", card)?.src || "";
+        const alt = $("img", card)?.alt || "Imagem ampliada do portfólio";
         openLightbox(full, alt);
       });
     });
@@ -308,23 +305,14 @@
     }
 
     /* =========================
-       MODAL ORÇAMENTO / CONTATO
+       MODAL
     ========================= */
     const budgetModal = $("#budgetModal");
+    const openBudgetModal = $("#openBudgetModal");
+    const openBudgetModalTop = $("#openBudgetModalTop");
+    const openBudgetModalBottom = $("#openBudgetModalBottom");
     const closeBudgetModal = $("#closeBudgetModal");
     const sendModalWhatsapp = $("#sendModalWhatsapp");
-    const sendModalEmail = $("#sendModalEmail");
-
-    const modalOpenSelectors = [
-      "#openBudgetModal",
-      "#openBudgetModalTop",
-      "#openBudgetModalHero",
-      "#openContactModal",
-      "#openContactModalTop",
-      "#openContactModalHero",
-      "[data-open-modal='budget']",
-      "[data-open-modal='contact']"
-    ];
 
     function openModal() {
       if (!budgetModal) return;
@@ -345,14 +333,14 @@
       body.style.overflow = "";
     }
 
-    modalOpenSelectors.forEach((selector) => {
-      $$(selector).forEach((btn) => {
+    [openBudgetModal, openBudgetModalTop, openBudgetModalBottom]
+      .filter(Boolean)
+      .forEach((btn) => {
         btn.addEventListener("click", (e) => {
           e.preventDefault();
           openModal();
         });
       });
-    });
 
     if (closeBudgetModal) {
       closeBudgetModal.addEventListener("click", closeModal);
@@ -400,90 +388,31 @@ Detalhes: ${data.message || "-"}`;
       window.open(url, "_blank", "noopener,noreferrer");
     }
 
-    function sendEmail(data) {
-      const subject = "Orçamento - Metallmec Engenharia e Serviços";
-      const bodyText = `Nome: ${data.name || "-"}
-WhatsApp: ${data.phone || "-"}
-E-mail: ${data.email || "-"}
-Cidade / local: ${data.place || "-"}
-Serviço desejado: ${data.service || "-"}
-Medidas / escopo: ${data.measures || "-"}
-Detalhes: ${data.message || "-"}`;
-
-      window.location.href = `mailto:${COMPANY_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyText)}`;
-    }
-
     if (sendModalWhatsapp) {
-      sendModalWhatsapp.addEventListener("click", (e) => {
-        e.preventDefault();
+      sendModalWhatsapp.addEventListener("click", () => {
         const data = getModalFormData();
         sendWhatsapp(data);
       });
     }
 
-    if (sendModalEmail) {
-      sendModalEmail.addEventListener("click", (e) => {
-        e.preventDefault();
-        const data = getModalFormData();
-        sendEmail(data);
-      });
+    /* =========================
+       RODAPÉ
+    ========================= */
+    const footerWhatsapp = $("#footerWhatsapp");
+    const footerEmail = $("#footerEmail");
+
+    if (footerWhatsapp) {
+      const msg = "Olá! Vim pelo site da Metallmec e quero solicitar um orçamento.";
+      footerWhatsapp.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+      footerWhatsapp.target = "_blank";
+      footerWhatsapp.rel = "noopener noreferrer";
     }
 
-    /* =========================
-       BOTÕES DIRETOS WHATSAPP
-    ========================= */
-    const whatsappSelectors = [
-      "#footerWhatsapp",
-      "#floatWhats",
-      "#contactWhatsapp",
-      "[data-whatsapp-direct]"
-    ];
-
-    whatsappSelectors.forEach((selector) => {
-      $$(selector).forEach((el) => {
-        const msg = el.dataset.message || "Olá! Vim pelo site da Metallmec e quero solicitar um orçamento.";
-        const href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
-
-        if (el.tagName.toLowerCase() === "a") {
-          el.href = href;
-          el.target = "_blank";
-          el.rel = "noopener noreferrer";
-        } else {
-          el.addEventListener("click", () => {
-            window.open(href, "_blank", "noopener,noreferrer");
-          });
-        }
-      });
-    });
-
-    /* =========================
-       E-MAIL
-    ========================= */
-    const footerEmail = $("#footerEmail");
     if (footerEmail) {
       footerEmail.href = `mailto:${COMPANY_EMAIL}`;
       if (!footerEmail.textContent.trim()) {
         footerEmail.textContent = COMPANY_EMAIL;
       }
-    }
-
-    /* =========================
-       VOLTAR AO TOPO
-    ========================= */
-    const backToTop = $("#backToTop");
-
-    function updateBackToTop() {
-      if (!backToTop) return;
-      backToTop.classList.toggle("show", window.scrollY > 500);
-    }
-
-    if (backToTop) {
-      updateBackToTop();
-      window.addEventListener("scroll", updateBackToTop, { passive: true });
-
-      backToTop.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
     }
 
     /* =========================
@@ -496,7 +425,7 @@ Detalhes: ${data.message || "-"}`;
     }
 
     /* =========================
-       EFEITO LOAD
+       LOAD
     ========================= */
     window.addEventListener("load", () => {
       body.classList.add("site-loaded");
